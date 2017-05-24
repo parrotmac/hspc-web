@@ -1,0 +1,22 @@
+header {
+  background-color: #f8f8f8; }
+  header .logo {
+    height: 85px;
+    padding: 5px; }
+
+nav.navbar.navbar-default {
+  background-color: #FFFFFF; }
+
+@media (min-width: 768px) {
+  ul.nav.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    background-color: #f8f8f8; }
+    ul.nav.navbar-nav li {
+      flex-grow: 1; }
+      ul.nav.navbar-nav li a {
+        text-align: center; } }
+
+/*# sourceMappingURL=nav.css.map */

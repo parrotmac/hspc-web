@@ -1,0 +1,4 @@
+django
+wagtail
+wagtailmenus
+

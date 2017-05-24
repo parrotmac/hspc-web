@@ -1,0 +1,35 @@
+$navbar-center-bg: rgb(248, 248, 248);
+$navbar-margin-bg: #FFFFFF;
+
+header {
+  background-color: $navbar-center-bg;
+
+  .logo {
+    height: 85px;
+    padding: 5px;
+  }
+}
+
+nav.navbar.navbar-default {
+  background-color: $navbar-margin-bg;
+}
+
+@media (min-width: 768px) {
+  ul.nav.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    background-color: $navbar-center-bg;
+
+    li {
+      flex-grow: 1;
+
+      a {
+        text-align: center;
+      }
+    }
+
+  }
+
+}
