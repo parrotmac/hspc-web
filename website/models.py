@@ -7,8 +7,11 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailcore.models import Page
 from wagtailmenus.models import MenuPage, MainMenuItem
 
+class EventCategory(models.Model):
+    name = models.CharField(max_length=256)
 
 class Event(models.Model):
+    category = models.ForeignKey(EventCategory, null=True)
     title = models.CharField(max_length=128)
     hidden_date = models.DateTimeField(default=datetime.now, help_text='Used to sort events')
     display_date = models.CharField(max_length=128, help_text="Text shown such as 'Feb 4th - 8th' or 'March 25'")

@@ -1,4 +1,6 @@
 django
 wagtail
 wagtailmenus
-
+gunicorn
+psycopg2
+whitenoise
