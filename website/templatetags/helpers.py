@@ -2,7 +2,7 @@ import re
 from django import template
 from django.urls import NoReverseMatch, reverse
 
-from website.models import MenuEntry
+from website.models import MenuEntry, Event
 
 register = template.Library()
 
@@ -21,3 +21,8 @@ def active(context, pattern_or_urlname):
     if re.search(pattern, path):
         return 'active'
     return ''
+
+@register.simple_tag
+def get_upcoming_events():
+    return Event.objects.order_by("hidden_date")[:3]
+

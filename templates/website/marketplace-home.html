@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}Marketplace{% endblock %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="col-xs-12">
+            <ul>
+                {% for app in market_applications %}
+                <li>{{ app }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

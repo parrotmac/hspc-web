@@ -12,11 +12,15 @@ class Event(models.Model):
     title = models.CharField(max_length=128)
     hidden_date = models.DateTimeField(default=datetime.now, help_text='Used to sort events')
     display_date = models.CharField(max_length=128, help_text="Text shown such as 'Feb 4th - 8th' or 'March 25'")
-    event_location = models.CharField(max_length=128)
+    location = models.CharField(max_length=128)
     event_details = models.TextField()
 
     def __str__(self):
         return self.title
+
+
+    class Meta:
+        ordering = ["hidden_date"]
 
 
 class MenuEntry(models.Model):
@@ -51,11 +55,19 @@ class MenuEntry(models.Model):
 class HomePage(MenuPage):
     body = RichTextField(blank=True)
 
+    membership_text = RichTextField(blank=True)
+    collaboration_text = RichTextField(blank=True)
+    marketplace_text = RichTextField(blank=True)
+
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
+        FieldPanel('membership_text'),
+        FieldPanel('collaboration_text'),
+        FieldPanel('marketplace_text'),
     ]
 
-class ContentPage(MainMenuItem):
+
+class InfoPage(MenuPage):
     body = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [

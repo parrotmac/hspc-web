@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block page_title %}{{ page.title }}{% endblock %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        {{ page.title }}
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    {{ page.body|richtext }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,33 +1,78 @@
-$navbar-center-bg: rgb(248, 248, 248);
-$navbar-margin-bg: #FFFFFF;
+$navbar-bg: #838383;
+$navbar-text-color: #FFFFFF;
 
-header {
-  background-color: $navbar-center-bg;
 
-  .logo {
-    height: 85px;
-    padding: 5px;
+nav.navbar.navbar-default {
+
+  border: none;
+
+  background-color: $navbar-bg;
+  height: 60px;
+
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.29);
+
+  .navbar-brand {
+
+    padding: 5px 15px;
+
+    img {
+      display: inline;
+      position: relative;
+      height: 50px;
+      top: -26px;
+    }
+    h1 {
+      color: #FFFFFF;
+      font-weight: 200;
+      font-size: 60px;
+      top: -10px;
+      display: inline;
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
-nav.navbar.navbar-default {
-  background-color: $navbar-margin-bg;
-}
 
 @media (min-width: 768px) {
   ul.nav.navbar-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    width: 100%;
-    background-color: $navbar-center-bg;
+    background-color: $navbar-bg;
 
-    li {
+    ul.dropdown-menu {
+      border-radius: 0;
+      li>a {
+        padding: 10px 20px;
+      }
+    }
+
+    >li {
       flex-grow: 1;
 
-      a {
+      >a {
         text-align: center;
+        padding: 20px;
+        color: $navbar-text-color;
+        font-size: 18px;
       }
+      >a:link {
+        color: $navbar-text-color;
+      }
+      >a:visited{
+        color: $navbar-text-color;
+      }
+    }
+
+    >li.active {
+
+      >a:link {
+        color: $navbar-bg;
+      }
+
+      >a:visited{
+        color: $navbar-bg;
+      }
+
     }
 
   }

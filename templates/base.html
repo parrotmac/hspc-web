@@ -12,6 +12,7 @@
 
     <title>HSPC | {% block page_title %}{% endblock %}</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">#}
     <link rel="stylesheet" href="{% static "styles/ie10-viewport-bug-workaround.css" %}">
@@ -19,6 +20,10 @@
     <link rel="stylesheet" href="{% static "styles/main.css" %}">
     <link rel="stylesheet" href="{% static "styles/footer.css" %}">
     <link rel="stylesheet" href="{% static "styles/pace.css" %}">
+    {% block styles %}{% endblock %}
+
+    <script src="https://use.typekit.net/fcm2zhl.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,7 +36,6 @@
 {% block nav %}
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <header><img class="logo" src="{% static "imgs/hspc-logo.png" %}"></header>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
@@ -39,12 +43,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                {#                <a class="navbar-brand" href="">#}
-                {#                    <img src="{% static "imgs/hspc-logo.png" %}">#}
-                {#                </a>#}
+                <a class="navbar-brand" href="/">
+{#                    <img src="{% static "imgs/rough-logo-with-text-white.png" %}">#}
+                    <img src="{% static "imgs/rough-logo.png" %}">
+                    <h1>HSPC</h1>
+                </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-    {% main_menu %}
+                <div class="navbar-right">
+                    {% main_menu %}
+                </div>
             </div><!--/.nav-collapse -->
         </div>
     </nav>

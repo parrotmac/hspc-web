@@ -25,13 +25,13 @@ from wagtail.wagtailcore import urls as wagtail_urls
 import website.urls
 
 urlpatterns = [
+
+    url(r'^', include(website.urls.urlpatterns, namespace='website')),
+
     url(r'^admin/', admin.site.urls),
-
-
     url(r'^cms/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'', include(wagtail_urls)),
 
-    # url(r'^', include(website.urls.urlpatterns, namespace='website')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
