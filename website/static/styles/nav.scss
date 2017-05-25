@@ -1,12 +1,18 @@
-$navbar-bg: #838383;
-$navbar-text-color: #FFFFFF;
+@import "colors";
+
+//$navbar-bg: #838383;
+//$navbar-bg: #ec9234;
+//$navbar-bg: #4774a2;
+//$navbar-button-bg: #ec9234;
+//$navbar-text-color: #FFFFFF;
 
 
 nav.navbar.navbar-default {
 
   border: none;
 
-  background-color: $navbar-bg;
+  //background-color: $navbar-bg-color;
+  background-color: #FFFFFF;
   height: 60px;
 
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.29);
@@ -22,7 +28,9 @@ nav.navbar.navbar-default {
       top: -26px;
     }
     h1 {
-      color: #FFFFFF;
+      //color: #FFFFFF;
+      //color: $navbar-button-background-color;
+      color: $hspc-panel-background-color;
       font-weight: 200;
       font-size: 60px;
       top: -10px;
@@ -37,7 +45,11 @@ nav.navbar.navbar-default {
 
 @media (min-width: 768px) {
   ul.nav.navbar-nav {
-    background-color: $navbar-bg;
+    //background-color: $navbar-bg;
+
+
+
+    padding: 0 15px;
 
     ul.dropdown-menu {
       border-radius: 0;
@@ -46,10 +58,31 @@ nav.navbar.navbar-default {
       }
     }
 
-    >li {
+    >li.dropdown.open {
+      >a {
+        background-color: $navbar-button-selected-background-color;
+        color: $navbar-button-background-color;
+      }
+    }
+
+    >li:first-child>a {
+      border-bottom-left-radius: 30px;
+      border-top-left-radius: 30px;
+    }
+
+    >li:last-child>a {
+      border-bottom-right-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+
+    >li, >li.dropdown {
       flex-grow: 1;
 
+
+
       >a {
+        background-color: $navbar-button-background-color;
+
         text-align: center;
         padding: 20px;
         color: $navbar-text-color;
@@ -63,14 +96,23 @@ nav.navbar.navbar-default {
       }
     }
 
+    >li:first-child {
+      border-bottom-left-radius: 30px;
+      border-top-left-radius: 30px;
+    }
+    >li:last-child {
+      border-bottom-right-radius: 30px;
+      border-top-right-radius: 30px;
+    }
+
     >li.active {
 
       >a:link {
-        color: $navbar-bg;
+        color: $navbar-bg-color;
       }
 
       >a:visited{
-        color: $navbar-bg;
+        color: $navbar-bg-color;
       }
 
     }

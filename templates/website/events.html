@@ -5,21 +5,30 @@
 
 {% block main %}
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            {% for event in object_list %}
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">{{ event.title }}</h3>
-                    </div>
-                    <div class="panel-body">
-                        <p><strong>When:</strong> {{ event.display_date }}</p>
-                        <p><strong>Where:</strong> {{ event.location }}</p>
-                        <p>{{ event.event_details }}</p>
-                    </div>
-                </div>
-            {% endfor %}
+    {% for event_category in eventcategory_list %}
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>{{ event_category }}</h1>
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {% for event in event_category.event_set.all %}
+                    <div class="panel panel-default" id="event-{{ event.pk }}">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{ event.title }}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p><strong>When:</strong> {{ event.display_date }}</p>
+                            <p><strong>Where:</strong> {{ event.location }}</p>
+                            <p>{{ event.event_details }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% endfor %}
 
 {% endblock %}

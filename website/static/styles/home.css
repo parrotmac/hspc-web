@@ -19,7 +19,7 @@
     #homepageCarousel .carousel-inner .item .carousel-caption h1 {
       font-size: 60px; } }
 .hspc-panel {
-  background-color: #BBC0C4;
+  background-color: #4774a2;
   margin: 15px;
   position: relative;
   display: block; }
@@ -27,14 +27,14 @@
 .hspc-panel-face {
   padding-top: 5px; }
   .hspc-panel-face .hspc-panel-icon {
-    color: #FFFFFF;
+    color: #FFF;
     display: block;
     width: 100%;
     text-align: center; }
     .hspc-panel-face .hspc-panel-icon .material-icons {
       font-size: 55px; }
   .hspc-panel-face .hspc-panel-title {
-    color: #FFFFFF;
+    color: #FFF;
     text-align: center;
     width: 100%;
     margin: 5px;
@@ -54,7 +54,10 @@
     font-size: 22px;
     font-weight: lighter;
     line-height: 1.2;
-    padding: 6px 20px; }
+    padding: 6px 20px;
+    background: #ec9234;
+    color: #FFF;
+    border: none; }
     .hspc-panel-button-wrapper .hspc-panel-button i.material-icons {
       position: relative;
       font-size: 16px;
@@ -73,21 +76,21 @@ ul#eventListing {
     text-align: center;
     padding: 0;
     margin: 0;
-    color: #42454B;
+    color: #FFF;
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out; }
     ul#eventListing li a:link, ul#eventListing li a:visited {
-      color: #42454B; }
+      color: #FFF; }
     ul#eventListing li a > h3 {
       padding: 5px 0 0 0;
       margin: 0; }
     ul#eventListing li a > p {
       padding: 0 0 0 5px; }
   ul#eventListing li:hover {
-    background-color: #42454B; }
+    background-color: #FFF; }
     ul#eventListing li:hover a, ul#eventListing li:hover a:link, ul#eventListing li:hover a:visited {
       text-decoration: none; }
     ul#eventListing li:hover h3, ul#eventListing li:hover p {
-      color: #FFFFFF; }
+      color: #4774a2; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {

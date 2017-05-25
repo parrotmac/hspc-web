@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
-from website.models import Event
+from website.models import Event, EventCategory
 
 
 class EventListView(ListView):
 
-    model = Event
+    model = EventCategory
     template_name = "website/events.html"
 
     def get_context_data(self, **kwargs):

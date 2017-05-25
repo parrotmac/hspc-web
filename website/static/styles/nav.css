@@ -1,6 +1,6 @@
 nav.navbar.navbar-default {
   border: none;
-  background-color: #838383;
+  background-color: #FFFFFF;
   height: 60px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.29); }
   nav.navbar.navbar-default .navbar-brand {
@@ -11,7 +11,7 @@ nav.navbar.navbar-default {
       height: 50px;
       top: -26px; }
     nav.navbar.navbar-default .navbar-brand h1 {
-      color: #FFFFFF;
+      color: #4774a2;
       font-weight: 200;
       font-size: 60px;
       top: -10px;
@@ -22,25 +22,41 @@ nav.navbar.navbar-default {
 
 @media (min-width: 768px) {
   ul.nav.navbar-nav {
-    background-color: #838383; }
+    padding: 0 15px; }
     ul.nav.navbar-nav ul.dropdown-menu {
       border-radius: 0; }
       ul.nav.navbar-nav ul.dropdown-menu li > a {
         padding: 10px 20px; }
-    ul.nav.navbar-nav > li {
+    ul.nav.navbar-nav > li.dropdown.open > a {
+      background-color: #345475;
+      color: #ec9234; }
+    ul.nav.navbar-nav > li:first-child > a {
+      border-bottom-left-radius: 30px;
+      border-top-left-radius: 30px; }
+    ul.nav.navbar-nav > li:last-child > a {
+      border-bottom-right-radius: 30px;
+      border-top-right-radius: 30px; }
+    ul.nav.navbar-nav > li, ul.nav.navbar-nav > li.dropdown {
       flex-grow: 1; }
-      ul.nav.navbar-nav > li > a {
+      ul.nav.navbar-nav > li > a, ul.nav.navbar-nav > li.dropdown > a {
+        background-color: #ec9234;
         text-align: center;
         padding: 20px;
-        color: #FFFFFF;
+        color: #FFF;
         font-size: 18px; }
-      ul.nav.navbar-nav > li > a:link {
-        color: #FFFFFF; }
-      ul.nav.navbar-nav > li > a:visited {
-        color: #FFFFFF; }
+      ul.nav.navbar-nav > li > a:link, ul.nav.navbar-nav > li.dropdown > a:link {
+        color: #FFF; }
+      ul.nav.navbar-nav > li > a:visited, ul.nav.navbar-nav > li.dropdown > a:visited {
+        color: #FFF; }
+    ul.nav.navbar-nav > li:first-child {
+      border-bottom-left-radius: 30px;
+      border-top-left-radius: 30px; }
+    ul.nav.navbar-nav > li:last-child {
+      border-bottom-right-radius: 30px;
+      border-top-right-radius: 30px; }
     ul.nav.navbar-nav > li.active > a:link {
-      color: #838383; }
+      color: #4774a2; }
     ul.nav.navbar-nav > li.active > a:visited {
-      color: #838383; } }
+      color: #4774a2; } }
 
 /*# sourceMappingURL=nav.css.map */

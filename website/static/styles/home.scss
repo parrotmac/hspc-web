@@ -1,3 +1,5 @@
+@import "colors";
+
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
@@ -55,13 +57,13 @@ $screen-lg-min: 1200px;
 }
 
 
-$hspc-panel-bg: #BBC0C4;
-$hspc-panel-primary-color: #FFFFFF;
-$hspc-panel-secondary-color: #42454B;
-
+//$hspc-panel-bg: #BBC0C4;
+//$hspc-panel-bg: #96989c;
+//$hspc-panel-primary-color: #FFFFFF;
+//$hspc-panel-secondary-color: #42454B;
 
 .hspc-panel {
-  background-color: $hspc-panel-bg;
+  background-color: $hspc-panel-background-color;
   margin: 15px;
   position: relative;
   display: block;
@@ -81,7 +83,7 @@ $hspc-panel-secondary-color: #42454B;
   padding-top: 5px;
 
   .hspc-panel-icon {
-    color: $hspc-panel-primary-color;
+    color: $hspc-panel-text-color;
     display: block;
     width: 100%;
     text-align: center;
@@ -91,7 +93,7 @@ $hspc-panel-secondary-color: #42454B;
     }
   }
   .hspc-panel-title {
-    color: $hspc-panel-primary-color;
+    color: $hspc-panel-text-color;
     text-align: center;
     width: 100%;
     margin: 5px;
@@ -118,6 +120,9 @@ $hspc-panel-secondary-color: #42454B;
     font-weight: lighter;
     line-height: 1.2;
     padding: 6px 20px;
+    background: $hspc-panel-button-background-color;
+    color: $hspc-panel-button-text-color;
+    border: none;
 
     i.material-icons {
       position: relative;
@@ -146,12 +151,12 @@ ul#eventListing {
     padding: 0;
     margin: 0;
 
-    color: $hspc-panel-secondary-color;
+    color: $hspc-panel-text-color;
 
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
 
     a:link, a:visited {
-      color: $hspc-panel-secondary-color;
+      color: $hspc-panel-text-color;
     }
 
     a>h3 {
@@ -169,9 +174,9 @@ ul#eventListing {
     a, a:link, a:visited {
       text-decoration: none;
     }
-    background-color: $hspc-panel-secondary-color;
+    background-color: $hspc-panel-text-color;
     h3, p {
-      color: $hspc-panel-primary-color;
+      color: $hspc-panel-background-color;
     }
   }
 

@@ -7,6 +7,29 @@
 {% block page_title %}{{ page.title }}{% endblock %}
 {% block styles %}
     <link rel="stylesheet" href="{% static "styles/home.css" %}">
+    <style>
+        .typed-cursor{
+            opacity: 1;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+    </style>
 {% endblock %}
 
 {% block body_class %}template-homepage{% endblock %}
@@ -28,7 +51,7 @@
                     <div class="item active">
                         <img src="{% static "imgs/graphs-cropped-blurred-darkened.png" %}" alt="Something Something Healthcare">
                         <div class="carousel-caption">
-                            <h1>Something Something Healthcare</h1>
+                            <h1>HSP<span id="typedArea"></span></h1>
                         </div>
                     </div>
                     {#                <div class="item">#}
@@ -99,7 +122,7 @@
                     See our collection of plug-and-play healthcare applications.
                 </div>
                 <div class="hspc-panel-button-wrapper">
-                    <a class="btn btn-default hspc-panel-button" href="/membership/join/">Browse Apps &raquo;</a>
+                    <a disabled="disabled" class="btn btn-default hspc-panel-button disabled" href="/marketplace/">Coming Soon</a>
                 </div>
             </div>
         </div>
@@ -107,33 +130,45 @@
     </div>
 
     <div class="row">
-        <div class="hspc-panel hspc-panel-12">
-            <div class="hspc-panel-face">
-                <div class="hspc-panel-icon">
-                    <span class="material-icons">event</span>
+        <div class="col-xs-12">
+            <div class="hspc-panel hspc-panel-12">
+                <div class="hspc-panel-face">
+                    <div class="hspc-panel-icon">
+                        <span class="material-icons">event</span>
+                    </div>
+                    <h1 class="hspc-panel-title">Upcoming Events</h1>
                 </div>
-                <h1 class="hspc-panel-title">Upcoming Events</h1>
-            </div>
 
-            <div class="hspc-panel-text">
-                {% get_upcoming_events as upcomingEvents %}
-                <ul id="eventListing">
-                    {% for event in upcomingEvents %}
-                    <li>
-                        <a href="#">
-                            <h3>{{ event.display_date }}</h3>
-                            <p>{{ event.location }}</p>
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
+                <div class="hspc-panel-text">
+                    {% get_upcoming_events as upcomingEvents %}
+                    <ul id="eventListing">
+                        {% for event in upcomingEvents %}
+                            <li>
+                                <a href="/events/#event-{{ event.id }}">
+                                    <h3>{{ event.display_date }}</h3>
+                                    <p>{{ event.location }}</p>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
-            <div class="hspc-panel-button-wrapper">
-                <a class="btn btn-default hspc-panel-button" href="/events/">See All Events &raquo;</a>
-            </div>
-        </div>
+                <div class="hspc-panel-button-wrapper">
+                    <a class="btn btn-default hspc-panel-button" href="/events/">See All Events &raquo;</a>
+                </div>
+            </div></div>
     </div>
 
     {#    {{ page.body|richtext }}#}
+{% endblock %}
+{% block scripts %}
+    <script src="{% static "bower_components/typed.js/dist/typed.min.js" %}"></script>
+    <script>
+        $(function(){
+            $("#typedArea").typed({
+                strings: ["Collaboration", "Community", "Consortium"],
+                typeSpeed: 2
+            });
+        });
+    </script>
 {% endblock %}

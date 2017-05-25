@@ -1,5 +1,9 @@
+@import "colors";
+
 body {
-  background-color: #E4E7EA;
+  //background-color: #E4E7EA;
+  //background-color: #254b71;
+  background-color: $body-background-color;
 }
 
 main {

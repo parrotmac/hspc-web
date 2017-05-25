@@ -10,6 +10,10 @@ from wagtailmenus.models import MenuPage, MainMenuItem
 class EventCategory(models.Model):
     name = models.CharField(max_length=256)
 
+    def __str__(self):
+        return self.name
+
+
 class Event(models.Model):
     category = models.ForeignKey(EventCategory, null=True)
     title = models.CharField(max_length=128)
