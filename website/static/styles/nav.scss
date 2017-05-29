@@ -15,7 +15,7 @@ nav.navbar.navbar-default {
   background-color: #FFFFFF;
   height: 60px;
 
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.29);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.29);
 
   .navbar-brand {
 
@@ -88,6 +88,9 @@ nav.navbar.navbar-default {
         color: $navbar-text-color;
         font-size: 18px;
       }
+      >a:hover {
+        background-color: $navbar-button-selected-background-color;
+      }
       >a:link {
         color: $navbar-text-color;
       }
@@ -107,12 +110,8 @@ nav.navbar.navbar-default {
 
     >li.active {
 
-      >a:link {
-        color: $navbar-bg-color;
-      }
-
-      >a:visited{
-        color: $navbar-bg-color;
+      >a:link, >a:visited {
+        background-color: $navbar-button-selected-background-color;
       }
 
     }

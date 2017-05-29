@@ -1,0 +1,30 @@
+@import "constants";
+@import "colors";
+
+.event-panel-container {
+  padding-top: $navbar-height + 15px;
+  margin-top: -($navbar-height + 15px);
+}
+
+.event-panel-container:target>.event-panel {
+  border: 3px solid $hspc-panel-background-color;
+  -webkit-animation: flash-drop-shadow 1s;
+  -o-animation: flash-drop-shadow 1s;
+  animation: flash-drop-shadow 1s;
+}
+
+
+@keyframes flash-drop-shadow {
+  0% {
+    box-shadow: 0 0 0 0 $navbar-button-background-color;
+  }
+  50% {
+    box-shadow: 0 0 15px 5px $navbar-button-background-color;
+  }
+  99% {
+    box-shadow: 0 0 0 0 $navbar-button-background-color;
+  }
+  100% {
+    box-shadow: none;
+  }
+}
