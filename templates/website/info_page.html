@@ -1,8 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% load wagtailcore_tags %}
 
 {% block page_title %}{{ page.title }}{% endblock %}
+{% block styles %}
+    <link href="{% static "styles/home.css" %}" rel="stylesheet">
+{% endblock %}
 
 {% block body_class %}template-homepage{% endblock %}
 

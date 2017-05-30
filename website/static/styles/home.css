@@ -20,9 +20,16 @@
       font-size: 60px; } }
 .hspc-panel {
   background-color: #4774a2;
+  color: #FFF;
   margin: 15px;
   position: relative;
   display: block; }
+
+.hspc-panel-4:first-child, .hspc-panel-12:first-child {
+  margin-left: 0; }
+
+.hspc-panel-4:last-child, .hspc-panel-12:last-child {
+  margin-right: 0; }
 
 .hspc-panel-face {
   padding-top: 5px; }
@@ -95,16 +102,20 @@ ul#eventListing {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   ul#eventListing {
-    flex-direction: row; } }
+    flex-direction: row; }
+
+  .hspc-panel-4, .hspc-panel-12 {
+    margin-left: 0;
+    margin-right: 0; } }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .hspc-panel-4, .hspc-panel-12 {
     height: calc(293px - 30px); }
 
-  .hspc-panel-4:first-child {
+  .hspc-panel-4:first-child, .hspc-panel-12:first-child {
     margin-left: 0; }
 
-  .hspc-panel-4:last-child {
+  .hspc-panel-4:last-child, .hspc-panel-12:last-child {
     margin-right: 0; }
 
   .hspc-panel-face {
