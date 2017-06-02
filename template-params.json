@@ -1,0 +1,17 @@
+{
+  "Parameters" : {
+    "VpcId" : "vpc-6b272b0e",
+    "SubnetID": [
+      "subnet-5bebf83e"
+    ]
+  },
+  "StackPolicy" : {
+    "Statement" : [
+      {
+        "Effect" : "Allow",
+        "Principal": "*",
+        "Resource" : "*"
+      }
+    ]
+  }
+}
