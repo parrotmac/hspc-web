@@ -21,7 +21,7 @@
       "Description":"Select a VPC that allows instances to access the Internet."
     },
     "SubnetID":{
-      "Type":"CommaDelimitedList<AWS::EC2::Subnet::Id>",
+      "Type":"List<AWS::EC2::Subnet::Id>",
       "Description":"Select at two subnets in your selected VPC."
     },
 
