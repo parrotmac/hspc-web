@@ -2,10 +2,13 @@ from datetime import datetime
 
 from django.contrib.flatpages.models import FlatPage
 from django.db import models
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailcore.fields import RichTextField
+from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.models import Page
 from wagtailmenus.models import MenuPage, MainMenuItem
+from wagtail.wagtailcore.models import Page
+from wagtail.wagtailcore import blocks
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.wagtailimages.blocks import ImageChooserBlock
 
 class EventCategory(models.Model):
     name = models.CharField(max_length=256)
@@ -30,7 +33,27 @@ class Event(models.Model):
         ordering = ["hidden_date"]
 
 
+class RegistrationRequest(models.Model):
+    full_name = models.CharField(max_length=256)
+    title = models.CharField(max_length=256, blank=True, null=True)
+    organization_name = models.CharField(max_length=256, blank=True, null=True)
+    email_address = models.EmailField()
+    phone_number = models.CharField(max_length=64)
+    comments = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        sane_full_name = self.full_name.strip()
+
+        if self.title is None:
+            return sane_full_name
+        else:
+            return "{} ({})".format(sane_full_name, self.title)
+
+
 class MenuEntry(models.Model):
+    '''
+    This model will likely be removed in the future
+    '''
     order = models.IntegerField(default=0)
     is_divider = models.BooleanField(default=False)
     top_level_name = models.CharField(
@@ -59,6 +82,13 @@ class MenuEntry(models.Model):
         ordering = ["order"]
 
 
+
+'''
+# # # # # # # # # # # # # # # # # # # #
+# # #  Begin Wagtail-based models # # #
+# # # # # # # # # # # # # # # # # # # #
+'''
+
 class HomePage(MenuPage):
     body = RichTextField(blank=True)
 
@@ -80,3 +110,26 @@ class InfoPage(MenuPage):
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
     ]
+
+
+class RobustInfoPage(Page):
+    author = models.CharField(max_length=255)
+    date = models.DateField("Last updated")
+    body = StreamField([
+        ('heading', blocks.CharBlock(classname="full title")),
+        ('separator', blocks.StaticBlock()),
+        ('paragraph', blocks.RichTextBlock()),
+        ('image', ImageChooserBlock()),
+    ])
+
+    content_panels = Page.content_panels + [
+        FieldPanel('author'),
+        FieldPanel('date'),
+        StreamFieldPanel('body'),
+    ]
+
+'''
+# # # # # # # # # # # # # # # # # # # #
+# # #  End Wagtail-based models # # #
+# # # # # # # # # # # # # # # # # # # #
+'''
