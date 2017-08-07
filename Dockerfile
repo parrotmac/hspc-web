@@ -17,4 +17,4 @@ RUN mkdir -p /django/static/
 
 RUN python manage.py collectstatic --noinput --clear
 
-ENTRYPOINT ["/usr/local/bin/gunicorn", "hspc_home.wsgi:application", "-w 2", "-b :8000"]
+ENTRYPOINT ["upgrade-and-run.sh"]
