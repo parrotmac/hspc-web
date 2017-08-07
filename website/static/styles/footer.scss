@@ -3,17 +3,23 @@ footer {
   position: relative;
   bottom: 0;
   background-color: #FFFFFF;
-  //box-shadow: 0 0 5px rgba(0, 0, 0, 0.29);
+  padding: 0 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.29);
 
-  .sitemap {
+  .sitemap, .essential-info-bottom {
+
+    padding: 8px 0;
+
     h4 {
       font-weight: 200;
-      padding: 2px 0;
+      padding: 2px 0 0 0;
       margin: 0;
+      font-size: 18px;
+      display: inline;
     }
     ul {
-      margin: 0;
-      padding: 0;
+      padding: 0 0 12px 0;
+      list-style: none;
       li {
         display: inline;
         float: left;
@@ -23,9 +29,5 @@ footer {
         padding-left: 0;
       }
     }
-  }
-
-  p {
-    margin: 5px 0;
   }
 }

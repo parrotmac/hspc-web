@@ -2,21 +2,25 @@ footer {
   width: 100%;
   position: relative;
   bottom: 0;
-  background-color: #FFFFFF; }
-  footer .sitemap h4 {
-    font-weight: 200;
-    padding: 2px 0;
-    margin: 0; }
-  footer .sitemap ul {
-    margin: 0;
-    padding: 0; }
-    footer .sitemap ul li {
-      display: inline;
-      float: left;
-      padding: 0 5px; }
-    footer .sitemap ul li:first-child {
-      padding-left: 0; }
-  footer p {
-    margin: 5px 0; }
+  background-color: #FFFFFF;
+  padding: 0 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.29); }
+  footer .sitemap, footer .essential-info-bottom {
+    padding: 8px 0; }
+    footer .sitemap h4, footer .essential-info-bottom h4 {
+      font-weight: 200;
+      padding: 2px 0 0 0;
+      margin: 0;
+      font-size: 18px;
+      display: inline; }
+    footer .sitemap ul, footer .essential-info-bottom ul {
+      padding: 0 0 12px 0;
+      list-style: none; }
+      footer .sitemap ul li, footer .essential-info-bottom ul li {
+        display: inline;
+        float: left;
+        padding: 0 5px; }
+      footer .sitemap ul li:first-child, footer .essential-info-bottom ul li:first-child {
+        padding-left: 0; }
 
 /*# sourceMappingURL=footer.css.map */

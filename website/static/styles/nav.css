@@ -3,6 +3,9 @@ nav.navbar.navbar-default {
   background-color: #FFFFFF;
   height: 60px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.29); }
+  nav.navbar.navbar-default .navbar-header button.navbar-toggle {
+    margin-top: 13px;
+    margin-bottom: 13px; }
   nav.navbar.navbar-default .navbar-brand {
     padding: 5px 15px; }
     nav.navbar.navbar-default .navbar-brand img {
@@ -19,6 +22,9 @@ nav.navbar.navbar-default {
       position: relative;
       margin: 0;
       padding: 0; }
+  nav.navbar.navbar-default .navbar-collapse {
+    z-index: 999;
+    background-color: #FFFFFF; }
 
 @media (min-width: 768px) {
   ul.nav.navbar-nav {

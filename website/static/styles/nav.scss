@@ -17,6 +17,11 @@ nav.navbar.navbar-default {
 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.29);
 
+  .navbar-header button.navbar-toggle {
+    margin-top: 13px;
+    margin-bottom: 13px;
+  }
+
   .navbar-brand {
 
     padding: 5px 15px;
@@ -40,10 +45,17 @@ nav.navbar.navbar-default {
       padding: 0;
     }
   }
+
+  .navbar-collapse {
+    z-index: 999;
+    background-color: #FFFFFF;
+  }
+
 }
 
 
 @media (min-width: 768px) {
+
   ul.nav.navbar-nav {
     //background-color: $navbar-bg;
 
