@@ -30,6 +30,10 @@ class Event(models.Model):
     location = models.CharField(max_length=128)
     event_details = models.TextField()
 
+    @staticmethod
+    def get_base_url():
+        return "/api/event/"
+
     def __str__(self):
         return self.title
 

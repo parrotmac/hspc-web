@@ -10,6 +10,8 @@
         <form action="{{ view.get_edit_url }}" method="POST" novalidate{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
             {% csrf_token %}
 
+        <h1>{{ form.instance.id }}</h1>
+
             {% block hidden_fields %}
                 {% for field in form.hidden_fields %}{{ field }}{% endfor %}
             {% endblock %}
