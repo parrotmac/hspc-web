@@ -17,4 +17,4 @@ RUN mkdir -p /django/static/
 
 RUN python manage.py collectstatic --noinput --clear
 
-ENTRYPOINT ["upgrade-and-run.sh"]
+ENTRYPOINT ["/django/upgrade-and-run.sh"]
