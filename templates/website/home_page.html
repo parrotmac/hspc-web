@@ -68,9 +68,10 @@
                 {#            </ol>#}
 
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
+{#                <div class="carousel-inner" role="listbox">#}{# Only include role if there are appropriate children #}
+                <div class="carousel-inner">
                     <div class="item active">
-                        <img src="{% static "imgs/graphs-cropped-blurred-darkened.png" %}"
+                        <img src="{% static "imgs/graphs-cropped-blurred-darkened-optimized.png" %}"
                              alt="Something Something Healthcare">
                         <div class="carousel-caption">
                             <h1>HSP<span id="typedArea"></span></h1>
@@ -127,7 +128,7 @@
                 </div>
                 <div class="hspc-panel-button-wrapper">
                     <a class="btn btn-default hspc-panel-button" href="https://healthservices.atlassian.net/wiki/"
-                       target="_blank">Visit Wiki <i class="material-icons">open_in_new</i></a>
+                       target="_blank" rel="noopener">Visit Wiki <i class="material-icons">open_in_new</i></a>
                 </div>
             </div>
         </div>
@@ -199,17 +200,17 @@
                     {% get_some_future_events as upcoming_events %}
                     <ul id="benefactorListing">
                         <li>
-                            <a target="_blank" href="https://intermountainhealthcare.org/">
+                            <a target="_blank" rel="noopener" href="https://intermountainhealthcare.org/">
                                 <h3 class="benefactor-name">Intermountain Healthcare</h3>
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" href="https://www.lsu.edu/">
+                            <a target="_blank" rel="noopener" href="https://www.lsu.edu/">
                                 <h3 class="benefactor-name">Louisiana State University Health</h3>
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" href="https://www.va.gov/">
+                            <a target="_blank" rel="noopener" href="https://www.va.gov/">
                                 <h3 class="benefactor-name">Veteran’s Administration</h3>
                             </a>
                         </li>

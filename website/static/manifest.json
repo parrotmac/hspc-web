@@ -1,5 +1,10 @@
 {
- "name": "HSPC",
+ "name": "Health Services Platform Consortium",
+ "short_name": "HSPC",
+ "theme_color": "#4774a2",
+ "background_color": "#FFFFFF",
+ "start_url": "https://hspc.dev.ocelot9.com/",
+ "display": "minimal-ui",
  "icons": [
   {
    "src": "\/static\/icons\/android-icon-36x36.png",
