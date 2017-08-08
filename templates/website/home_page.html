@@ -6,28 +6,49 @@
 
 {% block page_title %}{{ page.title }}{% endblock %}
 {% block styles %}
-    <link rel="stylesheet" href="{% static "styles/home.css" %}">
+    <link rel="stylesheet" href="{% static "styles/home.css" %}?nocache={% now "U" %}">
     <style>
-        .typed-cursor{
+        .typed-cursor {
             opacity: 1;
             -webkit-animation: blink 0.7s infinite;
             -moz-animation: blink 0.7s infinite;
             animation: blink 0.7s infinite;
         }
-        @keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
-        @-webkit-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
+
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
-        @-moz-keyframes blink{
-            0% { opacity:1; }
-            50% { opacity:0; }
-            100% { opacity:1; }
+
+        @-moz-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
     </style>
 {% endblock %}
@@ -49,7 +70,8 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="{% static "imgs/graphs-cropped-blurred-darkened.png" %}" alt="Something Something Healthcare">
+                        <img src="{% static "imgs/graphs-cropped-blurred-darkened.png" %}"
+                             alt="Something Something Healthcare">
                         <div class="carousel-caption">
                             <h1>HSP<span id="typedArea"></span></h1>
                         </div>
@@ -104,7 +126,8 @@
                     Visit our Wiki to access a vast library of SOA artifacts and collaborate with others.
                 </div>
                 <div class="hspc-panel-button-wrapper">
-                    <a class="btn btn-default hspc-panel-button" href="https://healthservices.atlassian.net/wiki/" target="_blank">Visit Wiki <i class="material-icons">open_in_new</i></a>
+                    <a class="btn btn-default hspc-panel-button" href="https://healthservices.atlassian.net/wiki/"
+                       target="_blank">Visit Wiki <i class="material-icons">open_in_new</i></a>
                 </div>
             </div>
         </div>
@@ -122,7 +145,8 @@
                     See our collection of plug-and-play healthcare applications.
                 </div>
                 <div class="hspc-panel-button-wrapper">
-                    <a disabled="disabled" class="btn btn-default hspc-panel-button disabled" href="/marketplace/">Coming Soon</a>
+                    <a disabled="disabled" class="btn btn-default hspc-panel-button disabled" href="/marketplace/">Coming
+                        Soon</a>
                 </div>
             </div>
         </div>
@@ -156,15 +180,57 @@
                 <div class="hspc-panel-button-wrapper">
                     <a class="btn btn-default hspc-panel-button" href="/events/">See All Events &raquo;</a>
                 </div>
-            </div></div>
+            </div>
+        </div>
     </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="hspc-panel hspc-panel-12">
+                <div class="hspc-panel-face">
+                    <div class="hspc-panel-icon">
+                        <span class="material-icons">favorite</span>
+                    </div>
+                    <h1 class="hspc-panel-title">Our Benefactors</h1>
+                </div>
+
+                <div class="hspc-panel-text">
+                    {% get_some_future_events as upcoming_events %}
+                    <ul id="benefactorListing">
+                        <li>
+                            <a target="_blank" href="https://intermountainhealthcare.org/">
+                                <h3 class="benefactor-name">Intermountain Healthcare</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.lsu.edu/">
+                                <h3 class="benefactor-name">Louisiana State University Health</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.va.gov/">
+                                <h3 class="benefactor-name">Veteran’s Administration</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+{#                <div class="hspc-panel-button-wrapper">#}
+{#                    <a class="btn btn-default hspc-panel-button" href="/events/">See All Events &raquo;</a>#}
+{#                </div>#}
+            </div>
+        </div>
+    </div>
+
+
 
     {#    {{ page.body|richtext }}#}
 {% endblock %}
 {% block scripts %}
     <script src="{% static "bower_components/typed.js/dist/typed.min.js" %}"></script>
     <script>
-        $(function(){
+        $(function () {
             $("#typedArea").typed({
                 strings: ["Collaboration", "Community", "Consortium"],
                 typeSpeed: 2

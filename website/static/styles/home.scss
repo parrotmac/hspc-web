@@ -136,7 +136,7 @@ $screen-lg-min: 1200px;
 
 
 
-ul#eventListing {
+ul#eventListing, ul#benefactorListing {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -182,11 +182,28 @@ ul#eventListing {
 
 }
 
+ul#benefactorListing > li > a > h3.benefactor-name {
+    padding: 5px;
+    margin: 5px;
+}
+
+
+//.hspc-panel-benefactor-list {
+//  width: 100%;
+//  list-style: none;
+//  margin: 20px;
+//  li {
+//    a:link, a:visited {
+//      color: $hspc-panel-text-color;
+//    }
+//  }
+//}
+
 
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) {
-  ul#eventListing {
+  ul#eventListing, ul#benefactorListing {
     flex-direction: row;
   }
 
@@ -229,7 +246,10 @@ ul#eventListing {
     }
   }
 
-
+  ul#benefactorListing > li > a > h3.benefactor-name {
+      padding: 35px 0;
+      margin: 10px;
+  }
 
 }
 

@@ -4,7 +4,8 @@ footer {
   bottom: 0;
   background-color: #FFFFFF;
   padding: 0 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.29); }
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.29);
+  text-align: center; }
   footer .sitemap, footer .essential-info {
     padding: 8px 0; }
     footer .sitemap h4, footer .essential-info h4 {

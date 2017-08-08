@@ -70,7 +70,7 @@
       font-size: 16px;
       margin: 5px; }
 
-ul#eventListing {
+ul#eventListing, ul#benefactorListing {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -78,30 +78,34 @@ ul#eventListing {
   list-style: none;
   padding: 0;
   margin: 0; }
-  ul#eventListing li {
+  ul#eventListing li, ul#benefactorListing li {
     flex-grow: 1;
     text-align: center;
     padding: 0;
     margin: 0;
     color: #FFF;
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out; }
-    ul#eventListing li a:link, ul#eventListing li a:visited {
+    ul#eventListing li a:link, ul#eventListing li a:visited, ul#benefactorListing li a:link, ul#benefactorListing li a:visited {
       color: #FFF; }
-    ul#eventListing li a > h3 {
+    ul#eventListing li a > h3, ul#benefactorListing li a > h3 {
       padding: 5px 0 0 0;
       margin: 0; }
-    ul#eventListing li a > p {
+    ul#eventListing li a > p, ul#benefactorListing li a > p {
       padding: 0 0 0 5px; }
-  ul#eventListing li:hover {
+  ul#eventListing li:hover, ul#benefactorListing li:hover {
     background-color: #FFF; }
-    ul#eventListing li:hover a, ul#eventListing li:hover a:link, ul#eventListing li:hover a:visited {
+    ul#eventListing li:hover a, ul#eventListing li:hover a:link, ul#eventListing li:hover a:visited, ul#benefactorListing li:hover a, ul#benefactorListing li:hover a:link, ul#benefactorListing li:hover a:visited {
       text-decoration: none; }
-    ul#eventListing li:hover h3, ul#eventListing li:hover p {
+    ul#eventListing li:hover h3, ul#eventListing li:hover p, ul#benefactorListing li:hover h3, ul#benefactorListing li:hover p {
       color: #4774a2; }
+
+ul#benefactorListing > li > a > h3.benefactor-name {
+  padding: 5px;
+  margin: 5px; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  ul#eventListing {
+  ul#eventListing, ul#benefactorListing {
     flex-direction: row; }
 
   .hspc-panel-4, .hspc-panel-12 {
@@ -131,7 +135,11 @@ ul#eventListing {
     right: 0;
     left: 0; }
     .hspc-panel-button i.material-icons {
-      position: absolute; } }
+      position: absolute; }
+
+  ul#benefactorListing > li > a > h3.benefactor-name {
+    padding: 35px 0;
+    margin: 10px; } }
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .hspc-panel-4, .hspc-panel-12 {
