@@ -2,6 +2,8 @@ from datetime import datetime
 
 from django.contrib.flatpages.models import FlatPage
 from django.db import models
+from django.template.response import TemplateResponse
+from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.models import Page
 from wagtailmenus.models import MenuPage, MainMenuItem
@@ -16,11 +18,14 @@ class EventCategory(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = "event categories"
+
 
 class Event(models.Model):
     category = models.ForeignKey(EventCategory, null=True)
     title = models.CharField(max_length=128)
-    hidden_date = models.DateTimeField(default=datetime.now, help_text='Used to sort events')
+    hidden_date = models.DateTimeField(default=datetime.now, help_text='Used to sort events', verbose_name='sortable date')
     display_date = models.CharField(max_length=128, help_text="Text shown such as 'Feb 4th - 8th' or 'March 25'")
     location = models.CharField(max_length=128)
     event_details = models.TextField()
@@ -28,9 +33,21 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
-
     class Meta:
         ordering = ["hidden_date"]
+
+
+EVENT_DETAIL_LINK_TYPES = (
+    ("REGISTRATION", "Registration"),
+    ("AGENDA", "Agenda"),
+    ("OTHER", "Other"),
+)
+
+class EventDetailLink(models.Model):
+    type = models.CharField(max_length=20, default='OTHER', choices=EVENT_DETAIL_LINK_TYPES)
+    event = models.ForeignKey(Event)
+    name = models.CharField(max_length=128)
+    link_url = models.URLField()
 
 
 class RegistrationRequest(models.Model):
@@ -40,6 +57,7 @@ class RegistrationRequest(models.Model):
     email_address = models.EmailField()
     phone_number = models.CharField(max_length=64)
     comments = models.TextField(blank=True, null=True)
+    completed = models.BooleanField(default=False)
 
     def __str__(self):
         sane_full_name = self.full_name.strip()

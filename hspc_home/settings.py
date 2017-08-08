@@ -17,7 +17,6 @@ from django.contrib import messages
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -34,8 +33,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '*'
-    ]
-
+]
 
 # Application definition
 
@@ -64,6 +62,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailcore',
 
     'wagtail.contrib.modeladmin',
+    'wagtail.contrib.wagtailroutablepage',
     'wagtailmenus',
 
     'modelcluster',
@@ -95,23 +94,22 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-				'django.contrib.auth.context_processors.auth',
-				'django.template.context_processors.debug',
-				'django.template.context_processors.i18n',
-				'django.template.context_processors.media',
-				'django.template.context_processors.request',
-				'django.template.context_processors.static',
-				'django.template.context_processors.tz',
-				'django.contrib.messages.context_processors.messages',
-				'wagtail.contrib.settings.context_processors.settings',
-				'wagtailmenus.context_processors.wagtailmenus',
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.request',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'wagtail.contrib.settings.context_processors.settings',
+                'wagtailmenus.context_processors.wagtailmenus',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'hspc_home.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -133,11 +131,22 @@ if os.environ.get("DATABASE") == "postgres":
         'PORT': '5432',
     }
 
+if os.environ.get("REDIS_CACHE") is not None:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django_redis.cache.RedisCache',
+            'LOCATION': 'redis:6379',
+            'OPTIONS': {
+                'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            }
+        }
+    }
+
 
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,xhtmlxtras,paste,searchreplace",
     'theme': "advanced",
-    "theme_advanced_buttons3_add" : "cite,abbr",
+    "theme_advanced_buttons3_add": "cite,abbr",
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 100,
     'width': '100%',
@@ -162,7 +171,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -175,7 +183,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Makes tags bootstrap-friendly
 MESSAGE_TAGS = {

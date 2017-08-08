@@ -1,8 +1,10 @@
+import datetime
 import re
 from django import template
+from django.db.models import Q
 from django.urls import NoReverseMatch, reverse
 
-from website.models import MenuEntry, Event
+from website.models import MenuEntry, Event, EventCategory
 
 register = template.Library()
 
@@ -23,6 +25,15 @@ def active(context, pattern_or_urlname):
     return ''
 
 @register.simple_tag
+def get_future_events():
+    today = datetime.datetime.today()
+    return Event.objects.filter(Q(hidden_date__gte=today))
+
+@register.simple_tag
+def get_past_events():
+    today = datetime.datetime.today()
+    return Event.objects.filter(Q(hidden_date__lt=today))
+
+@register.simple_tag
 def get_upcoming_events():
     return Event.objects.order_by("hidden_date")[:3]
-
