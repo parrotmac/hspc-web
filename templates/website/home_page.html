@@ -140,9 +140,9 @@
                 </div>
 
                 <div class="hspc-panel-text">
-                    {% get_upcoming_events as upcomingEvents %}
+                    {% get_some_future_events as upcoming_events %}
                     <ul id="eventListing">
-                        {% for event in upcomingEvents %}
+                        {% for event in upcoming_events %}
                             <li>
                                 <a href="/events/#event-{{ event.id }}">
                                     <h3>{{ event.display_date }}</h3>

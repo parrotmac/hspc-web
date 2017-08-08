@@ -35,5 +35,5 @@ def get_past_events():
     return Event.objects.filter(Q(hidden_date__lt=today))
 
 @register.simple_tag
-def get_upcoming_events():
-    return Event.objects.order_by("hidden_date")[:3]
+def get_some_future_events():
+    return get_future_events()[:3]
