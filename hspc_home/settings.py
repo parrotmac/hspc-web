@@ -68,6 +68,8 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
+    'simple_rest',
+
     'website.apps.WebsiteConfig',
 ]
 

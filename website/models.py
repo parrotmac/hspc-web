@@ -1,18 +1,32 @@
 from datetime import datetime
 
-from django.contrib.flatpages.models import FlatPage
 from django.db import models
-from django.template.response import TemplateResponse
-from wagtail.contrib.wagtailroutablepage.models import RoutablePageMixin, route
+from django.contrib.flatpages.models import FlatPage
+from wagtailmenus.models import MenuPage, MainMenuItem
 from wagtail.wagtailcore.fields import RichTextField, StreamField
 from wagtail.wagtailcore.models import Page
-from wagtailmenus.models import MenuPage, MainMenuItem
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 
-class EventCategory(models.Model):
+
+class ExposedMetadataModel(models.Model):
+
+    def get_verbose_name(self):
+        return self._meta.verbose_name
+
+    def get_verbose_name_plural(self):
+        return self._meta.verbose_name_plural
+
+    def get_api_base_url(self):
+        return "/api/v1/{}/".format(self._meta.model_name)
+
+    class Meta:
+        abstract = True
+
+
+class EventCategory(ExposedMetadataModel):
     name = models.CharField(max_length=256)
 
     def __str__(self):
@@ -22,7 +36,7 @@ class EventCategory(models.Model):
         verbose_name_plural = "event categories"
 
 
-class Event(models.Model):
+class Event(ExposedMetadataModel):
     category = models.ForeignKey(EventCategory, null=True)
     title = models.CharField(max_length=128)
     hidden_date = models.DateTimeField(default=datetime.now, help_text='Used to sort events', verbose_name='sortable date')
@@ -30,28 +44,12 @@ class Event(models.Model):
     location = models.CharField(max_length=128)
     event_details = models.TextField()
 
-    @staticmethod
-    def get_base_url():
-        return "/api/event/"
-
     def __str__(self):
         return self.title
 
     class Meta:
         ordering = ["hidden_date"]
 
-
-EVENT_DETAIL_LINK_TYPES = (
-    ("REGISTRATION", "Registration"),
-    ("AGENDA", "Agenda"),
-    ("OTHER", "Other"),
-)
-
-class EventDetailLink(models.Model):
-    type = models.CharField(max_length=20, default='OTHER', choices=EVENT_DETAIL_LINK_TYPES)
-    event = models.ForeignKey(Event)
-    name = models.CharField(max_length=128)
-    link_url = models.URLField()
 
 
 class RegistrationRequest(models.Model):

@@ -5,3 +5,4 @@ gunicorn
 psycopg2
 whitenoise
 django-bootstrap3
+django-simple-rest
