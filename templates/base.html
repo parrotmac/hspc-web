@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static "styles/pace.css" %}">
     <link rel="stylesheet" href="{% static "styles/main.css" %}?nocache={% now "U" %}">
+    <link rel="stylesheet" href="{% static "styles/header.css" %}?nocache={% now "U" %}">
     <link rel="stylesheet" href="{% static "styles/nav.css" %}?nocache={% now "U" %}">
     <link rel="stylesheet" href="{% static "styles/footer.css" %}?nocache={% now "U" %}">
     <link rel="stylesheet" href="{% static "styles/ie10-viewport-bug-workaround.css" %}">
@@ -50,30 +51,39 @@
 
 </head>
 <body class="{% block body_class %}{% endblock %}">
-{% block nav %}
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">
-                    <img alt="HSPC Logo" src="{% static "imgs/logo-v1-192.png" %}">
-                    <h1>HSPC</h1>
-                </a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <div class="navbar-right">
-                    {% main_menu %}
-                </div>
-            </div><!--/.nav-collapse -->
-        </div>
-    </nav>
 
-{% endblock %}
+<div class="container">
+    <div class="row">
+        <header>
+            <a class="primary-hspc-header" href="/">
+                <img alt="HSPC Logo" src="{% static "imgs/logo-v2-80.png" %}">
+{#                <img alt="HSPC Logo" src="{% static "imgs/logo-v1-80.png" %}">#}
+{#                <h1>HSPC</h1>#}
+            </a>
+        </header>
+        {% block nav %}
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <div class="navbar-right">
+                            {% main_menu %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        {% endblock %}
+    </div>
+</div>
+
+
 <main>
     <div class="container">
         {% block main %}
@@ -87,39 +97,23 @@
 <footer>
     <div class="container">
         <div class="row">
-{#            <div class="col-sm-4">#}
+            {#            <div class="col-sm-4">#}
             <div class="col-sm-4 col-sm-offset-2">
                 <div class="essential-info ei-general">
                     <h4>&copy; 2017 HSPC Consortium</h4>
-                <ul>
-                    <li>
-                        <a href="/privacy/">Privacy Statement</a>
-                    </li>
-                    <li>
-                        <a href="/terms/">Terms & Conditions</a>
-                    </li>
-                    <li>
-                        <a href="/jobs">Join Us</a>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="/privacy/">Privacy Statement</a>
+                        </li>
+                        <li>
+                            <a href="/terms/">Terms & Conditions</a>
+                        </li>
+                        <li>
+                            <a href="/membership/join/">Join Us</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-{#            <div class="col-sm-4">#}
-{#                <div class="essential-info ei-benefactors">#}
-{#                    <h4>Our Benefactors</h4>#}
-{#                <ul>#}
-{#                    <li>#}
-{#                        <a target="_blank" rel="noopener" href="https://intermountainhealthcare.org/">Intermountain Healthcare</a>#}
-{#                    </li>#}
-{#                    <li>#}
-{#                        <a target="_blank" rel="noopener" href="https://www.lsu.edu/">Louisiana State University Health</a>#}
-{#                    </li>#}
-{#                    <li>#}
-{#                        <a target="_blank" rel="noopener" href="https://www.va.gov/">Veteran’s Administration</a>#}
-{#                    </li>#}
-{#                </ul>#}
-{#                </div>#}
-{#            </div>#}
             <div class="col-sm-4">
                 {% flat_menu 'sitemap' %}
             </div>
@@ -127,7 +121,7 @@
     </div><!-- /.container -->
 </footer>
 
-<script src="{% static "scripts/pace.min.js" %}"></script>
+{#<script src="{% static "scripts/pace.min.js" %}"></script>#}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 {% block scripts %}{% endblock %}
