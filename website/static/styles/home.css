@@ -1,3 +1,6 @@
+#homepageCarousel .carousel-inner .item img {
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px; }
 #homepageCarousel .carousel-inner .item .carousel-caption {
   top: 5px;
   right: 0;
@@ -22,7 +25,9 @@
   color: #FFF;
   margin: 15px;
   position: relative;
-  display: block; }
+  display: block;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px; }
 
 .hspc-panel-4:first-child, .hspc-panel-12:first-child {
   margin-left: 0; }
@@ -35,8 +40,9 @@
   .hspc-panel-face .hspc-panel-icon {
     color: #FFF;
     display: block;
-    width: 100%;
-    text-align: center; }
+    text-align: center;
+    margin: 0 25px;
+    padding: 10px 5px 5px 5px; }
     .hspc-panel-face .hspc-panel-icon .material-icons {
       font-size: 55px; }
   .hspc-panel-face .hspc-panel-title {
@@ -46,14 +52,14 @@
     margin: 0 25px;
     padding: 5px;
     font-weight: 100;
-    background-color: rgba(0, 0, 0, 0.3); }
+    background-color: rgba(0, 0, 0, 0.35); }
 
 .hspc-panel-text {
   margin: 0 25px;
-  padding: 5px;
+  padding: 5px 5px 10px 5px;
   text-align: center;
   font-size: 16px;
-  background-color: rgba(0, 0, 0, 0.3); }
+  background-color: rgba(0, 0, 0, 0.35); }
 
 .hspc-panel-button-wrapper {
   text-align: center; }
@@ -107,6 +113,8 @@ ul#benefactorListing > li > a > h3.benefactor-name {
   margin: 5px; }
 
 .hspc-panel-bg {
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   background-size: cover;
   background-attachment: scroll;
   background-position: center; }
@@ -129,7 +137,7 @@ ul#benefactorListing > li > a > h3.benefactor-name {
 #panel-events {
   background-image: url(/static/imgs/pexels-photo-273011-calendar.jpeg); }
   #panel-events > div {
-    background-color: rgba(6, 51, 87, 0.58); }
+    background: linear-gradient(135deg, #063357, #063357, transparent); }
 
 #panel-benefactors {
   background-image: url(/static/imgs/pexels-photo-156731-old-man-smiling.jpeg); }
