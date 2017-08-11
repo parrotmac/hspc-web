@@ -107,10 +107,10 @@ ul#benefactorListing > li > a > h3.benefactor-name {
   background-attachment: scroll;
   background-position: center; }
 
-#panel-join-now :before {
+#panel-join-now {
   background-image: url(/static/imgs/pexels-photo-209651-wooden-pawns-cropped.jpeg); }
-#panel-join-now > div {
-  background-color: rgba(21, 136, 23, 0.5); }
+  #panel-join-now > div {
+    background-color: rgba(21, 136, 23, 0.5); }
 
 #panel-collaborate {
   background-image: url(/static/imgs/pexels-photo-541523-shaking-hands-cropped.jpeg); }

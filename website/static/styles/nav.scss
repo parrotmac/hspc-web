@@ -1,7 +1,10 @@
 $menu-bar-height: 40px;
 $nav-background-color: #EAEAEA;
 
-#hoverDropdownNavbar>ul.nav {
+$screen-sm-min: 768px;
+
+
+#hoverDropdownNavbar>ul.flattened-nav {
   /* Test */
   width: 100%;
 
@@ -9,6 +12,8 @@ $nav-background-color: #EAEAEA;
   justify-content: space-evenly;
   align-items: stretch;
   list-style: none;
+  margin: 0;
+  padding: 0;
 
   position: relative;
 
@@ -19,8 +24,15 @@ $nav-background-color: #EAEAEA;
   //  border-top-right-radius: 15px;
   //}
 
+  flex-direction: column;
+
+  @media (min-width: $screen-sm-min) {
+    flex-direction: row;
+  }
+
   > li {
     flex-grow: 1;
+    display: block;
 
     > a {
       font-size: 22px;
@@ -29,8 +41,12 @@ $nav-background-color: #EAEAEA;
       padding: 10px;
       background-color: $nav-background-color;
 
-      //position: relative;
+      position: relative;
       z-index: 950;
+
+    }
+    >a:focus, >a:hover {
+      text-decoration: none;
     }
   }
   > li.dropdown {
@@ -41,32 +57,39 @@ $nav-background-color: #EAEAEA;
     }
 
     /* Shows dropdown menu on hover */
-    > a:hover + .dropdown-reset > ul.dropdown-menu,
-    > .dropdown-reset > ul.dropdown-menu:hover {
-      height: 260px;
+    > a:hover + .dropdown-reset > ul.flattened-dropdown-menu,
+    > .dropdown-reset > ul.flattened-dropdown-menu:hover {
+
+      height: auto;
+
+      @media (min-width: $screen-sm-min) {
+        height: 260px;
+      }
 
     }
 
     > .dropdown-reset {
-      position: absolute;
+      position: relative;
+
       z-index: 900;
-      top: 0;
       right: 0;
       bottom: 0;
       left: 0;
 
-      height: 40px;
+      @media (min-width: $screen-sm-min) {
+        position: absolute;
+        height: 40px;
+        top: 0;
+      }
 
-      > ul.dropdown-menu {
+      > ul.flattened-dropdown-menu {
 
         /* Inital state while hidden */
         height: 0;
         overflow: hidden;
 
         display: flex;
-        position: absolute;
         z-index: 1000;
-        top: $menu-bar-height;
         left: 0;
         right: 0;
 
@@ -87,9 +110,21 @@ $nav-background-color: #EAEAEA;
 
         background-color: #EAEAEA;
 
-         > li:first-child {
-          padding-top: 40px;
+        position: relative;
+        @media (min-width: $screen-sm-min) {
+          position: absolute;
+          width: 100%;
+          top: $menu-bar-height;
         }
+
+
+        > li:first-child {
+          @media (min-width: $screen-sm-min) {
+            padding-top: 40px;
+          }
+        }
+
+
         > li {
           position: relative;
           flex-grow: 0;
