@@ -95,17 +95,25 @@ $screen-lg-min: 1200px;
   .hspc-panel-title {
     color: $hspc-panel-text-color;
     text-align: center;
-    width: 100%;
-    margin: 5px;
-    padding: 0;
+    /* width: 100%; */
+    margin: 0 25px;
+    padding: 5px;
     font-weight: 100;
+    background-color: rgba(0, 0, 0, 0.3);
+
   }
 
 }
 
 .hspc-panel-text {
+
+  margin: 0 25px;
+  padding: 5px;
   text-align: center;
   font-size: 16px;
+
+
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .hspc-panel-button-wrapper {
