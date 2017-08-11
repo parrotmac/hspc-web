@@ -1,3 +1,112 @@
-nav {
-  /* IDK */
+$menu-bar-height: 40px;
+$nav-background-color: #EAEAEA;
+
+#hoverDropdownNavbar>ul.nav {
+  /* Test */
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  list-style: none;
+
+  position: relative;
+
+  //li:first-child a {
+  //  border-top-left-radius: 15px;
+  //}
+  //li:last-child a {
+  //  border-top-right-radius: 15px;
+  //}
+
+  > li {
+    flex-grow: 1;
+
+    > a {
+      font-size: 22px;
+      text-align: center;
+      display: block;
+      padding: 10px;
+      background-color: $nav-background-color;
+
+      //position: relative;
+      z-index: 950;
+    }
+  }
+  > li.dropdown {
+
+    position: static;
+
+    > a {
+    }
+
+    /* Shows dropdown menu on hover */
+    > a:hover + .dropdown-reset > ul.dropdown-menu,
+    > .dropdown-reset > ul.dropdown-menu:hover {
+      height: 260px;
+
+    }
+
+    > .dropdown-reset {
+      position: absolute;
+      z-index: 900;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      height: 40px;
+
+      > ul.dropdown-menu {
+
+        /* Inital state while hidden */
+        height: 0;
+        overflow: hidden;
+
+        display: flex;
+        position: absolute;
+        z-index: 1000;
+        top: $menu-bar-height;
+        left: 0;
+        right: 0;
+
+        /* Bootstrap overrides */
+        /* TODO: Rename to remove conflicts */
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+
+        list-style: none;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+
+        background-color: #EAEAEA;
+
+         > li:first-child {
+          padding-top: 40px;
+        }
+        > li {
+          position: relative;
+          flex-grow: 0;
+
+          > a {
+            text-align: left;
+            padding: 20px 20px 20px 20%;
+            :hover {
+              background-color: #DADADA;
+            }
+          }
+
+        }
+
+      }
+
+    }
+  }
+
 }

@@ -1,4 +1,66 @@
-nav {
-  /* IDK */ }
+#hoverDropdownNavbar > ul.nav {
+  /* Test */
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  list-style: none;
+  position: relative; }
+  #hoverDropdownNavbar > ul.nav > li {
+    flex-grow: 1; }
+    #hoverDropdownNavbar > ul.nav > li > a {
+      font-size: 22px;
+      text-align: center;
+      display: block;
+      padding: 10px;
+      background-color: #EAEAEA;
+      z-index: 950; }
+  #hoverDropdownNavbar > ul.nav > li.dropdown {
+    position: static;
+    /* Shows dropdown menu on hover */ }
+    #hoverDropdownNavbar > ul.nav > li.dropdown > a:hover + .dropdown-reset > ul.dropdown-menu,
+    #hoverDropdownNavbar > ul.nav > li.dropdown > .dropdown-reset > ul.dropdown-menu:hover {
+      height: 260px; }
+    #hoverDropdownNavbar > ul.nav > li.dropdown > .dropdown-reset {
+      position: absolute;
+      z-index: 900;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 40px; }
+      #hoverDropdownNavbar > ul.nav > li.dropdown > .dropdown-reset > ul.dropdown-menu {
+        /* Inital state while hidden */
+        height: 0;
+        overflow: hidden;
+        display: flex;
+        position: absolute;
+        z-index: 1000;
+        top: 40px;
+        left: 0;
+        right: 0;
+        /* Bootstrap overrides */
+        /* TODO: Rename to remove conflicts */
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        list-style: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+        background-color: #EAEAEA; }
+        #hoverDropdownNavbar > ul.nav > li.dropdown > .dropdown-reset > ul.dropdown-menu > li:first-child {
+          padding-top: 40px; }
+        #hoverDropdownNavbar > ul.nav > li.dropdown > .dropdown-reset > ul.dropdown-menu > li {
+          position: relative;
+          flex-grow: 0; }
+          #hoverDropdownNavbar > ul.nav > li.dropdown > .dropdown-reset > ul.dropdown-menu > li > a {
+            text-align: left;
+            padding: 20px 20px 20px 20%; }
+            #hoverDropdownNavbar > ul.nav > li.dropdown > .dropdown-reset > ul.dropdown-menu > li > a :hover {
+              background-color: #DADADA; }
 
 /*# sourceMappingURL=nav.css.map */

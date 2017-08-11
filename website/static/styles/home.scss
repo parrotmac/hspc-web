@@ -63,7 +63,7 @@ $screen-lg-min: 1200px;
 //$hspc-panel-secondary-color: #42454B;
 
 .hspc-panel {
-  background-color: $hspc-panel-background-color;
+  //background-color: $hspc-panel-background-color;
   color: $hspc-panel-text-color;
   margin: 15px;
   position: relative;
@@ -185,6 +185,57 @@ ul#eventListing, ul#benefactorListing {
 ul#benefactorListing > li > a > h3.benefactor-name {
     padding: 5px;
     margin: 5px;
+}
+
+
+
+.hspc-panel-bg {
+
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
+
+  div {
+  }
+}
+
+#panel-join-now {
+  :before {
+    background-image: url(/static/imgs/pexels-photo-209651-wooden-pawns-cropped.jpeg);
+  }
+  > div {
+    background-color: rgba(21, 136, 23, 0.5);
+  }
+}
+
+#panel-collaborate {
+  background-image: url(/static/imgs/pexels-photo-541523-shaking-hands-cropped.jpeg);
+  > div {
+    background-color: rgba(136, 83, 0, 0.5);
+  }
+}
+
+#panel-marketplace {
+  background-image: url(/static/imgs/stock-photo-railway-night-market-in-bangkok-thailand-392257240-cropped.jpg);
+  > div {
+    background-color: rgba(6, 51, 87, 0.58);
+  }
+}
+
+#panel-events {
+  background-image: url(/static/imgs/pexels-photo-273011-calendar.jpeg);
+  > div {
+    background-color: rgba(6, 51, 87, 0.58);
+  }
+
+}
+
+#panel-benefactors {
+  background-image: url(/static/imgs/pexels-photo-156731-old-man-smiling.jpeg);
+  > div {
+    background-color: rgba(6, 51, 87, 0.58);
+  }
+
 }
 
 
