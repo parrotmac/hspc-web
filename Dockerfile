@@ -1,20 +1,44 @@
-FROM python:3.6
-ENV PYTHONUNBUFFERED 1
+FROM node:8-alpine
 
-EXPOSE 8000
+RUN apk update
+RUN apk add alpine-sdk
+RUN apk add ruby ruby-dev ruby-rdoc ruby-irb
+RUN apk add libffi-dev
 
-RUN mkdir /django
+RUN gem install sass
 
-WORKDIR /django
+RUN mkdir -p /app/build
+WORKDIR /app/build
 
-COPY requirements.txt /django/requirements.txt
+COPY package.json /app/build/
 
-RUN pip install -r requirements.txt
+RUN npm install
 
-COPY . /django/
+COPY Gruntfile.js /app/build/
 
-RUN mkdir -p /django/static/
+COPY . /app/build/
 
-RUN python manage.py collectstatic --noinput --clear
+RUN npm run build
 
-ENTRYPOINT ["/django/upgrade-and-run.sh"]
+RUN rm -rf website/static
+
+#FROM python:3.6
+#ENV PYTHONUNBUFFERED 1
+#
+#EXPOSE 8000
+#
+#RUN mkdir /django
+#
+#WORKDIR /django
+#
+#COPY requirements.txt /django/requirements.txt
+#
+#RUN pip install -r requirements.txt
+#
+#COPY . /django/
+#
+#RUN mkdir -p /django/static/
+#
+#RUN python manage.py collectstatic --noinput --clear
+#
+#ENTRYPOINT ["/django/upgrade-and-run.sh"]
