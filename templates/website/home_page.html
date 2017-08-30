@@ -6,7 +6,7 @@
 {% block page_title %}{{ page.title }}{% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static "styles/home.css" %}?nocache={% now "U" %}">
+    <link rel="stylesheet" href="{% static "home.css" %}?nocache={% now "U" %}">
 {% endblock %}
 
 {% block body_class %}template-homepage{% endblock %}
@@ -35,54 +35,60 @@
     {# Begin split 3-item Panel #}
     <div class="row">
         <div class="col-md-4">
-            <div class="hspc-panel hspc-panel-4">
-                <div class="hspc-panel-face">
-                    <div class="hspc-panel-icon">
-                        <span class="material-icons">assignment_turned_in</span>
+            <div class="hspc-panel-bg" id="panel-join-now">
+                <div class="hspc-panel hspc-panel-4">
+                    <div class="hspc-panel-face">
+                        <div class="hspc-panel-icon">
+                            <span class="material-icons">assignment_turned_in</span>
+                        </div>
+                        <h1 class="hspc-panel-title">Join HSPC</h1>
                     </div>
-                    <h1 class="hspc-panel-title">Join HSPC</h1>
-                </div>
-                <div class="hspc-panel-text">
-                    Be a part of the provider-led consortium for true healthcare interoperability.
-                </div>
-                <div class="hspc-panel-button-wrapper">
-                    <a class="btn btn-default hspc-panel-button" href="/membership/join/">Join Now &raquo;</a>
+                    <div class="hspc-panel-text">
+                        Be a part of the provider-led consortium for true healthcare interoperability.
+                    </div>
+                    <div class="hspc-panel-button-wrapper">
+                        <a class="btn btn-default hspc-panel-button" href="/membership/join/">Join Now &raquo;</a>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
-            <div class="hspc-panel hspc-panel-4">
-                <div class="hspc-panel-face">
-                    <div class="hspc-panel-icon">
-                        <span class="material-icons">group</span>
+            <div class="hspc-panel-bg" id="panel-collaborate">
+                <div class="hspc-panel hspc-panel-4">
+                    <div class="hspc-panel-face">
+                        <div class="hspc-panel-icon">
+                            <span class="material-icons">group</span>
+                        </div>
+                        <h1 class="hspc-panel-title">Collaborate</h1>
                     </div>
-                    <h1 class="hspc-panel-title">Collaborate</h1>
-                </div>
-                <div class="hspc-panel-text">
-                    Visit our Wiki to access a vast library of SOA artifacts and collaborate with others.
-                </div>
-                <div class="hspc-panel-button-wrapper">
-                    <a class="btn btn-default hspc-panel-button" href="https://healthservices.atlassian.net/wiki/"
-                       target="_blank" rel="noopener">Visit Wiki <i class="material-icons">open_in_new</i></a>
+                    <div class="hspc-panel-text">
+                        Visit our Wiki to access a vast library of SOA artifacts and collaborate with others.
+                    </div>
+                    <div class="hspc-panel-button-wrapper">
+                        <a class="btn btn-default hspc-panel-button" href="https://healthservices.atlassian.net/wiki/"
+                           target="_blank" rel="noopener">Visit Wiki <i class="material-icons">open_in_new</i></a>
+                    </div>
                 </div>
             </div>
         </div>
 
 
         <div class="col-md-4">
-            <div class="hspc-panel hspc-panel-4">
-                <div class="hspc-panel-face">
-                    <div class="hspc-panel-icon">
-                        <span class="material-icons">shopping_basket</span>
+            <div class="hspc-panel-bg" id="panel-marketplace">
+                <div class="hspc-panel hspc-panel-4">
+                    <div class="hspc-panel-face">
+                        <div class="hspc-panel-icon">
+                            <span class="material-icons">shopping_basket</span>
+                        </div>
+                        <h1 class="hspc-panel-title">Marketplace</h1>
                     </div>
-                    <h1 class="hspc-panel-title">Marketplace</h1>
-                </div>
-                <div class="hspc-panel-text">
-                    See our collection of plug-and-play healthcare applications.
-                </div>
-                <div class="hspc-panel-button-wrapper">
-                    <a class="btn btn-default hspc-panel-button disabled" href="/marketplace/">Coming Soon</a>
+                    <div class="hspc-panel-text">
+                        See our collection of plug-and-play healthcare applications.
+                    </div>
+                    <div class="hspc-panel-button-wrapper">
+                        <a class="btn btn-default hspc-panel-button disabled" href="/marketplace/">Coming Soon</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,30 +99,32 @@
     {# Begin Events Panel #}
     <div class="row">
         <div class="col-xs-12">
-            <div class="hspc-panel hspc-panel-12">
-                <div class="hspc-panel-face">
-                    <div class="hspc-panel-icon">
-                        <span class="material-icons">event</span>
+            <div class="hspc-panel-bg" id="panel-events">
+                <div class="hspc-panel hspc-panel-12">
+                    <div class="hspc-panel-face">
+                        <div class="hspc-panel-icon">
+                            <span class="material-icons">event</span>
+                        </div>
+                        <h1 class="hspc-panel-title">Upcoming Events</h1>
                     </div>
-                    <h1 class="hspc-panel-title">Upcoming Events</h1>
-                </div>
 
-                <div class="hspc-panel-text">
-                    {% get_some_future_events as upcoming_events %}
-                    <ul id="eventListing">
-                        {% for event in upcoming_events %}
-                            <li>
-                                <a href="/events/#event-{{ event.id }}">
-                                    <h3>{{ event.display_date }}</h3>
-                                    <p>{{ event.location }}</p>
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
+                    <div class="hspc-panel-text">
+                        {% get_some_future_events as upcoming_events %}
+                        <ul id="eventListing">
+                            {% for event in upcoming_events %}
+                                <li>
+                                    <a href="/events/#event-{{ event.id }}">
+                                        <h3>{{ event.display_date }}</h3>
+                                        <p>{{ event.location }}</p>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
 
-                <div class="hspc-panel-button-wrapper">
-                    <a class="btn btn-default hspc-panel-button" href="/events/">See All Events &raquo;</a>
+                    <div class="hspc-panel-button-wrapper">
+                        <a class="btn btn-default hspc-panel-button" href="/events/">See All Events &raquo;</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,33 +134,35 @@
     {# Begin Benefactors Panel #}
     <div class="row">
         <div class="col-xs-12">
-            <div class="hspc-panel hspc-panel-12">
-                <div class="hspc-panel-face">
-                    <div class="hspc-panel-icon">
-                        <span class="material-icons">favorite</span>
+            <div class="hspc-panel-bg" id="panel-benefactors">
+                <div class="hspc-panel hspc-panel-12">
+                    <div class="hspc-panel-face">
+                        <div class="hspc-panel-icon">
+                            <span class="material-icons">favorite</span>
+                        </div>
+                        <h1 class="hspc-panel-title">Our Benefactors</h1>
                     </div>
-                    <h1 class="hspc-panel-title">Our Benefactors</h1>
-                </div>
 
-                <div class="hspc-panel-text">
-                    {% get_some_future_events as upcoming_events %}
-                    <ul id="benefactorListing">
-                        <li>
-                            <a target="_blank" rel="noopener" href="https://intermountainhealthcare.org/">
-                                <h3 class="benefactor-name">Intermountain Healthcare</h3>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" rel="noopener" href="https://www.lsu.edu/">
-                                <h3 class="benefactor-name">Louisiana State University Health</h3>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" rel="noopener" href="https://www.va.gov/">
-                                <h3 class="benefactor-name">Veterans Administration</h3>
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="hspc-panel-text">
+                        {% get_some_future_events as upcoming_events %}
+                        <ul id="benefactorListing">
+                            <li>
+                                <a target="_blank" rel="noopener" href="https://intermountainhealthcare.org/">
+                                    <h3 class="benefactor-name">Intermountain Healthcare</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" rel="noopener" href="https://www.lsu.edu/">
+                                    <h3 class="benefactor-name">Louisiana State University Health</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" rel="noopener" href="https://www.va.gov/">
+                                    <h3 class="benefactor-name">Veterans Administration</h3>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

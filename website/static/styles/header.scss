@@ -1,0 +1,13 @@
+
+/* HSPC: */
+a.primary-hspc-header {
+  display: block;
+  position: relative;
+  
+  img {
+    height: 80px;
+    margin: 5px auto;
+    display: block;
+    border: none; /* What if somebody used Firefox 3!? */
+  }
+}

@@ -1,5 +1,14 @@
 @import "colors";
 
+$panel-text-background: rgba(0, 0, 0, 0.35);
+
+@mixin styled-corners() {
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  //overflow: hidden;
+}
+
+
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
@@ -9,6 +18,7 @@ $screen-lg-min: 1200px;
     .item {
       img {
         //filter: blur(2px) brightness(0.2);
+        @include styled-corners();
       }
       .carousel-caption {
         top: 5px;
@@ -22,6 +32,7 @@ $screen-lg-min: 1200px;
       }
     }
   }
+
 }
 
 @media (min-width: $screen-sm-min) {
@@ -63,11 +74,13 @@ $screen-lg-min: 1200px;
 //$hspc-panel-secondary-color: #42454B;
 
 .hspc-panel {
-  background-color: $hspc-panel-background-color;
+  //background-color: $hspc-panel-background-color;
   color: $hspc-panel-text-color;
   margin: 15px;
   position: relative;
   display: block;
+
+  @include styled-corners();
 }
 
 .hspc-panel-4:first-child, .hspc-panel-12:first-child {
@@ -85,8 +98,12 @@ $screen-lg-min: 1200px;
   .hspc-panel-icon {
     color: $hspc-panel-text-color;
     display: block;
-    width: 100%;
     text-align: center;
+
+    margin: 0 25px;
+    padding: 10px 5px 5px 5px;
+
+    //background-color: $panel-text-background;
 
     .material-icons {
       font-size: 55px;
@@ -95,17 +112,22 @@ $screen-lg-min: 1200px;
   .hspc-panel-title {
     color: $hspc-panel-text-color;
     text-align: center;
-    width: 100%;
-    margin: 5px;
-    padding: 0;
+    /* width: 100%; */
+    margin: 0 25px;
+    padding: 5px;
     font-weight: 100;
+    background-color: $panel-text-background;
+
   }
 
 }
 
 .hspc-panel-text {
+  margin: 0 25px;
+  padding: 5px 5px 10px 5px;
   text-align: center;
   font-size: 16px;
+  background-color: $panel-text-background;
 }
 
 .hspc-panel-button-wrapper {
@@ -185,6 +207,57 @@ ul#eventListing, ul#benefactorListing {
 ul#benefactorListing > li > a > h3.benefactor-name {
     padding: 5px;
     margin: 5px;
+}
+
+
+
+.hspc-panel-bg {
+  @include styled-corners();
+
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
+
+  div {
+  }
+}
+
+#panel-join-now {
+  background-image: url(/static/imgs/pexels-photo-209651-wooden-pawns-cropped.jpeg);
+  > div {
+    background-color: rgba(21, 136, 23, 0.5);
+  }
+}
+
+#panel-collaborate {
+  background-image: url(/static/imgs/pexels-photo-541523-shaking-hands-cropped.jpeg);
+  > div {
+    background-color: rgba(136, 83, 0, 0.5);
+  }
+}
+
+#panel-marketplace {
+  background-image: url(/static/imgs/stock-photo-railway-night-market-in-bangkok-thailand-392257240-cropped.jpg);
+  > div {
+    background-color: rgba(6, 51, 87, 0.58);
+  }
+}
+
+#panel-events {
+  background-image: url(/static/imgs/pexels-photo-273011-calendar.jpeg);
+  > div {
+    //background-color: rgba(6, 51, 87, 0.58);
+    background: linear-gradient(135deg, rgb(6,51,87), rgb(6,51,87), rgba(0,0,0,0));
+  }
+
+}
+
+#panel-benefactors {
+  background-image: url(/static/imgs/pexels-photo-156731-old-man-smiling.jpeg);
+  > div {
+    background-color: rgba(6, 51, 87, 0.58);
+  }
+
 }
 
 
