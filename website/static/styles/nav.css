@@ -27,11 +27,14 @@
       text-decoration: none; }
   #hoverDropdownNavbar > ul.flattened-nav > li.dropdown {
     position: static;
-    /* Shows dropdown menu on hover */ }
+    /* Shows dropdown menu on hover or tap */ }
+    #hoverDropdownNavbar > ul.flattened-nav > li.dropdown.open > .dropdown-reset > ul.flattened-dropdown-menu,
     #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > a:hover + .dropdown-reset > ul.flattened-dropdown-menu,
     #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu:hover {
-      height: auto; }
+      max-height: 1000px;
+      transition: max-height 0.5s ease-in; }
       @media (min-width: 768px) {
+        #hoverDropdownNavbar > ul.flattened-nav > li.dropdown.open > .dropdown-reset > ul.flattened-dropdown-menu,
         #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > a:hover + .dropdown-reset > ul.flattened-dropdown-menu,
         #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu:hover {
           height: 260px; } }
@@ -48,7 +51,8 @@
           top: 0; } }
       #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu {
         /* Inital state while hidden */
-        height: 0;
+        max-height: 0;
+        transition: max-height 0.5s ease-out;
         overflow: hidden;
         display: flex;
         z-index: 1000;

@@ -56,16 +56,17 @@ $screen-sm-min: 768px;
     > a {
     }
 
-    /* Shows dropdown menu on hover */
+    /* Shows dropdown menu on hover or tap */
+    &.open > .dropdown-reset > ul.flattened-dropdown-menu,
     > a:hover + .dropdown-reset > ul.flattened-dropdown-menu,
     > .dropdown-reset > ul.flattened-dropdown-menu:hover {
 
-      height: auto;
+      max-height: 1000px;
+      transition: max-height 0.5s ease-in;
 
       @media (min-width: $screen-sm-min) {
         height: 260px;
       }
-
     }
 
     > .dropdown-reset {
@@ -85,13 +86,16 @@ $screen-sm-min: 768px;
       > ul.flattened-dropdown-menu {
 
         /* Inital state while hidden */
-        height: 0;
+        max-height: 0;
+        transition: max-height 0.5s ease-out;
         overflow: hidden;
 
         display: flex;
         z-index: 1000;
         left: 0;
         right: 0;
+
+
 
         /* Bootstrap overrides */
         /* TODO: Rename to remove conflicts */

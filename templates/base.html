@@ -56,7 +56,8 @@
     <div class="row">
         <header>
             <a class="primary-hspc-header" href="/">
-                <img alt="HSPC Logo" src="{% static "imgs/logo-v2-80.png" %}">
+                <img alt="HSPC Logo" style="height: 80px;" src="{% static "imgs/logo-draft-v4_v.png" %}">
+{#                <img alt="HSPC Logo" src="{% static "imgs/logo-v2-80.png" %}">#}
 {#                <img alt="HSPC Logo" src="{% static "imgs/logo-v1-80.png" %}">#}
 {#                <h1>HSPC</h1>#}
             </a>
@@ -122,6 +123,7 @@
 {#<script src="{% static "scripts/pace.min.js" %}"></script>#}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{% static "scripts/nav.js" %}?nocache={% now "U" %}"></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>
