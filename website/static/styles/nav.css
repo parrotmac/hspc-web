@@ -37,6 +37,7 @@ tagname.classname {
   @media (min-width: 768px) {
     .hoverDropdownNavbar {
       max-height: inherit;
+      overflow: visible;
       position: relative;
       box-shadow: none;
       width: auto; } }
@@ -57,16 +58,19 @@ tagname.classname {
       display: block;
       box-sizing: border-box;
       border: none; }
-      @media (min-width: 768px) {
-        .hoverDropdownNavbar > ul.flattened-nav > li {
-          border-right: 1px solid #0071bc; }
-          .hoverDropdownNavbar > ul.flattened-nav > li:last-child {
-            border-right: none; } }
       .hoverDropdownNavbar > ul.flattened-nav > li.dropdown.open > a.dropdown-toggle {
-        box-shadow: 0 4px 2px -2px gray;
+        box-shadow: 0 0 3px 1px rgba(84, 84, 84, 0.15);
         z-index: 1000; }
         .hoverDropdownNavbar > ul.flattened-nav > li.dropdown.open > a.dropdown-toggle + .dropdown-reset > ul.flattened-dropdown-menu {
+          box-shadow: 0 4px 3px 1px rgba(84, 84, 84, 0.15);
           max-height: 999px; }
+      @media (min-width: 768px) {
+        .hoverDropdownNavbar > ul.flattened-nav > li.dropdown.open ~ .dropdown:not(.open) {
+          height: 0;
+          overflow: hidden; } }
+      .hoverDropdownNavbar > ul.flattened-nav > li > a:hover {
+        box-shadow: 0 0 3px 1px rgba(84, 84, 84, 0.15);
+        z-index: 1000; }
       .hoverDropdownNavbar > ul.flattened-nav > li > a {
         width: 100%;
         display: block;

@@ -72,6 +72,7 @@ $breakpointWidth: 768px;
 }
 @mixin normalNavQuiescent {
   max-height: inherit;
+  overflow: visible;
 }
 
 .hoverDropdownNavbar {
@@ -121,25 +122,40 @@ $breakpointWidth: 768px;
       box-sizing: border-box;
 
       border: none;
-      @media(min-width: $breakpointWidth) {
-        border-right: 1px solid $color-hspc-blue;
-        &:last-child {
-          border-right: none;
-        }
-      }
+      //@media(min-width: $breakpointWidth) {
+      //  border-right: 1px solid $color-hspc-blue;
+      //  &:last-child {
+      //    border-right: none;
+      //  }
+      //}
 
       // * * * * Dropdown on click * * * * //
       &.dropdown.open > a.dropdown-toggle {
 
-        box-shadow: 0 4px 2px -2px gray;
+        box-shadow: 0 0 3px 1px rgba(84, 84, 84, 0.15);
         z-index: 1000;
 
         & + .dropdown-reset > ul.flattened-dropdown-menu {
+          box-shadow: 0 4px 3px 1px rgba(84, 84, 84, 0.15);
           max-height: 999px;
         }
       }
+      &.dropdown.open {
+        @media(min-width: $breakpointWidth) {
+          &~.dropdown:not(.open) {
+            height: 0;
+            overflow: hidden;
+          }
+        }
+      }
+
+      >a:hover {
+        box-shadow: 0 0 3px 1px rgba(84, 84, 84, 0.15);
+        z-index: 1000;
+      }
 
       >a {
+
         @include commonLinkStyling;
         @include primaryLinkStyling;
       }
