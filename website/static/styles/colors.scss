@@ -1,10 +1,16 @@
 $body-background-color: #eee;
 
+/* Not all of the navbar- prefixed variables are used or appropriately named */
 $navbar-bg-color: #4774a2;
 $navbar-text-color: #FFF;
 $navbar-button-background-color: #ec9234;
 $navbar-button-selected-background-color: #345475;
 $navbar-button-text-color: $navbar-text-color;
+
+
+$color-hspc-blue: #0071bc;
+$color-hspc-tined-blue: #0a7fbc;
+$color-light-gray: #EAEAEA;
 
 $hspc-panel-background-color: $navbar-bg-color;
 $hspc-panel-text-color: #FFF;

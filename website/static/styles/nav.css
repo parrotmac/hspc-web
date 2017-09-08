@@ -1,92 +1,108 @@
-#hoverDropdownNavbar > ul.flattened-nav {
-  /* Test */
-  width: 100%;
+/* See https://codepen.io/parrotmac/pen/eEajYz */
+/*
+Typical rule structure should be as follows:
+
+tagname.classname {
+
+  // First include mixins
+  @include mixinsFirst;
+
+  // Then mechanics
   display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
-  list-style: none;
+  position: fixed;
+  box-sizing: border-box;
+
+  // Finally display settings
+  background-color: #EAEAEA;
+  box-shadow: 0 0 5px #F63;
+}
+
+*/
+/* Not all of the navbar- prefixed variables are used or appropriately named */
+.hoverDropdownNavbar {
   margin: 0;
   padding: 0;
-  position: relative;
-  flex-direction: column; }
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 2px 0 grey;
+  max-height: 0;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .hoverDropdownNavbar.mobile-open {
+    max-height: 1000px;
+    /* Setting to a very large value allows for animation */
+    overflow: visible; }
   @media (min-width: 768px) {
-    #hoverDropdownNavbar > ul.flattened-nav {
-      flex-direction: row; } }
-  #hoverDropdownNavbar > ul.flattened-nav > li {
-    flex-grow: 1;
-    display: block; }
-    #hoverDropdownNavbar > ul.flattened-nav > li > a {
-      font-size: 22px;
-      text-align: center;
+    .hoverDropdownNavbar {
+      max-height: inherit;
+      position: relative;
+      box-shadow: none;
+      width: auto; } }
+  .hoverDropdownNavbar > ul.flattened-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    text-align: center;
+    flex-direction: column; }
+    @media (min-width: 768px) {
+      .hoverDropdownNavbar > ul.flattened-nav {
+        flex-direction: row;
+        align-content: space-around;
+        align-items: stretch; } }
+    .hoverDropdownNavbar > ul.flattened-nav > li {
+      flex-grow: 1;
       display: block;
-      padding: 10px;
-      background-color: #EAEAEA;
-      position: relative;
-      z-index: 950; }
-    #hoverDropdownNavbar > ul.flattened-nav > li > a:focus, #hoverDropdownNavbar > ul.flattened-nav > li > a:hover {
-      text-decoration: none; }
-  #hoverDropdownNavbar > ul.flattened-nav > li.dropdown {
-    position: static;
-    /* Shows dropdown menu on hover or tap */ }
-    #hoverDropdownNavbar > ul.flattened-nav > li.dropdown.open > .dropdown-reset > ul.flattened-dropdown-menu,
-    #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > a:hover + .dropdown-reset > ul.flattened-dropdown-menu,
-    #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu:hover {
-      max-height: 1000px;
-      transition: max-height 0.5s ease-in; }
+      box-sizing: border-box;
+      border: none; }
       @media (min-width: 768px) {
-        #hoverDropdownNavbar > ul.flattened-nav > li.dropdown.open > .dropdown-reset > ul.flattened-dropdown-menu,
-        #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > a:hover + .dropdown-reset > ul.flattened-dropdown-menu,
-        #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu:hover {
-          height: 260px; } }
-    #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset {
-      position: relative;
-      z-index: 900;
-      right: 0;
-      bottom: 0;
-      left: 0; }
-      @media (min-width: 768px) {
-        #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset {
-          position: absolute;
-          height: 40px;
-          top: 0; } }
-      #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu {
-        /* Inital state while hidden */
-        max-height: 0;
-        transition: max-height 0.5s ease-out;
-        overflow: hidden;
-        display: flex;
-        z-index: 1000;
-        left: 0;
-        right: 0;
-        /* Bootstrap overrides */
-        /* TODO: Rename to remove conflicts */
-        margin: 0;
-        padding: 0;
-        border: none;
-        border-radius: 0;
-        list-style: none;
-        flex-direction: column;
-        justify-content: flex-start;
-        -webkit-box-shadow: none !important;
-        -moz-box-shadow: none !important;
-        box-shadow: none !important;
-        background-color: #EAEAEA;
-        position: relative; }
+        .hoverDropdownNavbar > ul.flattened-nav > li {
+          border-right: 1px solid #0071bc; }
+          .hoverDropdownNavbar > ul.flattened-nav > li:last-child {
+            border-right: none; } }
+      .hoverDropdownNavbar > ul.flattened-nav > li.dropdown.open > a.dropdown-toggle {
+        box-shadow: 0 4px 2px -2px gray;
+        z-index: 1000; }
+        .hoverDropdownNavbar > ul.flattened-nav > li.dropdown.open > a.dropdown-toggle + .dropdown-reset > ul.flattened-dropdown-menu {
+          max-height: 999px; }
+      .hoverDropdownNavbar > ul.flattened-nav > li > a {
+        width: 100%;
+        display: block;
+        position: relative;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 8px 0;
+        background-color: #FFF; }
         @media (min-width: 768px) {
-          #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu {
-            position: absolute;
-            width: 100%;
-            top: 40px; } }
-        @media (min-width: 768px) {
-          #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu > li:first-child {
-            padding-top: 40px; } }
-        #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu > li {
-          position: relative;
-          flex-grow: 0; }
-          #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu > li > a {
-            text-align: left;
-            padding: 20px 20px 20px 20%; }
-            #hoverDropdownNavbar > ul.flattened-nav > li.dropdown > .dropdown-reset > ul.flattened-dropdown-menu > li > a :hover {
-              background-color: #DADADA; }
+          .hoverDropdownNavbar > ul.flattened-nav > li > a {
+            padding: 16px 0; } }
+        .hoverDropdownNavbar > ul.flattened-nav > li > a:link, .hoverDropdownNavbar > ul.flattened-nav > li > a:visited {
+          color: #0071bc; }
+      .hoverDropdownNavbar > ul.flattened-nav > li > .dropdown-reset {
+        display: block;
+        position: relative;
+        height: 0;
+        overflow: visible;
+        z-index: 100; }
+        .hoverDropdownNavbar > ul.flattened-nav > li > .dropdown-reset > ul.flattened-dropdown-menu {
+          max-height: 0;
+          overflow: hidden;
+          margin: 0;
+          padding: 0;
+          list-style: none; }
+          .hoverDropdownNavbar > ul.flattened-nav > li > .dropdown-reset > ul.flattened-dropdown-menu > li {
+            display: block; }
+            .hoverDropdownNavbar > ul.flattened-nav > li > .dropdown-reset > ul.flattened-dropdown-menu > li > a {
+              width: 100%;
+              display: block;
+              position: relative;
+              font-size: 20px;
+              text-decoration: none;
+              padding: 8px 0;
+              background-color: #EAEAEA; }
+              .hoverDropdownNavbar > ul.flattened-nav > li > .dropdown-reset > ul.flattened-dropdown-menu > li > a:link, .hoverDropdownNavbar > ul.flattened-nav > li > .dropdown-reset > ul.flattened-dropdown-menu > li > a:visited {
+                color: #0071bc; }
 
 /*# sourceMappingURL=nav.css.map */

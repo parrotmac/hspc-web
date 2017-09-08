@@ -53,14 +53,19 @@
 <body class="{% block body_class %}{% endblock %}">
 
 <div class="container">
-    <div class="row">
+    <div class="row flex-header">
         <header>
             <a class="primary-hspc-header" href="/">
-                <img alt="HSPC Logo" style="height: 80px;" src="{% static "imgs/logo-draft-v4_v.png" %}">
+                <img alt="HSPC Logo" style="max-height: 58px; margin-top: 1px" src="{% static "imgs/logo-draft-v4_v.png" %}">
 {#                <img alt="HSPC Logo" src="{% static "imgs/logo-v2-80.png" %}">#}
 {#                <img alt="HSPC Logo" src="{% static "imgs/logo-v1-80.png" %}">#}
 {#                <h1>HSPC</h1>#}
             </a>
+            <div id="nav-toggle" class="collapsed-menu-toggle">
+                <div class="toggle-button-bar"></div>
+                <div class="toggle-button-bar"></div>
+                <div class="toggle-button-bar"></div>
+            </div>
         </header>
         {% block nav %}
             <nav>
@@ -73,7 +78,7 @@
 {#                            <span class="icon-bar"></span>#}
 {#                        </button>#}
 {#                    </div>#}
-                    <div id="hoverDropdownNavbar">
+                    <div class="hoverDropdownNavbar">
                         {% main_menu template="website/nav/main_menu_dropdown.html" %}
                     </div>
 {#                </div>#}

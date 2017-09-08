@@ -1,6 +1,4 @@
-#homepageCarousel .carousel-inner .item img {
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 30px; }
+/* Not all of the navbar- prefixed variables are used or appropriately named */
 #homepageCarousel .carousel-inner .item .carousel-caption {
   top: 5px;
   right: 0;
@@ -25,9 +23,7 @@
   color: #FFF;
   margin: 15px;
   position: relative;
-  display: block;
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 30px; }
+  display: block; }
 
 .hspc-panel-4:first-child, .hspc-panel-12:first-child {
   margin-left: 0; }
@@ -113,8 +109,6 @@ ul#benefactorListing > li > a > h3.benefactor-name {
   margin: 5px; }
 
 .hspc-panel-bg {
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 30px;
   background-size: cover;
   background-attachment: scroll;
   background-position: center; }

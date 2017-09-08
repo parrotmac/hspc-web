@@ -1,151 +1,174 @@
-$menu-bar-height: 40px;
-$nav-background-color: #EAEAEA;
+/* See https://codepen.io/parrotmac/pen/eEajYz */
+/*
+Typical rule structure should be as follows:
 
-$screen-sm-min: 768px;
+tagname.classname {
 
+  // First include mixins
+  @include mixinsFirst;
 
-#hoverDropdownNavbar>ul.flattened-nav {
-  /* Test */
-  width: 100%;
-
+  // Then mechanics
   display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
-  list-style: none;
+  position: fixed;
+  box-sizing: border-box;
+
+  // Finally display settings
+  background-color: #EAEAEA;
+  box-shadow: 0 0 5px #F63;
+}
+
+*/
+
+@import "colors";
+
+
+$breakpointWidth: 768px;
+
+
+@mixin saneUl {
   margin: 0;
   padding: 0;
+  list-style: none;
+}
 
+@mixin commonLinkStyling {
+  width: 100%;
+  display: block;
   position: relative;
 
-  //li:first-child a {
-  //  border-top-left-radius: 15px;
-  //}
-  //li:last-child a {
-  //  border-top-right-radius: 15px;
-  //}
+  font-size: 20px;
 
-  flex-direction: column;
+  text-decoration: none;
+}
+@mixin primaryLinkStyling {
 
-  @media (min-width: $screen-sm-min) {
-    flex-direction: row;
+  padding: 8px 0;
+
+  @media(min-width: $breakpointWidth) {
+    padding: 16px 0;
   }
 
-  > li {
-    flex-grow: 1;
-    display: block;
+  background-color: #FFF;
+  &:link, &:visited {
+    color: $color-hspc-blue;
+  }
+}
+@mixin secondaryLinkStyling {
+  padding: 8px 0;
 
-    > a {
-      font-size: 22px;
-      text-align: center;
+  background-color: $color-light-gray;
+  &:link, &:visited {
+    color: $color-hspc-blue;
+  }
+}
+
+@mixin mobileNavQuiescent  {
+  max-height: 0;
+  overflow: hidden;
+}
+@mixin mobileNavOpen {
+  max-height: 1000px; /* Setting to a very large value allows for animation */
+  overflow: visible;
+}
+@mixin normalNavQuiescent {
+  max-height: inherit;
+}
+
+.hoverDropdownNavbar {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  width: 100%;
+
+  box-shadow: 0 2px 2px 0 grey;
+
+  @include mobileNavQuiescent;
+  &.mobile-open {
+    @include mobileNavOpen;
+  }
+  @media(min-width: $breakpointWidth) {
+
+    @include normalNavQuiescent;
+    position: relative;
+    box-shadow: none;
+    width: auto;
+  }
+
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  >ul.flattened-nav {
+    @include saneUl;
+
+    display: flex;
+
+    text-align: center;
+
+    flex-direction: column;
+
+    @media(min-width: $breakpointWidth) {
+      flex-direction: row;
+      align-content: space-around;
+      align-items: stretch;
+    }
+
+
+    >li {
+      flex-grow: 1;
       display: block;
-      padding: 10px;
-      background-color: $nav-background-color;
+      box-sizing: border-box;
 
-      position: relative;
-      z-index: 950;
-
-    }
-    >a:focus, >a:hover {
-      text-decoration: none;
-    }
-  }
-  > li.dropdown {
-
-    position: static;
-
-    > a {
-    }
-
-    /* Shows dropdown menu on hover or tap */
-    &.open > .dropdown-reset > ul.flattened-dropdown-menu,
-    > a:hover + .dropdown-reset > ul.flattened-dropdown-menu,
-    > .dropdown-reset > ul.flattened-dropdown-menu:hover {
-
-      max-height: 1000px;
-      transition: max-height 0.5s ease-in;
-
-      @media (min-width: $screen-sm-min) {
-        height: 260px;
-      }
-    }
-
-    > .dropdown-reset {
-      position: relative;
-
-      z-index: 900;
-      right: 0;
-      bottom: 0;
-      left: 0;
-
-      @media (min-width: $screen-sm-min) {
-        position: absolute;
-        height: 40px;
-        top: 0;
+      border: none;
+      @media(min-width: $breakpointWidth) {
+        border-right: 1px solid $color-hspc-blue;
+        &:last-child {
+          border-right: none;
+        }
       }
 
-      > ul.flattened-dropdown-menu {
+      // * * * * Dropdown on click * * * * //
+      &.dropdown.open > a.dropdown-toggle {
 
-        /* Inital state while hidden */
-        max-height: 0;
-        transition: max-height 0.5s ease-out;
-        overflow: hidden;
-
-        display: flex;
+        box-shadow: 0 4px 2px -2px gray;
         z-index: 1000;
-        left: 0;
-        right: 0;
 
+        & + .dropdown-reset > ul.flattened-dropdown-menu {
+          max-height: 999px;
+        }
+      }
 
+      >a {
+        @include commonLinkStyling;
+        @include primaryLinkStyling;
+      }
 
-        /* Bootstrap overrides */
-        /* TODO: Rename to remove conflicts */
-        margin: 0;
-        padding: 0;
-        border: none;
-        border-radius: 0;
+      >.dropdown-reset {
 
-        list-style: none;
-        flex-direction: column;
-        justify-content: flex-start;
-
-        -webkit-box-shadow: none !important;
-        -moz-box-shadow: none !important;
-        box-shadow: none !important;
-
-        background-color: #EAEAEA;
-
+        display: block;
         position: relative;
-        @media (min-width: $screen-sm-min) {
-          position: absolute;
-          width: 100%;
-          top: $menu-bar-height;
-        }
+        height: 0;
 
+        overflow: visible;
+        z-index: 100;
 
-        > li:first-child {
-          @media (min-width: $screen-sm-min) {
-            padding-top: 40px;
-          }
-        }
-
-
-        > li {
-          position: relative;
-          flex-grow: 0;
-
-          > a {
-            text-align: left;
-            padding: 20px 20px 20px 20%;
-            :hover {
-              background-color: #DADADA;
+        >ul.flattened-dropdown-menu {
+          max-height: 0;
+          overflow: hidden;
+          @include saneUl;
+          >li {
+            display: block;
+            >a {
+              @include commonLinkStyling;
+              @include secondaryLinkStyling;
             }
           }
 
         }
-
       }
 
     }
-  }
 
+  }
 }

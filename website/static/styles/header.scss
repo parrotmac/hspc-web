@@ -1,3 +1,45 @@
+@import "colors";
+
+$breakpointWidth: 768px;
+
+header {
+  display: flex;
+  justify-content: space-between;
+
+  .collapsed-menu-toggle {
+
+    display: block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+
+    .toggle-button-bar {
+      width: 35px;
+      height: 5px;
+      background-color: $color-hspc-blue;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+
+    &.open {
+      & > .toggle-button-bar:first-child {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+      }
+      & > .toggle-button-bar:nth-child(2) {opacity: 0;}
+& > .toggle-button-bar:last-child {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+}
+    @media(min-width: $breakpointWidth) {
+      display: none;
+    }
+  }
+
+}
+
 
 /* HSPC: */
 a.primary-hspc-header {
@@ -5,8 +47,8 @@ a.primary-hspc-header {
   position: relative;
   
   img {
-    height: 80px;
-    margin: 5px auto;
+    //height: 80px;
+    //margin: 5px auto;
     display: block;
     border: none; /* What if somebody used Firefox 3!? */
   }
