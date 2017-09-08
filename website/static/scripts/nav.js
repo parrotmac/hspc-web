@@ -21,15 +21,15 @@ function setMenuOpen (showMenu) {
     showMenu ? mainMenu.classList.add("mobile-open") : mainMenu.classList.remove("mobile-open");
 }
 
-document.getElementById("nav-toggle").addEventListener("click", function(event) {
-    var toggleBtn = event.target;
-    if(toggleBtn.classList.contains("open")) {
+var navToggle = document.getElementById("nav-toggle");
+navToggle.addEventListener("click", function() {
+    if(navToggle.classList.contains("open")) {
         // Close up
-        toggleBtn.classList.remove("open");
+        navToggle.classList.remove("open");
         setMenuOpen(false);
     } else {
-
-        toggleBtn.classList.add("open");
+        // Show it all
+        navToggle.classList.add("open");
         setMenuOpen(true);
     }
-}, false);
+}, true);

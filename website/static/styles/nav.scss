@@ -64,10 +64,12 @@ $breakpointWidth: 768px;
 
 @mixin mobileNavQuiescent  {
   max-height: 0;
+  transition: max-height 0.5s ease-in;
   overflow: hidden;
 }
 @mixin mobileNavOpen {
-  max-height: 1000px; /* Setting to a very large value allows for animation */
+  max-height: 500px; /* Setting to a very large value allows for animation */
+  transition: max-height 0.5s ease-out;
   overflow: visible;
 }
 @mixin normalNavQuiescent {
@@ -172,6 +174,7 @@ $breakpointWidth: 768px;
         >ul.flattened-dropdown-menu {
           max-height: 0;
           overflow: hidden;
+
           @include saneUl;
           >li {
             display: block;

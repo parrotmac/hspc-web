@@ -4,24 +4,29 @@ header {
   justify-content: space-between; }
   header .collapsed-menu-toggle {
     display: block;
-    cursor: pointer;
     width: 60px;
     height: 60px;
-    padding: 10px; }
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #FFF;
+    transition: background-color 0.25s linear; }
     header .collapsed-menu-toggle .toggle-button-bar {
-      width: 35px;
+      width: 40px;
       height: 5px;
-      background-color: #0071bc;
       margin: 6px 0;
-      transition: 0.4s; }
-    header .collapsed-menu-toggle.open > .toggle-button-bar:first-child {
-      -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-      transform: rotate(-45deg) translate(-9px, 6px); }
-    header .collapsed-menu-toggle.open > .toggle-button-bar:nth-child(2) {
-      opacity: 0; }
-    header .collapsed-menu-toggle.open > .toggle-button-bar:last-child {
-      -webkit-transform: rotate(45deg) translate(-8px, -8px);
-      transform: rotate(45deg) translate(-8px, -8px); }
+      background-color: #0071bc;
+      transition: 0.4s ease-in-out; }
+    header .collapsed-menu-toggle.open {
+      background-color: #EAEAEA; }
+      header .collapsed-menu-toggle.open > .toggle-button-bar:first-child {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px); }
+      header .collapsed-menu-toggle.open > .toggle-button-bar:nth-child(2) {
+        opacity: 0; }
+      header .collapsed-menu-toggle.open > .toggle-button-bar:last-child {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px); }
     @media (min-width: 768px) {
       header .collapsed-menu-toggle {
         display: none; } }

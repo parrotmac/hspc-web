@@ -28,11 +28,13 @@ tagname.classname {
   width: 100%;
   box-shadow: 0 2px 2px 0 grey;
   max-height: 0;
+  transition: max-height 0.5s ease-in;
   overflow: hidden;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .hoverDropdownNavbar.mobile-open {
-    max-height: 1000px;
+    max-height: 500px;
     /* Setting to a very large value allows for animation */
+    transition: max-height 0.5s ease-out;
     overflow: visible; }
   @media (min-width: 768px) {
     .hoverDropdownNavbar {
