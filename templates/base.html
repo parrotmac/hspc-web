@@ -49,16 +49,18 @@
     <div class="container">
         <div class="row">
             <header>
-                <a class="logo-link" href="/">
-                    <img alt="HSPC Logo" style="max-height: 42px" src="{% static "imgs/logo-draft-v4_v.png" %}">
-                </a>
-                <nav class="ddNavbar">
-                    {% main_menu template="website/nav/main_menu_dropdown.html" %}
+                <div class="header-reset">
+                    <a class="logo-link" href="/">
+                        <img alt="HSPC Logo" style="max-height: 42px" src="{% static "imgs/logo-draft-v4_v.png" %}">
+                    </a>
                     <div class="nav-toggle collapsed-menu-toggle">
                         <div class="toggle-button-bar"></div>
                         <div class="toggle-button-bar"></div>
                         <div class="toggle-button-bar"></div>
                     </div>
+                </div>
+                <nav class="ddNavbar">
+                    {% main_menu template="website/nav/main_menu_dropdown.html" %}
                 </nav>
                 <form class="header-search">
                     <input type="search" name="q" placeholder="Search HSPC">
@@ -86,7 +88,7 @@
             {#            <div class="col-sm-4">#}
             <div class="col-sm-4 col-sm-offset-2">
                 <div class="essential-info ei-general">
-                    <h4>&copy; 2017 HSPC Consortium</h4>
+                    <h4>&copy; 2017 Health Services Platform Consortium</h4>
                     <ul>
                         <li>
                             <a href="/privacy/">Privacy Statement</a>
