@@ -1,13 +1,79 @@
+/* See https://codepen.io/parrotmac/pen/eEajYz */
+/*
+Typical rule structure should be as follows:
+
+tagname.classname {
+
+  // First include mixins
+  @include mixinsFirst;
+
+  // Then mechanics
+  display: flex;
+  position: fixed;
+  box-sizing: border-box;
+
+  // Finally display settings
+  background-color: #EAEAEA;
+  box-shadow: 0 0 5px #F63;
+}
+
+*/
+
 @import "colors";
+
 
 $breakpointWidth: 768px;
 
+/* Drop shadow  box */
+div.before-header {
+    padding: 5px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 5000;
+    background-color: white;
+    box-shadow: 0 0 2px 2px rgba(58, 58, 58, 0.5);
+}
+
+
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Aim for equal spacing betwixt items */
+  flex-direction: row; /* Setup as side-by-side for logo, nav and search */
+  align-items: flex-start; /* Top-to-bottom position -- keep at top */
+  padding: 0 15px; /* Match styling of most of the page with a 15px padding on each size */
+
+  a.logo-link {
+  display: block;
+  position: relative;
+
+    img {
+      display: block;
+    }
+  }
+
+
+}
+
+
+
+@mixin saneUl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin commonLinkStyling {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+nav.ddNavbar {
+
+  flex-grow: 1;
 
   .collapsed-menu-toggle {
-
     display: block;
     width: 60px;
     height: 60px;
@@ -48,17 +114,131 @@ header {
     }
   }
 
+
+  >ul.flattened-nav {
+    @include saneUl;
+
+    display: flex;
+
+    flex-direction: row;
+    align-content: space-around;
+    align-items: stretch;
+    margin-left: 20px;
+
+    &:hover >li >.dropdown-reset {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      max-height: 500px;
+    }
+
+    >li {
+      display: block;
+      box-sizing: border-box;
+
+      border: none;
+
+
+      >a {
+
+        @include commonLinkStyling;
+
+        margin: 0 25px 0 0;
+        padding: 8px 0;
+        background-color: #FFF;
+        font-weight: 500;
+        font-size: 16px;
+        &:link, &:visited {
+          color: $color-hspc-dark-gray;
+        }
+      }
+
+      >.dropdown-reset {
+
+        margin: 0;
+        max-height: 0;
+
+        transition: margin 0.15s ease-in-out, max-height 0.15s ease-in-out;
+
+        overflow: hidden;
+
+        >ul.flattened-dropdown-menu {
+
+          @include saneUl;
+          >li {
+            display: block;
+            >a {
+              @include commonLinkStyling;
+              padding: 4px 0;
+              font-size: 14px;
+              &:link, &:visited {
+                color: $color-hspc-dark-gray;
+              }
+              &:hover {
+                color: $color-hspc-blue;
+              }
+            }
+          }
+
+        }
+      }
+
+    }
+
+  }
 }
 
-/* HSPC: */
-a.primary-hspc-header {
-  display: block;
-  position: relative;
+form.header-search {
+  flex-grow: 1;
+  display: flex;
+  padding: 5px 0;
+  margin-top: 2px;
+  max-height: 42px;
+  max-width: 250px;
 
-  img {
-    //height: 80px;
-    //margin: 5px auto;
-    display: block;
-    border: none; /* What if somebody used Firefox 3!? */
+  &:focus {
+    max-width: 500px;
+    width: 500px;
+  }
+
+  $border-styling: 1px solid $color-hspc-blue;
+  $active-border-styling: 2px solid $color-hspc-blue;
+  input[type=search] {
+    flex-grow: 1;
+
+    border-top: $border-styling;
+    border-right: none;
+    border-bottom: $border-styling;
+    border-left: $border-styling;
+
+    &:focus {
+      margin: 0  0 -1px 0;
+      //border-top: $active-border-styling;
+      //border-right: $active-border-styling;
+      border-bottom: $active-border-styling;
+      //border-left: $active-border-styling;
+    }
+
+    outline: none !important;
+
+  }
+  button[type=submit] {
+    background-color: rgba(255, 255, 255, 0);
+    border-top: $border-styling;
+    border-right: $border-styling;
+    border-bottom: $border-styling;
+    border-left: $border-styling;
+
+    &:hover, &:active, &:focus {
+      //margin: -1px;
+      //border-top: $active-border-styling;
+      //border-right: $active-border-styling;
+      //border-bottom: $active-border-styling;
+      //border-left: $active-border-styling;
+
+      margin: 0  0 -1px 0;
+      border-bottom: $active-border-styling;
+    }
+
+    outline: none !important;
   }
 }

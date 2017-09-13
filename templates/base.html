@@ -35,7 +35,6 @@
     <link rel="stylesheet" href="{% static "styles/pace.css" %}">
     <link rel="stylesheet" href="{% static "styles/main.css" %}?nocache={% now "U" %}">
     <link rel="stylesheet" href="{% static "styles/header.css" %}?nocache={% now "U" %}">
-    <link rel="stylesheet" href="{% static "styles/nav.css" %}?nocache={% now "U" %}">
     <link rel="stylesheet" href="{% static "styles/footer.css" %}?nocache={% now "U" %}">
     <link rel="stylesheet" href="{% static "styles/ie10-viewport-bug-workaround.css" %}">
     {% block styles %}{% endblock %} {# Used so subpages can inject thier own styles #}
@@ -43,47 +42,30 @@
     <script src="https://use.typekit.net/fcm2zhl.js" defer></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
-<div class="container">
-    <div class="row flex-header">
-        <header>
-            <a class="primary-hspc-header" href="/">
-                <img alt="HSPC Logo" style="max-height: 58px; margin-top: 1px" src="{% static "imgs/logo-draft-v4_v.png" %}">
-{#                <img alt="HSPC Logo" src="{% static "imgs/logo-v2-80.png" %}">#}
-{#                <img alt="HSPC Logo" src="{% static "imgs/logo-v1-80.png" %}">#}
-{#                <h1>HSPC</h1>#}
-            </a>
-            <div id="nav-toggle" class="collapsed-menu-toggle">
-                <div class="toggle-button-bar"></div>
-                <div class="toggle-button-bar"></div>
-                <div class="toggle-button-bar"></div>
-            </div>
-        </header>
-        {% block nav %}
-            <nav>
-{#                <div class="container">#}
-{#                    <div class="navbar-header">#}
-{#                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">#}
-{#                            <span class="sr-only">Toggle navigation</span>#}
-{#                            <span class="icon-bar"></span>#}
-{#                            <span class="icon-bar"></span>#}
-{#                            <span class="icon-bar"></span>#}
-{#                        </button>#}
-{#                    </div>#}
-                    <div class="hoverDropdownNavbar">
-                        {% main_menu template="website/nav/main_menu_dropdown.html" %}
+<div class="before-header">
+    <div class="container">
+        <div class="row">
+            <header>
+                <a class="logo-link" href="/">
+                    <img alt="HSPC Logo" style="max-height: 42px" src="{% static "imgs/logo-draft-v4_v.png" %}">
+                </a>
+                <nav class="ddNavbar">
+                    {% main_menu template="website/nav/main_menu_dropdown.html" %}
+                    <div class="nav-toggle collapsed-menu-toggle">
+                        <div class="toggle-button-bar"></div>
+                        <div class="toggle-button-bar"></div>
+                        <div class="toggle-button-bar"></div>
                     </div>
-{#                </div>#}
-            </nav>
-        {% endblock %}
+                </nav>
+                <form class="header-search">
+                    <input type="search" name="q" placeholder="Search HSPC">
+                    <button type="submit">Go</button>
+                </form>
+            </header>
+        </div>
     </div>
 </div>
 

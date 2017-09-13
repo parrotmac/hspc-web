@@ -31,6 +31,34 @@ tagname.classname {
   transition: max-height 0.5s ease-in;
   overflow: hidden;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .hoverDropdownNavbar .collapsed-menu-toggle {
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #FFF;
+    transition: background-color 0.25s linear; }
+    .hoverDropdownNavbar .collapsed-menu-toggle .toggle-button-bar {
+      width: 40px;
+      height: 5px;
+      margin: 6px 0;
+      background-color: #0071bc;
+      transition: 0.4s ease-in-out; }
+    .hoverDropdownNavbar .collapsed-menu-toggle.open {
+      background-color: #EAEAEA; }
+      .hoverDropdownNavbar .collapsed-menu-toggle.open > .toggle-button-bar:first-child {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px); }
+      .hoverDropdownNavbar .collapsed-menu-toggle.open > .toggle-button-bar:nth-child(2) {
+        opacity: 0; }
+      .hoverDropdownNavbar .collapsed-menu-toggle.open > .toggle-button-bar:last-child {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px); }
+    @media (min-width: 768px) {
+      .hoverDropdownNavbar .collapsed-menu-toggle {
+        display: none; } }
   .hoverDropdownNavbar.mobile-open {
     max-height: 500px;
     /* Setting to a very large value allows for animation */

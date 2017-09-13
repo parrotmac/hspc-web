@@ -1,43 +1,14 @@
 @import "colors";
 
-//html, body {
-//  min-height: 100%;
-//}
-
 body {
   //background-color: #E4E7EA;
   //background-color: #254b71;
   //background-color: $body-background-color;
 }
 
-$breakpointWidth: 768px;
-
-.flex-header {
-  display: flex;
-  flex-direction: column;
-  padding: 0 15px;
-
-
-  @media(min-width: $breakpointWidth) {
-    flex-direction: row;
-  }
-
-  header {
-    margin-top: 8px;
-  }
-
-  nav {
-    flex-grow: 1;
-    @media(min-width: $breakpointWidth) {
-      margin: 8px 0 0 10px;
-    }
-  }
-
-}
-
 main {
   display: block;
-  margin-top: 15px;
+  margin-top: 60px;
   margin-bottom: 30px;
 }
 
