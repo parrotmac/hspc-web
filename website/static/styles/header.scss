@@ -71,6 +71,7 @@ header {
       display: block;
       width: 45px;
       height: 45px;
+      margin-top: 2px;
       padding: 10px;
 
       cursor: pointer;
@@ -182,8 +183,8 @@ nav.ddNavbar {
         margin: 0 25px 0 0;
         padding: 10px 0 0 0;
         background-color: #FFF;
-        font-weight: 500;
-        font-size: 17px;
+        font-weight: 400;
+        font-size: 18px;
         &:link, &:visited {
           color: $color-hspc-dark-gray;
         }
@@ -208,13 +209,13 @@ nav.ddNavbar {
             display: block;
             >a {
               @include commonLinkStyling;
-              padding: 5px 0 0 0;
+              padding: 5px 0 5px 0;
               @media (min-width: $breakpointWidth) {
                 padding: 4px 0;
               }
-              font-size: 14px;
+              font-size: 16px;
               &:link, &:visited {
-                color: $color-hspc-dark-gray;
+                color: $color-hspc-lighter-dark-gray;
               }
               &:hover {
                 color: $color-hspc-blue;

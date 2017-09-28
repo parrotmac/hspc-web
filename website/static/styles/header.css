@@ -59,6 +59,7 @@ header {
       display: block;
       width: 45px;
       height: 45px;
+      margin-top: 2px;
       padding: 10px;
       cursor: pointer;
       border-radius: 3px;
@@ -123,8 +124,8 @@ nav.ddNavbar {
         margin: 0 25px 0 0;
         padding: 10px 0 0 0;
         background-color: #FFF;
-        font-weight: 500;
-        font-size: 17px; }
+        font-weight: 400;
+        font-size: 18px; }
         nav.ddNavbar > ul.flattened-nav > li > a:link, nav.ddNavbar > ul.flattened-nav > li > a:visited {
           color: #4d4d4d; }
       nav.ddNavbar > ul.flattened-nav > li > .dropdown-reset {
@@ -146,13 +147,13 @@ nav.ddNavbar {
               position: relative;
               text-decoration: none;
               white-space: nowrap;
-              padding: 5px 0 0 0;
-              font-size: 14px; }
+              padding: 5px 0 5px 0;
+              font-size: 16px; }
               @media (min-width: 768px) {
                 nav.ddNavbar > ul.flattened-nav > li > .dropdown-reset > ul.flattened-dropdown-menu > li > a {
                   padding: 4px 0; } }
               nav.ddNavbar > ul.flattened-nav > li > .dropdown-reset > ul.flattened-dropdown-menu > li > a:link, nav.ddNavbar > ul.flattened-nav > li > .dropdown-reset > ul.flattened-dropdown-menu > li > a:visited {
-                color: #4d4d4d; }
+                color: #949494; }
               nav.ddNavbar > ul.flattened-nav > li > .dropdown-reset > ul.flattened-dropdown-menu > li > a:hover {
                 color: #0071bc; }
 
