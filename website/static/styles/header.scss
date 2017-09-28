@@ -180,10 +180,10 @@ nav.ddNavbar {
         @include commonLinkStyling;
 
         margin: 0 25px 0 0;
-        padding: 8px 0 0 0;
+        padding: 10px 0 0 0;
         background-color: #FFF;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 17px;
         &:link, &:visited {
           color: $color-hspc-dark-gray;
         }
