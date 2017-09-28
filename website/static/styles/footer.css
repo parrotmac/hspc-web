@@ -1,0 +1,20 @@
+footer {
+  width: 100%;
+  position: absolute;
+  background-color: #FFFFFF;
+  padding: 0 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.29);
+  text-align: center; }
+  footer .sitemap, footer .essential-info {
+    padding: 8px 0; }
+    footer .sitemap h4, footer .essential-info h4 {
+      font-weight: 200;
+      padding: 2px 0 0 0;
+      margin: 0;
+      font-size: 18px;
+      display: inline; }
+    footer .sitemap ul, footer .essential-info ul {
+      padding: 0 0 2px 0;
+      list-style: none; }
+      footer .sitemap ul li, footer .essential-info ul li {
+        padding: 0 5px; }

@@ -1,4 +1,4 @@
-@import "colors";
+@import "colors.scss";
 
 $panel-text-background: rgba(0, 0, 0, 0.35);
 
@@ -18,7 +18,7 @@ $screen-lg-min: 1200px;
     .item {
       img {
         //filter: blur(2px) brightness(0.2);
-        @include styled-corners();
+        //@include styled-corners();
       }
       .carousel-caption {
         top: 5px;
@@ -80,7 +80,7 @@ $screen-lg-min: 1200px;
   position: relative;
   display: block;
 
-  @include styled-corners();
+  //@include styled-corners();
 }
 
 .hspc-panel-4:first-child, .hspc-panel-12:first-child {
@@ -212,7 +212,7 @@ ul#benefactorListing > li > a > h3.benefactor-name {
 
 
 .hspc-panel-bg {
-  @include styled-corners();
+  //@include styled-corners();
 
   background-size: cover;
   background-attachment: scroll;

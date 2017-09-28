@@ -1,13 +1,289 @@
+/* See https://codepen.io/parrotmac/pen/eEajYz */
+/*
+Typical rule structure should be as follows:
 
-/* HSPC: */
-a.primary-hspc-header {
+tagname.classname {
+
+  // First include mixins
+  @include mixinsFirst;
+
+  // Then mechanics
+  display: flex;
+  position: fixed;
+  box-sizing: border-box;
+
+  // Finally display settings
+  background-color: #EAEAEA;
+  box-shadow: 0 0 5px #F63;
+}
+
+*/
+
+@import "colors.scss";
+
+
+$breakpointWidth: 768px;
+
+/* Drop shadow  box */
+div.before-header {
+  padding: 5px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 5000;
+  background-color: white;
+  box-shadow: 0 0 2px 2px rgba(58, 58, 58, 0.5);
+}
+
+
+header {
+  display: flex;
+
+  flex-direction: column;
+  @media(min-width: $breakpointWidth) {
+    flex-direction: row; /* Setup as side-by-side for logo, nav and search */
+    justify-content: space-between; /* Aim for equal spacing betwixt items */
+  }
+  align-items: flex-start; /* Top-to-bottom position -- keep at top */
+  padding: 0 15px; /* Match styling of most of the page with a 15px padding on each size */
+
+  .header-reset {
+    order: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @media(min-width: $breakpointWidth) {
+      width: auto;
+    }
+
+    a.logo-link {
+      display: block;
+      position: relative;
+
+      img {
+        display: block;
+      }
+    }
+
+
+    .collapsed-menu-toggle {
+      display: block;
+      width: 45px;
+      height: 45px;
+      padding: 10px;
+
+      cursor: pointer;
+      border-radius: 3px;
+      background-color: #FFF;
+      transition: background-color 0.25s linear;
+
+      .toggle-button-bar {
+        width: 25px;
+        height: 3px;
+        margin: 3px 0;
+
+        background-color: $color-hspc-blue;
+        transition: 0.4s ease-in-out;
+      }
+
+      &.open {
+
+        //background-color: #EAEAEA;
+
+        & > .toggle-button-bar:first-child {
+          -webkit-transform: rotate(-45deg) translate(-6px, 4px);
+          transform: rotate(-45deg) translate(-6px, 4px);
+        }
+        & > .toggle-button-bar:nth-child(2) {
+          transform: rotate(360deg);
+          opacity: 0;
+        }
+        & > .toggle-button-bar:last-child {
+          -webkit-transform: rotate(45deg) translate(-4px, -3px);
+          transform: rotate(45deg) translate(-4px, -3px);
+        }
+      }
+      @media(min-width: $breakpointWidth) {
+        display: none;
+      }
+    }
+
+
+
+  }
+
+}
+
+
+
+@mixin saneUl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin commonLinkStyling {
   display: block;
   position: relative;
-  
-  img {
-    height: 80px;
-    margin: 5px auto;
-    display: block;
-    border: none; /* What if somebody used Firefox 3!? */
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+nav.ddNavbar {
+  order: 3;
+  @media(min-width: $breakpointWidth) {
+    order: 2;
+  }
+
+  flex-grow: 1;
+
+  &.mobile-open >ul.flattened-nav {
+    max-height: none;
+  }
+
+  >ul.flattened-nav {
+    @include saneUl;
+
+    display: flex;
+
+    max-height: 0;
+    overflow: hidden;
+
+    @media (min-width: $breakpointWidth) {
+      flex-direction: row;
+      align-content: space-around;
+      max-height: none;
+    }
+
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 20px;
+
+    @media (min-width: $breakpointWidth) {
+      &:hover > li > .dropdown-reset {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        max-height: 500px;
+      }
+    }
+
+    >li {
+      display: block;
+      box-sizing: border-box;
+
+      border: none;
+
+
+      >a {
+
+        @include commonLinkStyling;
+
+        margin: 0 25px 0 0;
+        padding: 10px 0 0 0;
+        background-color: #FFF;
+        font-weight: 500;
+        font-size: 17px;
+        &:link, &:visited {
+          color: $color-hspc-dark-gray;
+        }
+      }
+
+      >.dropdown-reset {
+
+        margin: 0;
+
+        @media (min-width: $breakpointWidth) {
+          margin: 0;
+          max-height: 0;
+        }
+
+        transition: margin 0.15s ease-in-out, max-height 0.15s ease-in-out;
+        overflow: hidden;
+
+        >ul.flattened-dropdown-menu {
+
+          @include saneUl;
+          >li {
+            display: block;
+            >a {
+              @include commonLinkStyling;
+              padding: 5px 0 0 0;
+              @media (min-width: $breakpointWidth) {
+                padding: 4px 0;
+              }
+              font-size: 14px;
+              &:link, &:visited {
+                color: $color-hspc-dark-gray;
+              }
+              &:hover {
+                color: $color-hspc-blue;
+              }
+            }
+          }
+
+        }
+      }
+
+    }
+
   }
 }
+
+
+form.header-search {
+
+  @media (min-width: $breakpointWidth) {
+    order: 3;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  order: 2;
+  display: none;
+  flex-grow: 1;
+  padding: 5px 0;
+  margin-top: 2px;
+  max-height: 42px;
+
+  $border-styling: 1px solid $color-hspc-blue;
+  $active-border-styling: 2px solid $color-hspc-blue;
+  input[type=search] {
+    flex-grow: 1;
+
+    max-width: 180px;
+    width: 180px;
+
+    border-top: $border-styling;
+    border-right: none;
+    border-bottom: $border-styling;
+    border-left: $border-styling;
+
+    transition: 0.15s ease-in-out;
+
+    &:focus {
+      margin: 0  0 -1px 0;
+      border-bottom: $active-border-styling;
+      width: 240px;
+      max-width: 240px;
+    }
+
+    outline: none !important;
+
+  }
+  button[type=submit] {
+    background-color: rgba(255, 255, 255, 0);
+    border-top: $border-styling;
+    border-right: $border-styling;
+    border-bottom: $border-styling;
+    border-left: $border-styling;
+
+    &:hover, &:active, &:focus {
+      margin: 0 0 -1px 0;
+      border-bottom: $active-border-styling;
+    }
+
+    outline: none !important;
+  }
+}
+

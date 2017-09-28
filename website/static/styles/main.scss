@@ -1,8 +1,4 @@
-@import "colors";
-
-//html, body {
-//  min-height: 100%;
-//}
+@import "colors.scss";
 
 body {
   //background-color: #E4E7EA;
@@ -12,7 +8,7 @@ body {
 
 main {
   display: block;
-  margin-top: 15px;
+  margin-top: 80px;
   margin-bottom: 30px;
 }
 

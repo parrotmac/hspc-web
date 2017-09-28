@@ -32,52 +32,42 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static "pace.css" %}">
-    <link rel="stylesheet" href="{% static "main.css" %}?nocache={% now "U" %}">
-    <link rel="stylesheet" href="{% static "header.css" %}?nocache={% now "U" %}">
-    <link rel="stylesheet" href="{% static "nav.css" %}?nocache={% now "U" %}">
-    <link rel="stylesheet" href="{% static "footer.css" %}?nocache={% now "U" %}">
-    <link rel="stylesheet" href="{% static "ie10-viewport-bug-workaround.css" %}">
+    <link rel="stylesheet" href="{% static "styles/pace.css" %}">
+    <link rel="stylesheet" href="{% static "styles/main.css" %}?nocache={% now "U" %}">
+    <link rel="stylesheet" href="{% static "styles/header.css" %}?nocache={% now "U" %}">
+    <link rel="stylesheet" href="{% static "styles/footer.css" %}?nocache={% now "U" %}">
+    <link rel="stylesheet" href="{% static "styles/ie10-viewport-bug-workaround.css" %}">
     {% block styles %}{% endblock %} {# Used so subpages can inject thier own styles #}
 
     <script src="https://use.typekit.net/fcm2zhl.js" defer></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
-<div class="container">
-    <div class="row">
-        <header>
-            <a class="primary-hspc-header" href="/">
-                <img alt="HSPC Logo" src="{% static "imgs/logo-v2-80.png" %}">
-{#                <img alt="HSPC Logo" src="{% static "imgs/logo-v1-80.png" %}">#}
-{#                <h1>HSPC</h1>#}
-            </a>
-        </header>
-        {% block nav %}
-            <nav>
-{#                <div class="container">#}
-{#                    <div class="navbar-header">#}
-{#                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">#}
-{#                            <span class="sr-only">Toggle navigation</span>#}
-{#                            <span class="icon-bar"></span>#}
-{#                            <span class="icon-bar"></span>#}
-{#                            <span class="icon-bar"></span>#}
-{#                        </button>#}
-{#                    </div>#}
-                    <div id="hoverDropdownNavbar">
-                        {% main_menu template="website/nav/main_menu_dropdown.html" %}
+<div class="before-header">
+    <div class="container">
+        <div class="row">
+            <header>
+                <div class="header-reset">
+                    <a class="logo-link" href="/">
+                        <img alt="HSPC Logo" style="max-height: 48px" src="{% static "imgs/logo-pills-v2.png" %}">
+                    </a>
+                    <div class="nav-toggle collapsed-menu-toggle">
+                        <div class="toggle-button-bar"></div>
+                        <div class="toggle-button-bar"></div>
+                        <div class="toggle-button-bar"></div>
                     </div>
-{#                </div>#}
-            </nav>
-        {% endblock %}
+                </div>
+                <nav class="ddNavbar">
+                    {% main_menu template="website/nav/main_menu_dropdown.html" %}
+                </nav>
+                <form class="header-search">
+                    <input type="search" name="q" placeholder="Search HSPC">
+                    <button type="submit">Go</button>
+                </form>
+            </header>
+        </div>
     </div>
 </div>
 
@@ -98,7 +88,7 @@
             {#            <div class="col-sm-4">#}
             <div class="col-sm-4 col-sm-offset-2">
                 <div class="essential-info ei-general">
-                    <h4>&copy; 2017 HSPC Consortium</h4>
+                    <h4>&copy; 2017 Health Services Platform Consortium</h4>
                     <ul>
                         <li>
                             <a href="/privacy/">Privacy Statement</a>
@@ -122,6 +112,7 @@
 {#<script src="{% static "scripts/pace.min.js" %}"></script>#}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{% static "scripts/nav.js" %}?nocache={% now "U" %}"></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>
