@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"grunt\" \"PYTHONUNBUFFERED=1 python manage.py runserver 8000\"",
-    "build": "grunt sass"
+    "build-css": "node-sass-chokidar website/static/styles/ -o website/static/styles/",
+    "watch-css": "npm run build-css && node-sass-chokidar website/static/styles/ -o website/static/styles/ --watch --recursive",
+    "dev": "concurrently \"PYTHONUNBUFFERED=1 python manage.py runserver 8000\" \"npm run watch-css\"",
+    "build": "npm run build-css"
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,6 @@
   "homepage": "https://github.com/parrotmac/hspc-web#readme",
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0"
+    "node-sass-chokidar": "^0.0.3"
   }
 }

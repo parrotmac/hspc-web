@@ -1,0 +1,10 @@
+/* Not all of the navbar- prefixed variables are used or appropriately named */
+main {
+  display: block;
+  margin-top: 80px;
+  margin-bottom: 30px; }
+
+#primary-carousel {
+  padding: 0 15px 0 15px; }
+  #primary-carousel .carousel-inner .item img {
+    width: 100%; }
