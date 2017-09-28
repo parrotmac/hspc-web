@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAIA,oBAAqB;EACnB,aAAa,EAAE,cAAc",
-"sources": ["robust-info-page.scss"],
-"names": [],
-"file": "robust-info-page.css"
-}
