@@ -1,0 +1,13 @@
+{% overextends "wagtailadmin/base.html" %}
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <style>
+    /* Admin-related styles can be injected here */
+    </style>
+{% endblock %}
+
+{% block branding_logo %}
+    <img src="{% static "imgs/logo-pills-v1.png" %}" alt="HSPC Logo" width="80" style="background-color: #FFF; padding: 10px;" />
+{% endblock %}

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
 
     'bootstrap3',
+    'overextends',
 
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
@@ -95,6 +96,7 @@ TEMPLATES = [
         ,
         'APP_DIRS': True,
         'OPTIONS': {
+            'builtins': ['overextends.templatetags.overextends_tags'],
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
@@ -198,7 +200,6 @@ STATIC_HOST = os.environ.get('DJANGO_STATIC_HOST', '')
 STATIC_URL = STATIC_HOST + '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "dist"),
     os.path.join(BASE_DIR, "website", "static"),
 ]
 

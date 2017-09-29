@@ -1,12 +1,5 @@
 FROM node:8-alpine as builder
 
-RUN apk update
-RUN apk add alpine-sdk
-RUN apk add ruby ruby-dev ruby-rdoc ruby-irb
-RUN apk add libffi-dev
-
-RUN gem install sass
-
 RUN mkdir -p /app/build
 WORKDIR /app/build
 
@@ -14,13 +7,9 @@ COPY package.json /app/build/
 
 RUN npm install
 
-COPY Gruntfile.js /app/build/
-
 COPY . /app/build/
 
 RUN npm run build
-
-RUN rm -rf website/static
 
 FROM python:3.6
 ENV PYTHONUNBUFFERED 1
@@ -41,7 +30,7 @@ COPY website /django/website
 COPY manage.py /django/
 COPY upgrade-and-run.sh /django/
 
-COPY --from=builder /app/build/dist/ /django/dist/
+COPY --from=builder /app/build/website/static/styles/ /django/website/static/styles/
 
 RUN python manage.py collectstatic --noinput --clear
 
