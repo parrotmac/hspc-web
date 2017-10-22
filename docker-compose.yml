@@ -1,0 +1,56 @@
+version: '2'
+
+services:
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=iLovePancakesWithSyrupAndKetchup # Update me
+    ports:
+      - "5533:5432"
+    volumes:
+      - ./postgresql/data/:/var/lib/postgresql/data/
+    networks:
+      - hspc-proxy
+    container_name: hspc-postgres
+
+  django:
+    restart: always
+    image: thingregistry.com/hspc-django
+    links:
+      - postgres:postgres
+    expose:
+      - "8000"
+    environment:
+      - DATABASE=postgres
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_PASSWORD=iLovePancakesWithSyrupAndKetchup # Update me
+    volumes:
+      - /django/static/
+      - ./media/:/django/media
+      - ./logs:/django/logs
+    networks:
+      - hspc-proxy
+    container_name: hspc-django
+
+  nginx:
+    restart: always
+    image: thingregistry.com/dn-mk2
+    environment:
+      - VIRTUAL_HOST=hspc.stag9.com
+      - LETSENCRYPT_HOST=hspc.stag9.com
+      - LETSENCRYPT_EMAIL=isaac@sianware.com
+    volumes_from:
+      - django
+    links:
+      - django:django
+    networks:
+      - hspc-proxy
+    container_name: hspc-nginx
+
+networks:
+  hspc-proxy:
+    external:
+      name: nginx-proxy

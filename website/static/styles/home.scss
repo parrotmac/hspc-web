@@ -232,14 +232,14 @@ ul#benefactorListing > li > a > h3.benefactor-name {
 #panel-collaborate {
   background-image: url(/static/imgs/pexels-photo-541523-shaking-hands-cropped.jpeg);
   > div {
-    background-color: rgba(136, 83, 0, 0.5);
+    background-color: rgba(113, 113, 113, 0.5);
   }
 }
 
 #panel-marketplace {
-  background-image: url(/static/imgs/stock-photo-railway-night-market-in-bangkok-thailand-392257240-cropped.jpg);
+  background-image: url(/static/imgs/pexels-photo-239898.jpeg);
   > div {
-    background-color: rgba(6, 51, 87, 0.58);
+    background-color: rgba(101, 23, 23, 0.58)
   }
 }
 
@@ -247,7 +247,7 @@ ul#benefactorListing > li > a > h3.benefactor-name {
   background-image: url(/static/imgs/pexels-photo-273011-calendar.jpeg);
   > div {
     //background-color: rgba(6, 51, 87, 0.58);
-    background: linear-gradient(135deg, rgb(6,51,87), rgb(6,51,87), rgba(0,0,0,0));
+    background: linear-gradient(135deg, rgba(6, 51, 87, 0.9), rgba(6, 51, 87, 0.65))
   }
 
 }
