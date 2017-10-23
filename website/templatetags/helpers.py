@@ -4,14 +4,9 @@ from django import template
 from django.db.models import Q
 from django.urls import NoReverseMatch, reverse
 
-from website.models import MenuEntry, Event, EventCategory
+from website.models import Event, Announcement, NewsMention
 
 register = template.Library()
-
-@register.simple_tag
-def get_main_navigation():
-    menu_entries = MenuEntry.objects.all()
-    return menu_entries
 
 @register.simple_tag(takes_context=True)
 def active(context, pattern_or_urlname):
@@ -37,3 +32,12 @@ def get_past_events():
 @register.simple_tag
 def get_some_future_events():
     return get_future_events()[:3]
+
+@register.simple_tag
+def get_latest_announcement():
+    return Announcement.objects.order_by('-created').first()
+
+@register.simple_tag
+def get_latest_newsroom_entries():
+    return NewsMention.objects.order_by('-created')[:2]
+

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% load helpers %}
+
+{% block page_title %}Announcements{% endblock %}
+{% block styles %}
+    <link href="{% static "styles/announcements.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+
+    <div class="col-md-8 col-md-offset-2">
+
+        <h2 class="text-center">Announcements</h2>
+        <hr>
+        {% for announcement in announcement_list %}
+            <div class="event-panel-container" id="announcement-{{ announcement.pk }}">
+                <div class="panel panel-default event-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Posted {{ announcement.created }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ announcement.body|safe }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}

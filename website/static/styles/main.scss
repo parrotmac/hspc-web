@@ -1,12 +1,21 @@
 @import "colors.scss";
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   //background-color: #E4E7EA;
   //background-color: #254b71;
   //background-color: $body-background-color;
 }
 
 main {
+  flex-grow: 1;
   display: block;
   margin-top: 80px;
   margin-bottom: 30px;

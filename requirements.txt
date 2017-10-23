@@ -6,4 +6,3 @@ psycopg2
 whitenoise
 django-bootstrap3
 django-overextends
-git+git://github.com/parrotmac/django-simple-rest

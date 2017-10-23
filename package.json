@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-css": "node-sass-chokidar website/static/styles/ -o website/static/styles/",
     "watch-css": "npm run build-css && node-sass-chokidar website/static/styles/ -o website/static/styles/ --watch --recursive",
-    "dev": "concurrently \"PYTHONUNBUFFERED=1 python manage.py runserver 8000\" \"npm run watch-css\"",
+    "dev": "concurrently \"PYTHONUNBUFFERED=1 python manage.py runserver 0.0.0.0:8000\" \"npm run watch-css\"",
     "build": "npm run build-css"
   },
   "repository": {

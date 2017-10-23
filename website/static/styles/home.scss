@@ -222,61 +222,60 @@ ul#benefactorListing > li > a > h3.benefactor-name {
   }
 }
 
-#panel-join-now {
-  background-image: url(/static/imgs/pexels-photo-209651-wooden-pawns-cropped.jpeg);
-  > div {
-    background-color: rgba(21, 136, 23, 0.5);
-  }
-}
-
-#panel-collaborate {
-  background-image: url(/static/imgs/pexels-photo-541523-shaking-hands-cropped.jpeg);
-  > div {
-    background-color: rgba(113, 113, 113, 0.5);
-  }
-}
-
-#panel-marketplace {
-  background-image: url(/static/imgs/pexels-photo-239898.jpeg);
-  > div {
-    background-color: rgba(101, 23, 23, 0.58)
-  }
-}
-
 #panel-events {
   background-image: url(/static/imgs/pexels-photo-273011-calendar.jpeg);
   > div {
-    //background-color: rgba(6, 51, 87, 0.58);
-    background: linear-gradient(135deg, rgba(6, 51, 87, 0.9), rgba(6, 51, 87, 0.65))
+    background: rgba(138, 140, 85, 0.44);
   }
 
 }
+
+#panel-announcements {
+  background-image: url(/static/imgs/night-vintage-music-bokeh.jpg);
+  > div {
+    background-color: rgba(144, 37, 37, 0.63);
+  }
+}
+
+
+#panel-newsroom {
+  background-image: url(/static/imgs/pexels-photo-261949-newspaper.jpeg);
+  > div {
+    background-color: rgba(6, 51, 87, 0.58);
+  }
+}
+
 
 #panel-benefactors {
   background-image: url(/static/imgs/pexels-photo-156731-old-man-smiling.jpeg);
   > div {
-    background-color: rgba(6, 51, 87, 0.58);
+    background-color: rgba(230, 102, 41, 0.35);
+  padding-bottom: 10px;
   }
+
 
 }
 
 
-//.hspc-panel-benefactor-list {
-//  width: 100%;
-//  list-style: none;
-//  margin: 20px;
-//  li {
-//    a:link, a:visited {
-//      color: $hspc-panel-text-color;
-//    }
-//  }
-//}
-
+.newsroom-latest {
+  >h4 {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+  }
+  >a {
+    &:link, &:visited {
+      color: white;
+    }
+    margin: 0;
+    padding: 0;
+  }
+}
 
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) {
-  ul#eventListing, ul#benefactorListing {
+  ul#eventListing {
     flex-direction: row;
   }
 
@@ -317,11 +316,6 @@ ul#benefactorListing > li > a > h3.benefactor-name {
     i.material-icons {
       position: absolute;
     }
-  }
-
-  ul#benefactorListing > li > a > h3.benefactor-name {
-      padding: 35px 0;
-      margin: 10px;
   }
 
 }

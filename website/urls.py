@@ -1,13 +1,12 @@
 from django.conf.urls import url
-from django.urls import reverse
-
-from website.api import EventsApi
-from website.views import EventListView, RegistrationRequestView, RegistrationRequestSuccessView
+from website.views import EventListView, RegistrationRequestView, RegistrationRequestSuccessView, AnnouncementListView, \
+    NewsListView
 
 urlpatterns = [
-    # url(r'^$', TemplateView.as_view(template_name="home-site/home.html"), name="home"),
 
     url(r'^events/$', EventListView.as_view(), name="event-list"),
+    url(r'^announcements/$', AnnouncementListView.as_view(), name='announcement-list'),
+    url(r'^newsroom/$', NewsListView.as_view(), name='newsroom-list'),
 
     url(
         r'^membership/join/request/submitted/$',
@@ -21,9 +20,4 @@ urlpatterns = [
         name="registration-request"
     ),
 
-    # Just so we have a starting point in the future
-    url(r'^api/v1/event/?$', EventsApi.as_view()),
-    url(r'^api/v1/event/(?P<event_id>[0-9]+)/?$', EventsApi.as_view()),
-
-    # url(r'^(?P<url>.*/)$', include('django.contrib.flatpages.urls')),
 ]

@@ -1,6 +1,8 @@
 from wagtail.contrib.modeladmin.options import (
     ModelAdmin, modeladmin_register)
-from .models import Event, EventCategory
+from wagtail.wagtailcore.fields import RichTextField
+
+from .models import Event, EventCategory, Announcement, NewsMention
 
 
 class EventModelAdmin(ModelAdmin):
@@ -35,6 +37,53 @@ class EventCategoryAdmin(ModelAdmin):
     search_fields = ('name',)
 
 
+class AnnouncementAdmin(ModelAdmin):
+    model = Announcement
+    menu_icon = 'pick'
+    menu_order = 240
+    add_to_settings_menu = False
+    exclude_from_explorer = False
+    list_display = (
+        'title',
+        'created',
+        'body',
+    )
+    list_filter = (
+        'title',
+        'created',
+    )
+    search_fields = (
+        'title',
+        'created',
+        'body',
+    )
+
+class NewsAdmin(ModelAdmin):
+    model = NewsMention
+    menu_icon = 'doc-full-inverse'
+    menu_order = 250
+    add_to_settings_menu = False
+    exclude_from_explorer = False
+    list_display = (
+        'title',
+        'created',
+        'display_text',
+    )
+    list_filter = (
+        'title',
+        'created',
+        'display_text',
+    )
+    search_fields = (
+        'title',
+        'created',
+        'display_text',
+        'url',
+    )
+
+
 # Now you just need to register your customised ModelAdmin class with Wagtail
 modeladmin_register(EventModelAdmin)
 modeladmin_register(EventCategoryAdmin)
+modeladmin_register(AnnouncementAdmin)
+modeladmin_register(NewsAdmin)

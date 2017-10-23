@@ -1,0 +1,23 @@
+{% load wagtailcore_tags %}
+
+{# The image background_image url is currently broken https://github.com/wagtail/wagtail/issues/2087 #}
+<div class="hspc-panel-bg" style="background-image: url({{ value.background_image }})">
+    <div class="hspc-panel hspc-panel-4" style="background-color: {{ value.overlay_css_background_color }}">
+        <div class="hspc-panel-face">
+            <div class="hspc-panel-icon">
+                <span class="material-icons">{{ value.material_icon_name }}</span>
+            </div>
+            <h2 class="hspc-panel-title">{{ value.title }}</h2>
+        </div>
+        <div class="hspc-panel-text">
+            {{ value.body }}
+        </div>
+        {% if value.link_text != None and value.link_url != None %}
+            <div class="hspc-panel-button-wrapper">
+                <a class="btn btn-default hspc-panel-button" href="{{ value.link_url }}">{{ value.link_text }} {% if value.link_is_external %}<i class="material-icons">open_in_new</i>{% else %}&raquo;{% endif %}</a>
+            </div>
+        {% else %}
+            <!-- Ensure both link_text and link_url are defined in the CMS -->
+        {% endif %}
+    </div>
+</div>

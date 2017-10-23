@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% load helpers %}
+
+{% block page_title %}Newsroom{% endblock %}
+{% block styles %}
+    <link href="{% static "styles/newsroom.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+
+    <div class="col-md-8 col-md-offset-2">
+
+        <h2 class="text-center">Newsroom</h2>
+        <hr>
+        {% for news_mention in newsmention_list %}
+            <div class="event-panel-container" id="news-{{ news_mention.pk }}">
+                <div class="panel panel-default event-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ news_mention.title }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <a href="{{ news_mention.url }}">{{ news_mention.display_text }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}

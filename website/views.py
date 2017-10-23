@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, View
 
 from website.forms import RegistrationRequestForm
-from website.models import Event, EventCategory
+from website.models import EventCategory, Announcement, NewsMention
 
 
 class EventListView(ListView):
@@ -11,8 +11,22 @@ class EventListView(ListView):
     template_name = "website/events.html"
 
     def get_context_data(self, **kwargs):
-        context = super(EventListView, self).get_context_data(**kwargs)
-        return context
+        return super(EventListView, self).get_context_data(**kwargs)
+
+
+class AnnouncementListView(ListView):
+    model = Announcement
+    template_name = "website/announcements.html"
+    queryset = Announcement.objects.order_by('-created')
+
+    def get_context_data(self, **kwargs):
+        return super(AnnouncementListView, self).get_context_data(**kwargs)
+
+
+class NewsListView(ListView):
+    model = NewsMention
+    template_name = 'website/newsroom.html'
+
 
 class RegistrationRequestView(CreateView):
     form_class = RegistrationRequestForm

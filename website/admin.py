@@ -4,4 +4,5 @@ import website.models
 
 admin.site.register(website.models.Event)
 admin.site.register(website.models.EventCategory)
-admin.site.register(website.models.MenuEntry)
+admin.site.register(website.models.NewsMention)
+admin.site.register(website.models.Announcement)

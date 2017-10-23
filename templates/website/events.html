@@ -37,7 +37,7 @@
                             <div class="panel-body">
                                 <p><strong>When:</strong> {{ event.display_date }}</p>
                                 <p><strong>Where:</strong> {{ event.location }}</p>
-                                <p>{{ event.event_details }}</p>
+                                <p>{{ event.event_details|safe }}</p>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                             <div class="panel-body">
                                 <p><strong>When:</strong> {{ event.display_date }}</p>
                                 <p><strong>Where:</strong> {{ event.location }}</p>
-                                <p>{{ event.event_details }}</p>
+                                <p>{{ event.event_details|safe }}</p>
                             </div>
                         </div>
                     </div>
