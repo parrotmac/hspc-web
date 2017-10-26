@@ -6,6 +6,10 @@ from django.urls import NoReverseMatch, reverse
 
 from website.models import Event, Announcement, NewsMention
 
+"""
+Most of these are needed simply because of a lack of DB context within the Homepage template
+"""
+
 register = template.Library()
 
 @register.simple_tag(takes_context=True)
@@ -31,7 +35,7 @@ def get_past_events():
 
 @register.simple_tag
 def get_some_future_events():
-    return get_future_events()[:3]
+    return get_future_events()[:2]
 
 @register.simple_tag
 def get_latest_announcement():
@@ -39,5 +43,4 @@ def get_latest_announcement():
 
 @register.simple_tag
 def get_latest_newsroom_entries():
-    return NewsMention.objects.order_by('-created')[:2]
-
+    return NewsMention.objects.order_by('-date')[:2]

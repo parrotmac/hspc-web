@@ -38,24 +38,23 @@ class Event(models.Model):
         ordering = ["hidden_date"]
 
 
-class NewsMention(models.Model):
-    created = models.DateTimeField(default=datetime.now, editable=False)
-    title = models.CharField(max_length=255)
-    url = models.URLField()
-    display_text = models.CharField(max_length=255)
-
-
-    def __str__(self):
-        return self.title
-
-
 class Announcement(models.Model):
-    title = models.CharField(max_length=255, help_text='Only displayed in the CMS or Admin UI.')
+    hidden_label = models.CharField(max_length=255, help_text='Only displayed in the CMS or Admin UI.')
     created = models.DateTimeField(default=datetime.now, editable=False)
-    body = RichTextField()
+    announcement = RichTextField()
 
     def __str__(self):
-        return self.title
+        return self.hidden_label
+
+
+class NewsMention(models.Model):
+    source = models.CharField(max_length=255)
+    date = models.DateField()
+    url = models.URLField()
+    article_title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "{} - {}".format(self.source, self.date)
 
 
 class RegistrationRequest(models.Model):
@@ -87,7 +86,7 @@ class HomePage(MenuPage):
 
     body = StreamField([
         ('homepage_panel', HomepagePanelBlock()),
-    ])
+    ], blank=True)
 
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),

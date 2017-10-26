@@ -44,18 +44,18 @@ class AnnouncementAdmin(ModelAdmin):
     add_to_settings_menu = False
     exclude_from_explorer = False
     list_display = (
-        'title',
+        'hidden_label',
         'created',
-        'body',
+        'announcement',
     )
     list_filter = (
-        'title',
+        'hidden_label',
         'created',
     )
     search_fields = (
-        'title',
+        'hidden_label',
         'created',
-        'body',
+        'announcement',
     )
 
 class NewsAdmin(ModelAdmin):
@@ -65,19 +65,21 @@ class NewsAdmin(ModelAdmin):
     add_to_settings_menu = False
     exclude_from_explorer = False
     list_display = (
-        'title',
-        'created',
-        'display_text',
+        'source',
+        'date',
+        'article_title',
+        'url',
     )
     list_filter = (
-        'title',
-        'created',
-        'display_text',
+        'source',
+        'date',
+        'article_title',
+        'url',
     )
     search_fields = (
-        'title',
-        'created',
-        'display_text',
+        'source',
+        'date',
+        'article_title',
         'url',
     )
 

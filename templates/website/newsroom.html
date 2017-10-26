@@ -17,10 +17,10 @@
             <div class="event-panel-container" id="news-{{ news_mention.pk }}">
                 <div class="panel panel-default event-panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">{{ news_mention.title }}</h3>
+                        <h3 class="panel-title"><strong>{{ news_mention.source }} - {{ news_mention.date }}</strong></h3>
                     </div>
                     <div class="panel-body">
-                        <a href="{{ news_mention.url }}">{{ news_mention.display_text }}</a>
+                        <a href="{{ news_mention.url }}">{{ news_mention.article_title }}</a>
                     </div>
                 </div>
             </div>

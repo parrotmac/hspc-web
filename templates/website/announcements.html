@@ -17,10 +17,10 @@
             <div class="event-panel-container" id="announcement-{{ announcement.pk }}">
                 <div class="panel panel-default event-panel">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Posted {{ announcement.created }}</h3>
+                        <h3 class="panel-title"><strong>Posted {{ announcement.created }}</strong></h3>
                     </div>
                     <div class="panel-body">
-                        <p>{{ announcement.body|safe }}</p>
+                        <p>{{ announcement.announcement|safe }}</p>
                     </div>
                 </div>
             </div>

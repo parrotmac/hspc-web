@@ -158,7 +158,7 @@ $screen-lg-min: 1200px;
 
 
 
-ul#eventListing, ul#benefactorListing {
+ul#eventListing, ul#benefactorListing, ul#newsroomListing {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -181,9 +181,11 @@ ul#eventListing, ul#benefactorListing {
       color: $hspc-panel-text-color;
     }
 
-    a>h3 {
-      padding: 5px 0 0 0;
-      margin: 0;
+    a>h4 {
+      font-size: 24px;
+      //font-weight: bold;
+      //padding: 5px 0 0 0;
+      //margin: 0;
     }
 
     a>p {
@@ -194,11 +196,11 @@ ul#eventListing, ul#benefactorListing {
 
   li:hover {
     a, a:link, a:visited {
-      text-decoration: none;
+      text-decoration: underline;
     }
-    background-color: $hspc-panel-text-color;
+    //background-color: $hspc-panel-text-color;
     h3, p {
-      color: $hspc-panel-background-color;
+      //color: $hspc-panel-background-color;
     }
   }
 
@@ -234,6 +236,12 @@ ul#benefactorListing > li > a > h3.benefactor-name {
   background-image: url(/static/imgs/night-vintage-music-bokeh.jpg);
   > div {
     background-color: rgba(144, 37, 37, 0.63);
+    .hspc-panel-text {
+      a, a:link, a:visited {
+        color: white;
+        text-decoration: underline;
+      }
+     }
   }
 }
 
@@ -247,37 +255,37 @@ ul#benefactorListing > li > a > h3.benefactor-name {
 
 
 #panel-benefactors {
-  background-image: url(/static/imgs/pexels-photo-156731-old-man-smiling.jpeg);
+  background-image: url(/static/imgs/sun-mt-fuji-japan-landscape-407039.jpeg);
   > div {
     background-color: rgba(230, 102, 41, 0.35);
-  padding-bottom: 10px;
+    padding-bottom: 10px;
   }
 
 
 }
 
 
-.newsroom-latest {
-  >h4 {
-    padding: 0;
-    margin: 0;
-    font-weight: bold;
-  }
-  >a {
-    &:link, &:visited {
-      color: white;
-    }
-    margin: 0;
-    padding: 0;
-  }
-}
+//.newsroom-latest {
+//  >h4 {
+//    padding: 0;
+//    margin: 0;
+//    font-weight: bold;
+//  }
+//  >a {
+//    &:link, &:visited {
+//      color: white;
+//    }
+//    margin: 0;
+//    padding: 0;
+//  }
+//}
 
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) {
-  ul#eventListing {
-    flex-direction: row;
-  }
+  //ul#eventListing {
+  //  flex-direction: row;
+  //}
 
   .hspc-panel-4, .hspc-panel-12 {
     margin-left: 0;
@@ -323,6 +331,12 @@ ul#benefactorListing > li > a > h3.benefactor-name {
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: $screen-lg-min) {
   .hspc-panel-4, .hspc-panel-12 {
+    //height: calc(360px - 30px);
+    //height: 460px;
+    height: 400px;
+  }
+
+  .hspc-panel-shorter {
     height: calc(360px - 30px);
   }
 
