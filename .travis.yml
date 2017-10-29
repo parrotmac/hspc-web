@@ -12,6 +12,7 @@ jobs:
   include:
     - stage: build docker image
       script:
+      - docker --version
       - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       - docker build -t hspc-django .
       - docker images
