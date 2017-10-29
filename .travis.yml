@@ -1,0 +1,14 @@
+sudo: true
+dist: trusty
+language: python
+python:
+  - '3.5'
+jobs:
+  include:
+    - stage: build docker image
+      script:
+      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      - docker build -t hspc-django .
+      - docker images
+      - docker tag hspc-django $DOCKER_USERNAME/hspc-django
+      - docker push $DOCKER_USERNAME/hspc-django
