@@ -16,6 +16,8 @@ _Note: The project will default to SQLite if `DATABASE` is not specified_
 - POSTGRES_HOST=postgres          # Hostname of Postgres database
 - POSTGRES_PORT=5432              # DB Port
 - POSTGRES_PASSWORD=password123!  # DB Password
+- DJANGO_SECRET_KEY=<random data> # Secret key for Django to use (see https://docs.djangoproject.com/en/dev/ref/settings/#secret-key)
+- DJANGO_ENV=[PRODUCTION|DEBUG]   # If set to PRODUCTION Django's DEBUG settings will be False. Defaults to True
 ```
 ### Development/Local machine
 
