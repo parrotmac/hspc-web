@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY') or 'sr*b0omh236q=#6jhwdq%4n^-=mv)t_=acu!oin=_kku^zwp-&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG') or True
+DEBUG = os.environ.get('DJANGO_ENV') == 'PRODUCTION' or True
 
 ALLOWED_HOSTS = [
     'hspconsortium.org',
