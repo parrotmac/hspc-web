@@ -21,19 +21,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=z0lfi4$w@=ai!tspa#z_(l^_8*71)do*0!sp!wcknd&6ci$$$'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY') or 'sr*b0omh236q=#6jhwdq%4n^-=mv)t_=acu!oin=_kku^zwp-&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG') or True
 
 ALLOWED_HOSTS = [
     'hspconsortium.org',
+    'www.hspconsortium.org',
     'hspc.stag9.com',
-    'hspc.ocelot9.com',
-    'localhost',
-    '127.0.0.1',
-    '*'
 ]
+
+if DEBUG:
+    ALLOWED_HOSTS += [
+        'localhost',
+    ]
 
 # Application definition
 
@@ -131,17 +133,6 @@ if os.environ.get("DATABASE") == "postgres":
         'USER': 'postgres',
         'HOST': os.environ.get("POSTGRES_HOST", 'postgres'),
         'PORT': '5432',
-    }
-
-if os.environ.get("REDIS_CACHE") is not None:
-    CACHES = {
-        'default': {
-            'BACKEND': 'django_redis.cache.RedisCache',
-            'LOCATION': 'redis:6379',
-            'OPTIONS': {
-                'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-            }
-        }
     }
 
 
