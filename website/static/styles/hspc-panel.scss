@@ -1,0 +1,102 @@
+@import "colors.css";
+
+$panel-text-background: rgba(0, 0, 0, 0.65);
+
+
+.hspc-panel-row {
+  display: flex;
+  @media(max-width: 991px) {
+    display: block;
+  }
+
+  .hspc-panel-column {
+
+    display: flex;
+
+
+    .hspc-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 330px;
+      width: 100%;
+
+      margin: 15px 0;
+
+      padding: 0;
+
+      background-size: cover;
+      background-attachment: scroll;
+      background-position: center;
+      color: #FFF;
+
+      @media(max-width: 991px) {
+        min-height: unset;
+      }
+
+      .hspc-panel-inner {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        padding: 10px;
+        margin: 0;
+
+        .hspc-panel-icon {
+          margin: 20px auto 10px auto;
+        }
+
+        .hspc-panel-icon > span.material-icons {
+          font-size: 40pt;
+        }
+
+        .hspc-panel-body {
+          display: flex;
+          flex-direction: column;
+          margin: 10px 20px;
+          padding: 20px;
+
+          flex-grow: 1;
+
+          background-color: $panel-text-background;
+
+          > h1 {
+            margin: 0 10px 5px 10px;
+            text-align: center;
+            font-weight: 100;
+          }
+          > p {
+            text-align: center;
+            margin: auto 10px;
+
+            >a, >a:link, >a:visited {
+              color: #FFF;
+              text-decoration: underline;
+            }
+
+          }
+        }
+
+
+        a.hspc-panel-action-button {
+          margin: 10px auto 10px auto;
+          height: 40px;
+          border-radius: 20px;
+          font-size: 22px;
+          font-weight: lighter;
+          line-height: 1.2;
+          padding: 6px 20px;
+          background: #ec9234;
+          color: #FFF;
+          border: none;
+
+          >i.material-icons {
+            margin-top: -6px;
+            font-size: 14px;
+          }
+
+        }
+
+      }
+    }
+  }
+}

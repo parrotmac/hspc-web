@@ -7,6 +7,8 @@
 
 {% block styles %}
     <link rel="stylesheet" href="{% static "styles/home.css" %}">
+    <link rel="stylesheet" href="{% static "styles/typed.css" %}">
+    <link rel="stylesheet" href="{% static "styles/hspc-panel.css" %}">
 {% endblock %}
 
 {% block body_class %}template-homepage{% endblock %}
@@ -42,62 +44,59 @@
     {#    </div>#}
 
     {# Begin split 3-item Panel #}
-    <div class="row">
-        <div class="col-md-4">
-            <div class="hspc-panel-bg" style="background-image: url(/static/imgs/wooden-pawns-optimized.jpeg)">
-                <div class="hspc-panel hspc-panel-4 hspc-panel-shorter" style="background-color: rgba(21, 136, 23, 0.5)">
-                    <div class="hspc-panel-face">
-                        <div class="hspc-panel-icon">
-                            <span class="material-icons">assignment_turned_in</span>
-                        </div>
-                        <h2 class="hspc-panel-title">Join HSPC</h2>
-                    </div>
-                    <div class="hspc-panel-text">
-                        Be a part of the provider-led consortium for true healthcare interoperability.
-                    </div>
-                    <div class="hspc-panel-button-wrapper">
-                        <a class="btn btn-default hspc-panel-button" href="/membership/join/">Join Now &raquo;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="hspc-panel-bg" style="background-image: url(/static/imgs/handshake-optimized.jpeg)">
-                <div class="hspc-panel hspc-panel-4 hspc-panel-shorter" style="background-color: rgba(113, 113, 113, 0.5)">
-                    <div class="hspc-panel-face">
-                        <div class="hspc-panel-icon">
-                            <span class="material-icons">group</span>
-                        </div>
-                        <h2 class="hspc-panel-title">Collaborate</h2>
+    <div class="row hspc-panel-row">
+
+        <div class="col-md-4 hspc-panel-column">
+            <div class="hspc-panel" style="background-image: url(/static/imgs/wooden-pawns-optimized.jpeg)">
+                <div class="hspc-panel-inner" style="background-color: rgba(21, 136, 23, 0.5)">
+                    <div class="hspc-panel-icon">
+                        <span class="material-icons">assignment_turned_in</span>
                     </div>
-                    <div class="hspc-panel-text">
-                        Visit our Wiki to access a vast library of SOA artifacts and collaborate with others.
+                    <div class="hspc-panel-body">
+                        <h1>Join HSPC</h1>
+                        <p class="hspc-panel-text">
+                            Be a part of the provider-led consortium for true healthcare interoperability.
+                        </p>
                     </div>
-                    <div class="hspc-panel-button-wrapper">
-                        <a class="btn btn-default hspc-panel-button" href="https://healthservices.atlassian.net/wiki/"
-                           target="_blank" rel="noopener">Visit Wiki <i class="material-icons">open_in_new</i></a>
-                    </div>
+                    <a href="/membership/join/" class="hspc-panel-action-button">Join Now &raquo;</a>
                 </div>
             </div>
         </div>
 
 
-        <div class="col-md-4">
-            <div class="hspc-panel-bg" style="background-image: url(/static/imgs/doctor-optimized.jpeg); background-position: right;">
-                <div class="hspc-panel hspc-panel-4 hspc-panel-shorter" style="background-color: rgba(78, 32, 74, 0.75)">
-                    <div class="hspc-panel-face">
-                        <div class="hspc-panel-icon">
-                            <span class="material-icons">cached</span>
-                        </div>
-                        <h2 class="hspc-panel-title">CIIC</h2>
+        <div class="col-md-4 hspc-panel-column">
+            <div class="hspc-panel" style="background-image: url(/static/imgs/handshake-optimized.jpeg)">
+                <div class="hspc-panel-inner" style="background-color: rgba(113, 113, 113, 0.5)">
+                    <div class="hspc-panel-icon">
+                        <span class="material-icons">group</span>
                     </div>
-                    <div class="hspc-panel-text">
-                        <em>&quot;Interoperability depends on implementing the same data model across systems.&quot;</em>
+                    <div class="hspc-panel-body">
+                        <h1>Collaborate</h1>
+                        <p class="hspc-panel-text">
+                            Visit our Wiki to access a vast library of SOA artifacts and collaborate with others.
+                        </p>
                     </div>
-                    <div class="hspc-panel-button-wrapper">
-                        <a class="btn btn-default hspc-panel-button" target="_blank" rel="noopener" href="https://healthservices.atlassian.net/wiki/spaces/CIIC/overview">Learn More <i class="material-icons">open_in_new</i></a>
+                    <a class="hspc-panel-action-button" href="https://healthservices.atlassian.net/wiki/"
+                       target="_blank" rel="noopener">Visit Wiki <i class="material-icons">open_in_new</i></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 hspc-panel-column">
+            <div class="hspc-panel" style="background-image: url(/static/imgs/doctor-optimized.jpeg); background-position: right;">
+                <div class="hspc-panel-inner" style="background-color: rgba(78, 32, 74, 0.75)">
+                    <div class="hspc-panel-icon">
+                        <span class="material-icons">cached</span>
                     </div>
+                    <div class="hspc-panel-body">
+                        <h1>CIIC</h1>
+                        <p class="hspc-panel-text">
+                            <em>&quot;Interoperability depends on implementing the same data model across systems.&quot;</em>
+                        </p>
+                    </div>
+                    <a class="hspc-panel-action-button" target="_blank" rel="noopener" href="https://healthservices.atlassian.net/wiki/spaces/CIIC/overview">Learn More <i class="material-icons">open_in_new</i></a>
                 </div>
             </div>
         </div>
@@ -106,19 +105,16 @@
     {# End split 3-item Panel #}
 
     {# Begin Events Panel #}
-    <div class="row">
-        <div class="col-md-8">
+    <div class="row hspc-panel-row">
+        <div class="col-md-8 hspc-panel-column">
 
-            <div class="hspc-panel-bg" id="panel-events">
-                <div class="hspc-panel hspc-panel-12">
-                    <div class="hspc-panel-face">
-                        <div class="hspc-panel-icon">
-                            <span class="material-icons">event</span>
-                        </div>
-                        <h2 class="hspc-panel-title">Upcoming Events</h2>
+            <div class="hspc-panel" id="panel-events">
+                <div class="hspc-panel-inner">
+                    <div class="hspc-panel-icon">
+                        <span class="material-icons">event</span>
                     </div>
-
-                    <div class="hspc-panel-text">
+                    <div class="hspc-panel-body">
+                        <h1>Upcoming Events</h1>
                         {% get_some_future_events as upcoming_events %}
                         <ul id="eventListing">
                             {% for event in upcoming_events %}
@@ -131,31 +127,24 @@
                             {% endfor %}
                         </ul>
                     </div>
-
-                    <div class="hspc-panel-button-wrapper">
-                        <a class="btn btn-default hspc-panel-button" href="/events/">See All Events &raquo;</a>
-                    </div>
+                    <a class="hspc-panel-action-button" href="/events/">See All Events &raquo;</a>
                 </div>
             </div>
         </div>
 
 
-        <div class="col-md-4">
-            <div class="hspc-panel-bg" id="panel-announcements">
-                <div class="hspc-panel hspc-panel-4">
-                    <div class="hspc-panel-face">
-                        <div class="hspc-panel-icon">
-                            <span class="material-icons">record_voice_over</span>
-                        </div>
-                        <h2 class="hspc-panel-title">Announcements</h2>
+        <div class="col-md-4 hspc-panel-column">
+            <div class="hspc-panel" id="panel-announcements">
+                <div class="hspc-panel-inner">
+                    <div class="hspc-panel-icon">
+                        <span class="material-icons">record_voice_over</span>
                     </div>
-                    <div class="hspc-panel-text">
+                    <div class="hspc-panel-body">
+                        <h1>Announcements</h1>
                         {% get_latest_announcement as latest_announcement %}
                         {{ latest_announcement.announcement|safe }}
                     </div>
-                    <div class="hspc-panel-button-wrapper">
-                        <a class="btn btn-default hspc-panel-button" href="{% url "website:announcement-list" %}">See All &raquo;</a>
-                    </div>
+                    <a class="hspc-panel-action-button" href="{% url "website:announcement-list" %}">See All &raquo;</a>
                 </div>
             </div>
         </div>
@@ -163,19 +152,17 @@
     </div>
 
     {# Begin Benefactors Panel #}
-    <div class="row">
+    <div class="row hspc-panel-row">
 
 
-        <div class="col-md-6">
-            <div class="hspc-panel-bg" id="panel-newsroom">
-                <div class="hspc-panel hspc-panel-4">
-                    <div class="hspc-panel-face">
-                        <div class="hspc-panel-icon">
-                            <span class="material-icons">library_books</span>
-                        </div>
-                        <h2 class="hspc-panel-title">Newsroom</h2>
+        <div class="col-md-6 hspc-panel-column">
+            <div class="hspc-panel" id="panel-newsroom">
+                <div class="hspc-panel-inner">
+                    <div class="hspc-panel-icon">
+                        <span class="material-icons">library_books</span>
                     </div>
-                    <div class="hspc-panel-text newsroom-latest">
+                    <div class="hspc-panel-body">
+                        <h1>Newsroom</h1>
                         <ul id="newsroomListing">
                             {% get_latest_newsroom_entries as some_newsroom_entries %}
                             {% for entry in some_newsroom_entries %}
@@ -187,30 +174,20 @@
                                 </li>
                             {% endfor %}
                         </ul>
-                        {#                        {% get_latest_newsroom_entries as some_newsroom_entries %}#}
-                        {#                        {% for entry in some_newsroom_entries %}#}
-                        {#                            <h4>{{ entry.source }} - {{ entry.date }}</h4>#}
-                        {#                            <a href="{{ entry.url }}">{{ entry.article_title }}</a>#}
-                        {#                        {% endfor %}#}
                     </div>
-                    <div class="hspc-panel-button-wrapper">
-                        <a class="btn btn-default hspc-panel-button" href="{% url "website:newsroom-list" %}">See More &raquo;</a>
-                    </div>
+                    <a class="hspc-panel-action-button" href="{% url "website:newsroom-list" %}">See More &raquo;</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6">
-            <div class="hspc-panel-bg" id="panel-benefactors">
-                <div class="hspc-panel hspc-panel-12">
-                    <div class="hspc-panel-face">
-                        <div class="hspc-panel-icon">
-                            <span class="material-icons">favorite</span>
-                        </div>
-                        <h2 class="hspc-panel-title">Our Benefactors</h2>
+        <div class="col-md-6 hspc-panel-column">
+            <div class="hspc-panel" id="panel-benefactors">
+                <div class="hspc-panel-inner">
+                    <div class="hspc-panel-icon">
+                        <span class="material-icons">favorite</span>
                     </div>
-
-                    <div class="hspc-panel-text">
+                    <div class="hspc-panel-body">
+                        <h1>Our Benefactors</h1>
                         {% get_some_future_events as upcoming_events %}
                         <ul id="benefactorListing">
                             <li>
