@@ -1,14 +1,5 @@
 @import "colors.scss";
 
-$panel-text-background: rgba(0, 0, 0, 0.35);
-
-@mixin styled-corners() {
-  border-top-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  //overflow: hidden;
-}
-
-
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
@@ -68,102 +59,13 @@ $screen-lg-min: 1200px;
 }
 
 
-//$hspc-panel-bg: #BBC0C4;
-//$hspc-panel-bg: #96989c;
-//$hspc-panel-primary-color: #FFFFFF;
-//$hspc-panel-secondary-color: #42454B;
-
-.hspc-panel {
-  //background-color: $hspc-panel-background-color;
-  color: $hspc-panel-text-color;
-  margin: 15px;
-  position: relative;
-  display: block;
-
-  //@include styled-corners();
-}
-
-.hspc-panel-4:first-child, .hspc-panel-12:first-child {
-  margin-left: 0;
-}
-.hspc-panel-4:last-child, .hspc-panel-12:last-child {
-  margin-right: 0;
-}
-
-
-.hspc-panel-face {
-
-  padding-top: 5px;
-
-  .hspc-panel-icon {
-    color: $hspc-panel-text-color;
-    display: block;
-    text-align: center;
-
-    margin: 0 25px;
-    padding: 10px 5px 5px 5px;
-
-    //background-color: $panel-text-background;
-
-    .material-icons {
-      font-size: 55px;
-    }
-  }
-  .hspc-panel-title {
-    color: $hspc-panel-text-color;
-    text-align: center;
-    /* width: 100%; */
-    margin: 0 25px;
-    padding: 5px;
-    font-weight: 100;
-    background-color: $panel-text-background;
-
-  }
-
-}
-
-.hspc-panel-text {
-  margin: 0 25px;
-  padding: 5px 5px 10px 5px;
-  text-align: center;
-  font-size: 16px;
-  background-color: $panel-text-background;
-}
-
-.hspc-panel-button-wrapper {
-  text-align: center;
-
-  .hspc-panel-button {
-
-    margin: 10px auto;
-    height: 40px;
-    border-radius: 20px;
-    font-size: 22px;
-    font-weight: lighter;
-    line-height: 1.2;
-    padding: 6px 20px;
-    background: $hspc-panel-button-background-color;
-    color: $hspc-panel-button-text-color;
-    border: none;
-
-    i.material-icons {
-      position: relative;
-      font-size: 16px;
-      margin: 5px;
-    }
-
-  }
-}
-
-
-
-
 ul#eventListing, ul#benefactorListing, ul#newsroomListing {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   list-style: none;
+  flex-grow: 1;
   padding: 0;
   margin: 0;
 
@@ -236,12 +138,6 @@ ul#benefactorListing > li > a > h3.benefactor-name {
   background-image: url(/static/imgs/microphone-optimized.jpg);
   > div {
     background-color: rgba(144, 37, 37, 0.63);
-    .hspc-panel-text {
-      a, a:link, a:visited {
-        color: white;
-        text-decoration: underline;
-      }
-     }
   }
 }
 
@@ -263,139 +159,3 @@ ul#benefactorListing > li > a > h3.benefactor-name {
 
 
 }
-
-
-//.newsroom-latest {
-//  >h4 {
-//    padding: 0;
-//    margin: 0;
-//    font-weight: bold;
-//  }
-//  >a {
-//    &:link, &:visited {
-//      color: white;
-//    }
-//    margin: 0;
-//    padding: 0;
-//  }
-//}
-
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: $screen-sm-min) {
-  //ul#eventListing {
-  //  flex-direction: row;
-  //}
-
-  .hspc-panel-4, .hspc-panel-12 {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: $screen-md-min) {
-  .hspc-panel-4, .hspc-panel-12 {
-    height: calc(293px - 30px);
-  }
-
-  .hspc-panel-4:first-child, .hspc-panel-12:first-child {
-    margin-left: 0;
-  }
-  .hspc-panel-4:last-child, .hspc-panel-12:last-child {
-    margin-right: 0;
-  }
-
-  .hspc-panel-face {
-    padding-top: 15px;
-  }
-
-  .hspc-panel-text {
-    padding: 0 8px;
-  }
-
-  .hspc-panel-button {
-    width: 200px;
-    position: absolute;
-    bottom: 15px;
-    right: 0;
-    left: 0;
-
-    i.material-icons {
-      position: absolute;
-    }
-  }
-
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: $screen-lg-min) {
-  .hspc-panel-4, .hspc-panel-12 {
-    //height: calc(360px - 30px);
-    //height: 460px;
-    height: 400px;
-  }
-
-  .hspc-panel-shorter {
-    height: calc(360px - 30px);
-  }
-
-  .hspc-panel-face {
-    padding-top: 35px;
-  }
-
-  .hspc-panel-text {
-    padding: 5px 28px;
-  }
-
-  .hspc-panel-button {
-    bottom: 20px;
-  }
-
-}
-
-
-/* Typed.js blinking cursor effect */
-.typed-cursor {
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-/* End blinking cursor animation */
