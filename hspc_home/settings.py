@@ -78,6 +78,8 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
+    'storages',
+
     'website.apps.WebsiteConfig',
 ]
 
@@ -201,9 +203,18 @@ STATICFILES_DIRS = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = '/media/'
+# Media files -- uploaded files
+# Using Amazon S3 or any other API-compliant provider
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+# AWS_S3_CUSTOM_DOMAIN is optional, but if specified can be used to specify another S3-compliant provider
+AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN', '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME)
+MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-SITE_ID = 1
 
+# Site-specific values
+SITE_ID = 1
 WAGTAIL_SITE_NAME = 'HSPC'
