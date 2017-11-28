@@ -37,6 +37,13 @@ if DEBUG:
         'localhost',
     ]
 
+additional_allowed_hosts = os.environ.get("ALLOWED_HOSTS", "").split(",")
+
+for additional_host in additional_allowed_hosts:
+    if additional_host not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(additional_host)
+
+
 # Application definition
 
 INSTALLED_APPS = [
