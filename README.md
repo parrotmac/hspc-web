@@ -12,12 +12,14 @@ HSPConsortium Website
 ### Supported Environmental Variables
 _Note: The project will default to SQLite if `DATABASE` is not specified_
 ```
-- DATABASE=postgres               # Use as PostgreSQL backend
-- POSTGRES_HOST=postgres          # Hostname of Postgres database
-- POSTGRES_PORT=5432              # DB Port
-- POSTGRES_PASSWORD=password123!  # DB Password
-- DJANGO_SECRET_KEY=<random data> # Secret key for Django to use (see https://docs.djangoproject.com/en/dev/ref/settings/#secret-key)
-- DJANGO_ENV=[PRODUCTION|DEBUG]   # If set to PRODUCTION Django's DEBUG settings will be False. Defaults to True
+- DATABASE=postgres      # Use PostgreSQL. Yeah!
+- POSTGRES_HOST          # Hostname of Postgres cluster. Default: localhost
+- POSTGRES_PORT          # The network port. Default: 5432
+- POSTGRES_USER          # User for database connections. Default: www
+- POSTGRES_PASSWORD      # No default is set.
+- POSTGRES_SCHEMA        # The Postgres database name. Default: www_development
+- DJANGO_SECRET_KEY      # Defaults to a random string. The secret key for Django to use (see https://docs.djangoproject.com/en/dev/ref/settings/#secret-key)
+- DJANGO_ENV=[PRODUCTION|DEBUG]   # If set to PRODUCTION or True, Django's DEBUG settings will be False. Default: True
 ```
 ### Development/Local machine
 
