@@ -7,4 +7,4 @@ whitenoise
 django-bootstrap3
 django-overextends
 django-storages
-install boto3
+boto3
