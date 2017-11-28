@@ -6,3 +6,5 @@ psycopg2
 whitenoise
 django-bootstrap3
 django-overextends
+django-storages
+install boto3
