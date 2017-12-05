@@ -102,8 +102,6 @@ class BasicInfoPage(MenuPage):
 
 
 class RobustInfoPage(Page):
-    author = models.CharField(max_length=255)
-    date = models.DateField("Last updated")
     body = StreamField([
         ('heading', blocks.CharBlock(classname="full title")),
         ('separator', blocks.StaticBlock()),
@@ -112,8 +110,6 @@ class RobustInfoPage(Page):
     ])
 
     content_panels = Page.content_panels + [
-        FieldPanel('author'),
-        FieldPanel('date'),
         StreamFieldPanel('body'),
     ]
 
