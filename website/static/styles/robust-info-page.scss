@@ -11,3 +11,14 @@
 .robust-info-heading {
   border-bottom: solid 2px #000;
 }
+
+.robust-info-paragraph {
+  display: block;
+  position: relative;
+  overflow: auto;
+  clear: both;
+}
+
+.robust-info-separator {
+  clear: both;
+}
