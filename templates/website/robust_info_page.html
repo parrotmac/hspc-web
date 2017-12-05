@@ -5,6 +5,7 @@
 
 {% block page_title %}{{ page.title }}{% endblock %}
 {% block styles %}
+    <link href="{% static "styles/rich-text.css" %}" rel="stylesheet">
     <link href="{% static "styles/robust-info-page.css" %}" rel="stylesheet">
 {% endblock %}
 
@@ -15,24 +16,10 @@
         <div class="col-md-4 col-md-offset-2">
             <h1>{{ page.title }}</h1>
         </div>
-        <!--        <div class="col-md-4 col-md-offset-2">
-            <p class="pull-right">
-                Last updated {{ page.date }} by {{ page.author }}
-            </p>
-        </div> -->
+        <!--  Last updated {{ page.date }} by {{ page.author }} -->
     </div>
     <div class="row">
         <div class="col-md-2">
-{#            <div class="panel panel-default">#}
-{#                <div class="panel-heading">#}
-{#                    <h4 class="panel-title">#}
-{#                        Hi#}
-{#                    </h4>#}
-{#                </div>#}
-{#                <div class="panel-body">#}
-{#                    <a href="">CLICK HERE</a>#}
-{#                </div>#}
-{#            </div>#}
         </div>
         <div class="col-md-8 robust-info-page-body">
             {% for block in page.body %}
