@@ -1,9 +1,11 @@
+@import "colors.scss";
+
 .robust-info {
 
 }
 
 .robust-info-page-body {
-  border-left: 1px solid black;
+  border-left: 1px solid $color-hspc-blue;
 }
 
 .robust-info-heading {
