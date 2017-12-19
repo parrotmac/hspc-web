@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, View
 
+from hspc_home.settings import LOGIN_URL
 from website.forms import RegistrationRequestForm
 from website.models import EventCategory, Announcement, NewsMention
 
@@ -42,4 +43,4 @@ class RegistrationRequestSuccessView(View):
 
 
 def account_profile_overview(request):
-    return render(request, "website/accounts/profile.html")
+    return render(request, "website/accounts/profile.html", {"login_url": LOGIN_URL})

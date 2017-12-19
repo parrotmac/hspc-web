@@ -15,6 +15,8 @@ def get_or_auto_create_user(user_info):
     return user
 
 def oidc_login_redirect(request):
+    # Imported locally to prevent startup issues
+    from hspc_home.settings import LOGIN_URL
 
     next_url_from_qs = request.GET.get("next")
     if next_url_from_qs:
@@ -22,14 +24,13 @@ def oidc_login_redirect(request):
     else:
         next_query_string = request.path
 
-    problematic_redirect_urls = ['/auth', '/cms/login', '/auth/logout', '/admin/login', '/admin/logout']
+    problematic_redirect_urls = ['/cms/login', '/auth/logout', '/admin/login', '/admin/logout']
+    problematic_redirect_urls += LOGIN_URL
 
-    if next_query_string.rstrip("/") in problematic_redirect_urls:
-        next_query_string = None
+    if next_query_string.rstrip("/") not in problematic_redirect_urls:
+        return redirect(LOGIN_URL + "?next=" + urllib.parse.quote_plus(next_query_string))
 
-    if next_query_string:
-        return redirect("/auth/?next=" +  urllib.parse.quote_plus(next_query_string))
-    return redirect("/auth/")
+    return redirect(LOGIN_URL)
 
 def oidc_logout_redirect(request):
     return redirect("/auth/logout/")

@@ -233,6 +233,7 @@ AUTH_GET_USER_FUNCTION = 'hspc_home.auth:get_or_auto_create_user'
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/auth/'
+
 WAGTAIL_FRONTEND_LOGIN_URL = LOGIN_URL
 
 # Site-specific values
