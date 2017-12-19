@@ -26,6 +26,10 @@ _Note: The project will default to SQLite if `DATABASE` is not specified_
 - AWS_ACCESS_KEY_ID         # Access key for resource
 - AWS_SECRET_ACCESS_KEY     # Secret access key for resource
 - AWS_S3_CUSTOM_DOMAIN      # Optional. Useful if using a S3-like provider other than AWS. Default: '<AWS_STORAGE_BUCKET_NAME>.s3.amazonaws.com'
+
+- AUTH_SERVER           # OpenID Connect Server URL. (See https://gitlab.com/aiakos/django-auth-oidc)
+- AUTH_CLIENT_ID        # OpenID Connect Client ID
+- AUTH_CLIENT_SECRET    # OpenID Connect Client Secret
 ```
 ### Development/Local machine
 
