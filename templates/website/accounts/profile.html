@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block page_title %}Account Overview{% endblock %}
+{% block main %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            {% if request.user.is_authenticated %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Your Account</h4>
+                </div>
+                <div class="panel-body">
+                    <p>Information displayed below is provided by HPSC's OpenID Connect system. If information needs to be updated, please have it updated centrally. Upon your next login to this site your profile information will by synced.</p>
+                </div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>ID:</td>
+                            <td>{{ request.user.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{ request.user.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Name:</td>
+                            <td>{{ request.user.first_name }} {{ request.user.last_name }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Staff:</td>
+                            <td>{{ request.user.is_staff|yesno:"Yes,No" }}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Superuser:</td>
+                            <td>{{ request.user.is_superuser|yesno:"Yes,No" }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="panel-footer clearfix">
+                    <a href="/auth/logout" class="btn btn-default pull-right">Logout</a>
+                </div>
+            </div>
+            {% else %}
+                <div class="panel panel-warning">
+                <div class="panel-body">
+                    <p>You aren't logged in.</p>
+                </div>
+                <div class="panel-footer clearfix">
+                    <a href="/auth/" class="btn btn-default pull-right">Login</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
