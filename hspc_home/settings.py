@@ -45,6 +45,8 @@ for additional_host in additional_allowed_hosts:
     if additional_host not in ALLOWED_HOSTS:
         ALLOWED_HOSTS.append(additional_host)
 
+# Makes Django-generated links include 'https' when appropriate
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
