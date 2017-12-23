@@ -1,4 +1,6 @@
 from django.conf.urls import url
+
+from website import views
 from website.views import EventListView, RegistrationRequestView, RegistrationRequestSuccessView, AnnouncementListView, \
     NewsListView
 
@@ -20,4 +22,5 @@ urlpatterns = [
         name="registration-request"
     ),
 
+    url(r'^accounts/profile', views.account_profile_overview, name='account_overview'),
 ]

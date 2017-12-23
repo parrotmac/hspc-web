@@ -15,6 +15,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from django.contrib import messages
 
+from hspc_home import auth
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -43,6 +45,8 @@ for additional_host in additional_allowed_hosts:
     if additional_host not in ALLOWED_HOSTS:
         ALLOWED_HOSTS.append(additional_host)
 
+# Makes Django-generated links include 'https' when appropriate
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
@@ -79,6 +83,8 @@ INSTALLED_APPS = [
     'taggit',
 
     'storages',
+
+    'django_auth_oidc',
 
     'website.apps.WebsiteConfig',
 ]
@@ -214,6 +220,23 @@ AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN', '%s.s3.amazonaws.c
 MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+AUTH_SERVER = os.environ.get('AUTH_SERVER', 'https://accounts.google.com/')
+AUTH_CLIENT_ID = os.environ.get('AUTH_CLIENT_ID')
+AUTH_CLIENT_SECRET = os.environ.get('AUTH_CLIENT_SECRET')
+
+AUTH_SCOPE = [
+    'openid',
+    'email',
+    'profile',
+]
+
+AUTH_GET_USER_FUNCTION = 'hspc_home.auth:get_or_auto_create_user'
+
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/auth/'
+
+WAGTAIL_FRONTEND_LOGIN_URL = LOGIN_URL
 
 # Site-specific values
 SITE_ID = 1

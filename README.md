@@ -11,6 +11,7 @@ HSPConsortium Website
 
 ### Supported Environmental Variables
 _Note: The project will default to SQLite if `DATABASE` is not specified_
+**Database Settings:**
 ```
 - DATABASE=postgres      # Use PostgreSQL. Yeah!
 - POSTGRES_HOST          # Hostname of Postgres cluster. Default: localhost
@@ -18,15 +19,30 @@ _Note: The project will default to SQLite if `DATABASE` is not specified_
 - POSTGRES_USER          # User for database connections. Default: www
 - POSTGRES_PASSWORD      # No default is set.
 - POSTGRES_SCHEMA        # The Postgres database name. Default: www_development
+```
 
+**Django environment settings:**
+```
 - DJANGO_SECRET_KEY      # Defaults to a random string. The secret key for Django to use (see https://docs.djangoproject.com/en/dev/ref/settings/#secret-key)
 - DJANGO_ENV=[PRODUCTION|DEBUG]   # If set to PRODUCTION or True, Django's DEBUG settings will be False. Default: True
+```
 
+**Media File Storage Settings:**
+```
 - AWS_STORAGE_BUCKET_NAME   # Name of S3 bucket
 - AWS_ACCESS_KEY_ID         # Access key for resource
 - AWS_SECRET_ACCESS_KEY     # Secret access key for resource
 - AWS_S3_CUSTOM_DOMAIN      # Optional. Useful if using a S3-like provider other than AWS. Default: '<AWS_STORAGE_BUCKET_NAME>.s3.amazonaws.com'
 ```
+
+**OpenID Connect settings:**
+*Note: Default callback url is `/auth/done/` *
+```
+- AUTH_SERVER           # OIDC Server URL. (See https://gitlab.com/aiakos/django-auth-oidc)
+- AUTH_CLIENT_ID        # OIDC Client ID
+- AUTH_CLIENT_SECRET    # OIDC Client Secret
+```
+
 ### Development/Local machine
 
 _First time setup_
