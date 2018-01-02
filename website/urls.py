@@ -3,7 +3,6 @@ from website.views import EventListView, RegistrationRequestView, RegistrationRe
     NewsListView
 
 urlpatterns = [
-
     url(r'^events/$', EventListView.as_view(), name="event-list"),
     url(r'^announcements/$', AnnouncementListView.as_view(), name='announcement-list'),
     url(r'^newsroom/$', NewsListView.as_view(), name='newsroom-list'),
@@ -13,11 +12,9 @@ urlpatterns = [
         RegistrationRequestSuccessView.as_view(),
         name="registration-request-submitted"
     ),
-
     url(
         r'^membership/join/request/$',
         RegistrationRequestView.as_view(success_url="/membership/join/request/submitted/"),  # Can't use reverse() since the urlspatterns aren't built yet
         name="registration-request"
     ),
-
 ]
