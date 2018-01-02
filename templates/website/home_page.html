@@ -18,16 +18,8 @@
     {# Begin header/banner image Panel #}
     <div class="row">
         <div class="col-xs-12">
-            <div id="homepageCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="{% static "imgs/pulse-trace-blue.png" %}"
-                             alt="Something Something Healthcare">
-                        <div class="carousel-caption">
-                            <h1>HSP<span id="typedArea"></span></h1>
-                        </div>
-                    </div>
-                </div>
+            <div id="hero-banner" style="background-image: url({% static "imgs/pulse-trace-blue.png" %})">
+                <h1 class="hero-caption">HSP<span id="typedArea"></span></h1>
             </div>
         </div>
     </div>
