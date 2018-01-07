@@ -4,39 +4,41 @@ $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
 
-#homepageCarousel {
-  .carousel-inner {
-    .item {
-      img {
-        //filter: blur(2px) brightness(0.2);
-        //@include styled-corners();
-      }
-      .carousel-caption {
-        top: 5px;
-        right: 0;
-        bottom: auto;
-        left: 0;
-        h1 {
-          font-size: 30px;
-          text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-        }
-      }
-    }
+#hero-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 400px;
+
+  margin-bottom: 15px;
+
+  &::before {
+    content: '';
+    height: 80%;
+    width: 90%;
+    //filter: blur(1px);
+    //background-color: rgba(255, 255, 255, 0.3);
+
+    background-color: rgba(51, 165, 199, 0.73);
+    filter: blur(60px);
+
+    position: absolute;
   }
 
+  h1.hero-caption {
+    color: white;
+    font-size: 30px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    z-index: 10;
+  }
 }
 
 @media (min-width: $screen-sm-min) {
-  #homepageCarousel {
-    .carousel-inner {
-      .item {
-        .carousel-caption {
-          top: 50px;
-          h1 {
-            font-size: 60px;
-          }
-        }
-      }
+  #hero-banner {
+    height: 500px;
+    h1.hero-caption {
+      font-size: 60px;
     }
   }
 }
@@ -44,16 +46,10 @@ $screen-lg-min: 1200px;
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: $screen-md-min) {
-  #homepageCarousel {
-    .carousel-inner {
-      .item {
-        .carousel-caption {
-          top: 160px;
-          h1 {
-            font-size: 60px;
-          }
-        }
-      }
+  #hero-banner {
+    height: 600px;
+    h1.hero-caption {
+      font-size: 60px;
     }
   }
 }
@@ -109,8 +105,8 @@ ul#eventListing, ul#benefactorListing, ul#newsroomListing {
 }
 
 ul#benefactorListing > li > a > h3.benefactor-name {
-    padding: 5px;
-    margin: 5px;
+  padding: 5px;
+  margin: 5px;
 }
 
 
