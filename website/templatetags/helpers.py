@@ -24,18 +24,18 @@ def active(context, pattern_or_urlname):
     return ''
 
 @register.simple_tag
-def get_future_events():
+def get_current_events():
     today = datetime.datetime.today()
-    return Event.objects.filter(Q(hidden_date__gte=today))
+    return Event.objects.filter(Q(end_date__gte=today))
 
 @register.simple_tag
 def get_past_events():
     today = datetime.datetime.today()
-    return Event.objects.filter(Q(hidden_date__lt=today))
+    return Event.objects.filter(Q(end_date__lt=today))
 
 @register.simple_tag
-def get_some_future_events():
-    return get_future_events()[:2]
+def get_some_current_events():
+    return get_current_events()[:2]
 
 @register.simple_tag
 def get_latest_announcement():

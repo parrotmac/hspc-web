@@ -27,13 +27,13 @@ class Event(models.Model):
     category = models.ForeignKey(EventCategory, null=True)
     title = models.CharField(max_length=128)
     hidden_date = models.DateTimeField(default=datetime.now, help_text='Used to sort events', verbose_name='sortable date')
+    end_date = models.DateTimeField(default=datetime.now, help_text='After this date/time the event will move to the "Archived" section', verbose_name='expiration_date')
     display_date = models.CharField(max_length=128, help_text="Text shown such as 'Feb 4th - 8th' or 'March 25'")
     location = models.CharField(max_length=128)
     event_details = RichTextField()
 
     def __str__(self):
         return self.title
-
     class Meta:
         ordering = ["hidden_date"]
 
