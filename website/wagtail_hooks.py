@@ -16,6 +16,7 @@ class EventModelAdmin(ModelAdmin):
         'title',
         'display_date',
         'hidden_date',
+        'end_date',
         'category',
         'location',
         'event_details',
