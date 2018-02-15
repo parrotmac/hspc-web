@@ -109,7 +109,7 @@
                     </div>
                     <div class="hspc-panel-body">
                         <h1>Upcoming Events</h1>
-                        {% get_some_future_events as upcoming_events %}
+                        {% get_some_current_events as upcoming_events %}
                         <ul id="eventListing">
                             {% for event in upcoming_events %}
                                 <li>
@@ -182,7 +182,7 @@
                     </div>
                     <div class="hspc-panel-body">
                         <h1>Our Benefactors</h1>
-                        {% get_some_future_events as upcoming_events %}
+                        {% get_some_current_events as upcoming_events %}
                         <ul id="benefactorListing">
                             <li>
                                 <a target="_blank" rel="noopener nofollow" href="https://intermountainhealthcare.org/">

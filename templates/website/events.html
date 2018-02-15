@@ -27,8 +27,8 @@
             <div role="tabpanel" class="tab-pane active" id="upcoming">
                 <h2 class="text-center">Upcoming Events</h2>
                 <hr>
-                {% get_future_events as future_events %}
-                {% for event in future_events %}
+                {% get_current_events as current_events %}
+                {% for event in current_events %}
                     <div class="event-panel-container" id="event-{{ event.pk }}">
                         <div class="panel panel-default event-panel">
                             <div class="panel-heading">
