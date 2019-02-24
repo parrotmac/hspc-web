@@ -15,7 +15,8 @@ jobs:
       - docker --version
       - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
       - docker build -t hspc-django .
-      - "if [ \"$TRAVIS_BRANCH\" = master ]; then DOCKER_TAG=latest; else DOCKER_TAG=\"$TRAVIS_BRANCH\"; fi"
+      - ESCAPED_GIT_BRANCH=`echo $TRAVIS_BRANCH |sed 's/[^a-zA-Z0-9\.\-]/-/g'` # Replace anything NOT alphanumeric, a period, or a dash
+      - "if [ \"$TRAVIS_BRANCH\" = master ]; then DOCKER_TAG=latest; else DOCKER_TAG=\"$ESCAPED_GIT_BRANCH\"; fi"
       - echo "Tagging Docker image as ':$DOCKER_TAG'"
       - docker tag hspc-django $DOCKER_USERNAME/hspc-django:${DOCKER_TAG}
       - docker push $DOCKER_USERNAME/hspc-django:${DOCKER_TAG}
