@@ -46,7 +46,7 @@
                         <span class="material-icons">assignment_turned_in</span>
                     </div>
                     <div class="hspc-panel-body">
-                        <h1>Join HSPC</h1>
+                        <h2>Join HSPC</h2>
                         <p class="hspc-panel-text">
                             Be a part of the provider-led consortium for true healthcare interoperability.
                         </p>
@@ -64,7 +64,7 @@
                         <span class="material-icons">group</span>
                     </div>
                     <div class="hspc-panel-body">
-                        <h1>Solor</h1>
+                        <h2>Solor</h2>
                         <p class="hspc-panel-text">
                             HSPC is proud to have the SOLOR Launch as part of our 16th General Meeting.
                         <br>
@@ -85,7 +85,7 @@
                         <span class="material-icons">cached</span>
                     </div>
                     <div class="hspc-panel-body">
-                        <h1>CIIC</h1>
+                        <h2>CIIC</h2>
                         <p class="hspc-panel-text">
                             <em>&quot;Interoperability depends on implementing the same data model across systems.&quot;</em>
                         </p>
@@ -108,7 +108,7 @@
                         <span class="material-icons">event</span>
                     </div>
                     <div class="hspc-panel-body">
-                        <h1>Upcoming Events</h1>
+                        <h2>Upcoming Events</h2>
                         {% get_some_current_events as upcoming_events %}
                         <ul id="eventListing">
                             {% for event in upcoming_events %}
@@ -134,7 +134,7 @@
                         <span class="material-icons">record_voice_over</span>
                     </div>
                     <div class="hspc-panel-body">
-                        <h1>Announcements</h1>
+                        <h2>Announcements</h2>
                         {% get_latest_announcement as latest_announcement %}
                         {{ latest_announcement.announcement|safe }}
                     </div>
@@ -156,7 +156,7 @@
                         <span class="material-icons">library_books</span>
                     </div>
                     <div class="hspc-panel-body">
-                        <h1>Newsroom</h1>
+                        <h2>Newsroom</h2>
                         <ul id="newsroomListing">
                             {% get_latest_newsroom_entries as some_newsroom_entries %}
                             {% for entry in some_newsroom_entries %}
@@ -181,7 +181,7 @@
                         <span class="material-icons">favorite</span>
                     </div>
                     <div class="hspc-panel-body">
-                        <h1>Our Benefactors</h1>
+                        <h2>Our Benefactors</h2>
                         {% get_some_current_events as upcoming_events %}
                         <ul id="benefactorListing">
                             <li>

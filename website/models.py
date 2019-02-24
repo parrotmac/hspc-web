@@ -3,12 +3,11 @@ from datetime import datetime
 from django.db import models
 from django.contrib.flatpages.models import FlatPage
 from wagtailmenus.models import MenuPage, MainMenuItem
-from wagtail.wagtailcore.fields import RichTextField, StreamField
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore import blocks
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
-from wagtail.wagtailimages.blocks import ImageChooserBlock
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.core.models import Page
+from wagtail.core import blocks
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.images.blocks import ImageChooserBlock
 
 from website.blocks import HomepagePanelBlock
 
@@ -24,7 +23,7 @@ class EventCategory(models.Model):
 
 
 class Event(models.Model):
-    category = models.ForeignKey(EventCategory, null=True)
+    category = models.ForeignKey(EventCategory, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=128)
     hidden_date = models.DateTimeField(default=datetime.now, help_text='Used to sort events', verbose_name='sortable date')
     end_date = models.DateTimeField(default=datetime.now, help_text='After this date/time the event will move to the "Archived" section', verbose_name='expiration date')
