@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from django import forms
 
 from .models import RegistrationRequest
+
 
 class RegistrationRequestForm(ModelForm):
     class Meta:
@@ -14,9 +14,3 @@ class RegistrationRequestForm(ModelForm):
             "phone_number",
             "comments"
         ]
-        # labels = {
-        #     "service_level_token": "UPS Service Level"
-        # }
-        # widgets = {
-        #     'password': forms.PasswordInput()
-        # }

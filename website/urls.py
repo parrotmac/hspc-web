@@ -2,6 +2,8 @@ from django.conf.urls import url
 from website.views import EventListView, RegistrationRequestView, RegistrationRequestSuccessView, AnnouncementListView, \
     NewsListView
 
+app_name = 'website'
+
 urlpatterns = [
     url(r'^events/$', EventListView.as_view(), name="event-list"),
     url(r'^announcements/$', AnnouncementListView.as_view(), name='announcement-list'),

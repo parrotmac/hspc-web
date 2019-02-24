@@ -32,6 +32,7 @@ class RegistrationRequestView(CreateView):
     form_class = RegistrationRequestForm
     template_name = "website/registration/request.html"
 
+
 class RegistrationRequestSuccessView(View):
     def get(self, request):
         return render(request, "website/registration/request_success.html")

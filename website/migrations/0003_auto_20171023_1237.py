@@ -3,9 +3,9 @@
 from __future__ import unicode_literals
 
 from django.db import migrations
-import wagtail.wagtailcore.blocks
-import wagtail.wagtailcore.fields
-import wagtail.wagtailimages.blocks
+import wagtail.core.blocks
+import wagtail.core.fields
+import wagtail.images.blocks
 
 
 class Migration(migrations.Migration):
@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='homepage',
             name='body',
-            field=wagtail.wagtailcore.fields.StreamField((('homepage_panel', wagtail.wagtailcore.blocks.StructBlock((('title', wagtail.wagtailcore.blocks.CharBlock()), ('material_icon_name', wagtail.wagtailcore.blocks.CharBlock()), ('body', wagtail.wagtailcore.blocks.TextBlock()), ('link_url', wagtail.wagtailcore.blocks.URLBlock(required=False)), ('link_text', wagtail.wagtailcore.blocks.CharBlock(required=False)), ('link_is_external', wagtail.wagtailcore.blocks.BooleanBlock(required=False)), ('background_image', wagtail.wagtailimages.blocks.ImageChooserBlock()), ('overlay_css_background_color', wagtail.wagtailcore.blocks.CharBlock())))),), blank=True),
+            field=wagtail.core.fields.StreamField((('homepage_panel', wagtail.core.blocks.StructBlock((('title', wagtail.core.blocks.CharBlock()), ('material_icon_name', wagtail.core.blocks.CharBlock()), ('body', wagtail.core.blocks.TextBlock()), ('link_url', wagtail.core.blocks.URLBlock(required=False)), ('link_text', wagtail.core.blocks.CharBlock(required=False)), ('link_is_external', wagtail.core.blocks.BooleanBlock(required=False)), ('background_image', wagtail.images.blocks.ImageChooserBlock()), ('overlay_css_background_color', wagtail.core.blocks.CharBlock())))),), blank=True),
         ),
     ]

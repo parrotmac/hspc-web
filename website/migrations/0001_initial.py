@@ -5,10 +5,9 @@ from __future__ import unicode_literals
 import datetime
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.wagtailcore.blocks
-import wagtail.wagtailcore.blocks.static_block
-import wagtail.wagtailcore.fields
-import wagtail.wagtailimages.blocks
+import wagtail.core.blocks
+import wagtail.core.fields
+import wagtail.images.blocks
 
 
 class Migration(migrations.Migration):
@@ -26,7 +25,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(help_text='Only displayed in the CMS or Admin UI.', max_length=255)),
                 ('created', models.DateTimeField(default=datetime.datetime.now, editable=False)),
-                ('body', wagtail.wagtailcore.fields.RichTextField()),
+                ('body', wagtail.core.fields.RichTextField()),
             ],
         ),
         migrations.CreateModel(
@@ -35,7 +34,7 @@ class Migration(migrations.Migration):
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
                 ('repeat_in_subnav', models.BooleanField(default=False, help_text="If checked, a link to this page will be repeated alongside it's direct children when displaying a sub-navigation for this page.", verbose_name='repeat in sub-navigation')),
                 ('repeated_item_text', models.CharField(blank=True, help_text="e.g. 'Section home' or 'Overview'. If left blank, the page title will be used.", max_length=255, verbose_name='repeated item link text')),
-                ('body', wagtail.wagtailcore.fields.RichTextField(blank=True)),
+                ('body', wagtail.core.fields.RichTextField(blank=True)),
             ],
             options={
                 'abstract': False,
@@ -50,7 +49,7 @@ class Migration(migrations.Migration):
                 ('hidden_date', models.DateTimeField(default=datetime.datetime.now, help_text='Used to sort events', verbose_name='sortable date')),
                 ('display_date', models.CharField(help_text="Text shown such as 'Feb 4th - 8th' or 'March 25'", max_length=128)),
                 ('location', models.CharField(max_length=128)),
-                ('event_details', wagtail.wagtailcore.fields.RichTextField()),
+                ('event_details', wagtail.core.fields.RichTextField()),
             ],
             options={
                 'ordering': ['hidden_date'],
@@ -72,7 +71,7 @@ class Migration(migrations.Migration):
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
                 ('repeat_in_subnav', models.BooleanField(default=False, help_text="If checked, a link to this page will be repeated alongside it's direct children when displaying a sub-navigation for this page.", verbose_name='repeat in sub-navigation')),
                 ('repeated_item_text', models.CharField(blank=True, help_text="e.g. 'Section home' or 'Overview'. If left blank, the page title will be used.", max_length=255, verbose_name='repeated item link text')),
-                ('body', wagtail.wagtailcore.fields.StreamField((('homepage_panel', wagtail.wagtailcore.blocks.StructBlock((('title', wagtail.wagtailcore.blocks.CharBlock()), ('material_icon_name', wagtail.wagtailcore.blocks.CharBlock()), ('body', wagtail.wagtailcore.blocks.TextBlock()), ('link_url', wagtail.wagtailcore.blocks.URLBlock(required=False)), ('link_text', wagtail.wagtailcore.blocks.CharBlock(required=False)), ('link_is_external', wagtail.wagtailcore.blocks.BooleanBlock(required=False)), ('background_image', wagtail.wagtailimages.blocks.ImageChooserBlock()), ('overlay_css_background_color', wagtail.wagtailcore.blocks.CharBlock())))),))),
+                ('body', wagtail.core.fields.StreamField((('homepage_panel', wagtail.core.blocks.StructBlock((('title', wagtail.core.blocks.CharBlock()), ('material_icon_name', wagtail.core.blocks.CharBlock()), ('body', wagtail.core.blocks.TextBlock()), ('link_url', wagtail.core.blocks.URLBlock(required=False)), ('link_text', wagtail.core.blocks.CharBlock(required=False)), ('link_is_external', wagtail.core.blocks.BooleanBlock(required=False)), ('background_image', wagtail.images.blocks.ImageChooserBlock()), ('overlay_css_background_color', wagtail.core.blocks.CharBlock())))),))),
             ],
             options={
                 'abstract': False,
@@ -108,7 +107,7 @@ class Migration(migrations.Migration):
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
                 ('author', models.CharField(max_length=255)),
                 ('date', models.DateField(verbose_name='Last updated')),
-                ('body', wagtail.wagtailcore.fields.StreamField((('heading', wagtail.wagtailcore.blocks.CharBlock(classname='full title')), ('separator', wagtail.wagtailcore.blocks.static_block.StaticBlock()), ('paragraph', wagtail.wagtailcore.blocks.RichTextBlock()), ('image', wagtail.wagtailimages.blocks.ImageChooserBlock())))),
+                ('body', wagtail.core.fields.StreamField((('heading', wagtail.core.blocks.CharBlock(classname='full title')), ('separator', wagtail.core.blocks.static_block.StaticBlock()), ('paragraph', wagtail.core.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock())))),
             ],
             options={
                 'abstract': False,

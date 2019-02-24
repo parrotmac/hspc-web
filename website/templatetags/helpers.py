@@ -12,6 +12,7 @@ Most of these are needed simply because of a lack of DB context within the Homep
 
 register = template.Library()
 
+
 @register.simple_tag(takes_context=True)
 def active(context, pattern_or_urlname):
     try:
@@ -23,23 +24,28 @@ def active(context, pattern_or_urlname):
         return 'active'
     return ''
 
+
 @register.simple_tag
 def get_current_events():
     today = datetime.datetime.today()
     return Event.objects.filter(Q(end_date__gte=today))
+
 
 @register.simple_tag
 def get_past_events():
     today = datetime.datetime.today()
     return Event.objects.filter(Q(end_date__lt=today))
 
+
 @register.simple_tag
 def get_some_current_events():
     return get_current_events()[:2]
 
+
 @register.simple_tag
 def get_latest_announcement():
     return Announcement.objects.order_by('-created').first()
+
 
 @register.simple_tag
 def get_latest_newsroom_entries():

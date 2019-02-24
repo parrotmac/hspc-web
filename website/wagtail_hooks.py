@@ -1,6 +1,5 @@
 from wagtail.contrib.modeladmin.options import (
     ModelAdmin, modeladmin_register)
-from wagtail.wagtailcore.fields import RichTextField
 
 from .models import Event, EventCategory, Announcement, NewsMention
 

@@ -11,7 +11,7 @@ COPY . /app/build/
 
 RUN npm run build
 
-FROM python:3.6
+FROM python:3.7
 ENV PYTHONUNBUFFERED 1
 
 EXPOSE 8000
