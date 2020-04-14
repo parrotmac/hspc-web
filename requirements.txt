@@ -26,7 +26,7 @@ s3transfer==0.1.12
 six==1.11.0
 Unidecode==0.4.21
 urllib3==1.22
-wagtail==1.13.1
+wagtail==2.7.2
 wagtailmenus==2.5.2
 webencodings==0.5.1
 whitenoise==3.3.1
